@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
-  resource :document, only: [:get]
+  resource :cover_images, only: [:show]
 
   namespace :admin do
-    resources :images
+    resources :cover_images
   end
 
-  root to: "admin/images#index"
+  root to: "admin/cover_images#index"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

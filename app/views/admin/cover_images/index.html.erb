@@ -4,15 +4,15 @@
       <thead>
       </thead>
       <tbody>
-        <% @documents.each do |doc|%>
+        <% @cover_images.each do |doc|%>
         <tr>
           <td><%= doc.name %></td>
           <td><%= image_tag  doc.image.url(:thumb) %></td>
-          <td><%= link_to "Edit", edit_admin_image_path(doc), class: "btn btn-default" %></td>
+          <td><%= link_to "Edit", edit_admin_cover_image_path(doc), class: "btn btn-default" %></td>
         </tr>
         <%end%>
       </tbody>
     </table>
-    <%= paginate @documents %>
+    <%= paginate @cover_images %>
   </div>
 </div>

@@ -1,4 +1,4 @@
-class Document < ApplicationRecord
+class CoverImage < ApplicationRecord
 
   has_attached_file :image, styles: {thumb: 'x150>', medium: 'x400>'}
 

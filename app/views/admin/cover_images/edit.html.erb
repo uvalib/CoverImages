@@ -1,0 +1,16 @@
+<h2>Edit Cover Image
+  <p class="pull-right">
+    <%= link_to "Delete", admin_cover_image_path(@cover_image), method: "DELETE",
+      class: "btn btn-danger"
+    %>
+  </p>
+</h2>
+<%= semantic_form_for @cover_image, url: admin_cover_image_path(@cover_image) do |f| %>
+  <%= render partial: "form", locals: {f: f} %>
+
+  <p>
+    <%= image_tag @cover_image.image.url(:thumb)%>
+  </p>
+  <%= f.submit "Update", class: "btn btn-primary" %>
+<%end%>
+
