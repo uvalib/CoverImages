@@ -16,7 +16,7 @@ class Admin::CoverImagesController < ApplicationController
   def create
     @cover_image = CoverImage.new(cover_image_params)
     if @cover_image.save
-      flash[:success] = "Successfully created: #{@cover_image.name}"
+      flash[:success] = "Successfully created: #{@cover_image.doc_id}"
       redirect_to action: :index
 
     else
@@ -29,7 +29,7 @@ class Admin::CoverImagesController < ApplicationController
 
   def update
     if @cover_image.update(cover_image_params)
-      flash[:success] = "Successfully updated: #{@cover_image.name}"
+      flash[:success] = "Successfully updated: #{@cover_image.doc_id}"
       redirect_to action: :index
     else
       render action: :edit
@@ -38,10 +38,10 @@ class Admin::CoverImagesController < ApplicationController
 
   def destroy
     if @cover_image.destroy
-      flash[:success] = "Successfully deleted: #{@cover_image.name}"
+      flash[:success] = "Successfully deleted: #{@cover_image.doc_id}"
       redirect_to action: :index
     else
-      flash[:alert] = "Could not delete: #{@cover_image.name}"
+      flash[:alert] = "Could not delete: #{@cover_image.doc_id}"
       redirect_to action: :index
     end
   end
@@ -49,7 +49,11 @@ class Admin::CoverImagesController < ApplicationController
   private
 
   def cover_image_params
-    params.require(:cover_image).permit(:name, :image)
+    #TODO: define request format
+    params.require(:cover_image).permit(:doc_type, :doc_id, :status,
+                                        :isbn, :oclc, :lccn, :upc,
+                                        :mbid, :artist, :album,
+                                        :image)
   end
 
   def get_cover_image

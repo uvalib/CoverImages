@@ -1,2 +1,24 @@
-<%= f.input :name %>
-<%= f.input :image %>
+<div class="row">
+  <div class="col-sm-6">
+    <%= f.input :doc_id, label: "Doc ID", hint: "From Solr", required: true %>
+    <%= f.input :doc_type, collection: CoverImage::TYPES %>
+    <%= f.input :title %>
+    <p>
+    <% if f.object.image.present? %>
+      <%= link_to "future rescrape button", "#", class: "btn btn-warning text-right" %>
+      <%= image_tag f.object.image.url(:thumb), class: 'img-responsive' %>
+    <%end%>
+    </p>
+  </div>
+  <div class="col-sm-6">
+    <%= f.input :image, hint: "leave blank to scrape" %>
+    <%= f.input :isbn %>
+    <%= f.input :oclc %>
+    <%= f.input :lccn %>
+    <%= f.input :upc %>
+    <%= f.input :mbid %>
+    <%= f.input :artist_name %>
+    <%= f.input :album_name %>
+  </div>
+</div>
+<%= f.input :status, collection: CoverImage::STATUSES, include_blank: false %>

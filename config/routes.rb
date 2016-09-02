@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resource :cover_images, only: [:show]
+  resources :cover_images, only: [:show]
 
   namespace :admin do
     resources :cover_images

@@ -2,12 +2,17 @@
   <div class="col-xs-12">
     <table class="table table-striped">
       <thead>
+        <tr>
+          <th>Doc ID</th>
+          <th>Image</th>
+          <th>Actions</th>
+        </tr>
       </thead>
       <tbody>
         <% @cover_images.each do |doc|%>
         <tr>
-          <td><%= doc.name %></td>
-          <td><%= image_tag  doc.image.url(:thumb) %></td>
+          <td><%= doc.doc_id %></td>
+          <td><%= image_tag  doc.image.url(:thumb), class:'img-responsive' %></td>
           <td><%= link_to "Edit", edit_admin_cover_image_path(doc), class: "btn btn-default" %></td>
         </tr>
         <%end%>
