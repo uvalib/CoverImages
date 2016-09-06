@@ -1,6 +1,6 @@
 class Admin::CoverImagesController < ApplicationController
 
-  before_filter :get_cover_image, only: [:show, :edit, :update, :destroy]
+  before_action :get_cover_image, only: [:show, :edit, :update, :destroy]
 
   def index
     @cover_images = CoverImage.all.page(params[:page]).per(20)
