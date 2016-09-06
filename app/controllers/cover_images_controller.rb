@@ -10,9 +10,9 @@ class CoverImagesController < ApplicationController
         disposition: :inline
 
     else
-      send_file Rails.root.join('public','images', 'default_bookcover.gif'),
-        type: 'image/gif',
-        disposition: :inline
+      image = Base64.encode64(File.open(Rails.root.join('public','images', 'default_bookcover.gif')).read)
+      uri  = "data:image/png;base64,#{image}"
+      render json: {image_base64: uri}
     end
 
   end
