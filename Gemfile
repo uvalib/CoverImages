@@ -15,24 +15,18 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
-
 # Attachment/Image management
 gem 'paperclip'
-
 # style head start
 gem 'bootstrap-sass'
-
 # Form builder
 gem 'formtastic'
 # bootstrap friendly formtastic
 gem 'formtastic-bootstrap'
-
 # pagination
 gem 'kaminari'
-
 # http requests
 gem 'httparty'
-
 # allow cross origin rquests
 gem 'rack-cors'
 
@@ -46,6 +40,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+gem 'resque'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
