@@ -42,6 +42,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'resque'
+gem 'resque-web', require: 'resque_web'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

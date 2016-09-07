@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
+
   resources :cover_images, only: [:show]
 
   namespace :admin do
     resources :cover_images
+    require "resque_web"
+    require "resque_web/plugins/cover_image"
+    mount ResqueWeb::Engine => "jobs"
   end
 
   root to: "admin/cover_images#index"
