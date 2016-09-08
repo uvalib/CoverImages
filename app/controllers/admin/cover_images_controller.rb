@@ -1,6 +1,6 @@
 class Admin::CoverImagesController < ApplicationController
 
-  before_action :get_cover_image, only: [:show, :edit, :update, :destroy]
+  before_action :get_cover_image, only: [:show, :edit, :update, :reprocess, :destroy]
 
   def index
     @cover_images = CoverImage.all.page(params[:page]).per(20)
@@ -34,6 +34,13 @@ class Admin::CoverImagesController < ApplicationController
     else
       render action: :edit
     end
+  end
+
+  def reprocess
+    @cover_image.scrape_job
+
+    redirect_to action: params[:redirect]
+
   end
 
   def destroy

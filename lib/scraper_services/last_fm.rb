@@ -18,6 +18,7 @@ class ScraperServices::LastFM < ScraperServices::Base
 
     album = response['album']
     if album && album['artist'].downcase.include?(cover_image.artist_name.downcase)
+      cover_image.mbid = album['mbid']
       image_url = album['image'].find do |size_link|
         size_link['size'] == 'large'
       end['#text']
@@ -29,13 +30,13 @@ class ScraperServices::LastFM < ScraperServices::Base
         cover_image.status = 'error'
       end
 
-
+    else
+      cover_image.status = 'not_found'
 
     end
     cover_image.response_data = response
+
     cover_image.save
-
-
 
   end
 end

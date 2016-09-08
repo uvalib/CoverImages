@@ -10,7 +10,8 @@ class CoverImage < ApplicationRecord
   STATUSES = {
     'unprocessed': 'Has not been processed',
     'error': 'There was a problem retrieving the cover image.',
-    'processed': 'successfully processed, image found.'
+    'not_found': 'Nothing was found after searching',
+    'processed': 'Successfully processed, image found.'
   }.freeze
   IDENTIFIERS = %w(upc isbn llcn oclc).freeze
 
@@ -36,6 +37,10 @@ class CoverImage < ApplicationRecord
     doc_type == 'non-music'
   end
 
+  def scrape_job
+    ScraperJob.perform_later(self.id)
+  end
+
   private
   def assign_defaults
     self.status ||= STATUSES['unprocessed']
@@ -52,8 +57,5 @@ class CoverImage < ApplicationRecord
     end
   end
 
-  def scrape_job
-    ScraperJob.perform_later(self.id)
-  end
 
 end

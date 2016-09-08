@@ -5,15 +5,20 @@
         <tr>
           <th>Doc ID</th>
           <th>Image</th>
+          <th>Status</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <% @cover_images.each do |doc|%>
+        <% @cover_images.each do |ci| %>
         <tr>
-          <td><%= doc.doc_id %></td>
-          <td><%= image_tag  doc.image.url(:thumb), class:'img-responsive' %></td>
-          <td><%= link_to "Edit", edit_admin_cover_image_path(doc), class: "btn btn-default" %></td>
+          <td><%= ci.doc_id %></td>
+          <td><%= image_tag  ci.image.url(:thumb), class:'img-responsive' %></td>
+          <td><%= status_label ci.status %></td>
+          <td>
+            <%= link_to "Edit", edit_admin_cover_image_path(ci), class: "btn btn-default" %>
+            <%= link_to "Reprocess", reprocess_admin_cover_image_path(ci, redirect: :index), class: "btn btn-warning" %>
+          </td>
         </tr>
         <%end%>
       </tbody>

@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :cover_images, only: [:show]
 
   namespace :admin do
-    resources :cover_images
+    resources :cover_images, except: [:show] do
+      member do
+        get :reprocess
+      end
+    end
     require "resque_web"
     require "resque_web/plugins/cover_image"
     mount ResqueWeb::Engine => "jobs"

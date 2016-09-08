@@ -1,6 +1,6 @@
 class ScraperServices::Base
 
-  # @return [Boolean] found or not
+  # @return [CoverImage]
   def self.process cover_image
     raise "define this in a child service"
   end

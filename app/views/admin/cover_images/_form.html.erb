@@ -5,7 +5,6 @@
     <%= f.input :title %>
     <p>
     <% if f.object.image.present? %>
-      <%= link_to "future rescrape button", "#", class: "btn btn-warning text-right" %>
       <%= image_tag f.object.image.url(:thumb), class: 'img-responsive' %>
     <%end%>
     </p>
