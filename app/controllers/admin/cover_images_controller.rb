@@ -52,7 +52,7 @@ class Admin::CoverImagesController < ApplicationController
     #TODO: define request format
     params.require(:cover_image).permit(:doc_type, :doc_id, :status,
                                         :isbn, :oclc, :lccn, :upc,
-                                        :mbid, :artist, :album,
+                                        :mbid, :artist_name, :album_name,
                                         :image)
   end
 

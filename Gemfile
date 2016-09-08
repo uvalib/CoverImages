@@ -44,6 +44,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'resque'
 gem 'resque-web', require: 'resque_web'
 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -63,6 +64,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'guard'
+  gem 'guard-rails', require: false
+  gem 'guard-resque', github: 'dsandstrom/guard-resque', branch: 'update-guard-plugin'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

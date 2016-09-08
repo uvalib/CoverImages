@@ -13,5 +13,7 @@ module CoverImages
     # -- all .rb files in that directory are automatically loaded.
 
     config.active_job.queue_adapter = :resque
+    Resque.logger.level = Logger::DEBUG
+    config.autoload_paths << Rails.root.join('lib')
   end
 end

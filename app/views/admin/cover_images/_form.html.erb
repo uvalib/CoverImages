@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-6">
     <%= f.input :doc_id, label: "Doc ID", hint: "From Solr", required: true %>
-    <%= f.input :doc_type, collection: CoverImage::TYPES %>
+    <%= f.input :doc_type, collection: CoverImage::TYPES.keys, include_blank: false %>
     <%= f.input :title %>
     <p>
     <% if f.object.image.present? %>
@@ -21,4 +21,4 @@
     <%= f.input :album_name %>
   </div>
 </div>
-<%= f.input :status, collection: CoverImage::STATUSES, include_blank: false %>
+<%= f.input :status, collection: CoverImage::STATUSES.keys, include_blank: false %>

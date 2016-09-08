@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$( document ).on('turbolinks:load', ()->
+
+  tag = $('pre#response-json')
+  tag.html JSON.stringify(tag.data('response-json'), null, 2)
+
+)
+
+

@@ -12,9 +12,7 @@ class CoverImagesController < ApplicationController
       render json: {image_base64: uri, not_found: false}
     else
 
-      if cover_image.save
-        Scraper.perform_later(cover_image.id)
-      end
+      cover_image.save
 
       uri = generate_image_uri(
         Rails.root.join('public','images', 'default_bookcover.gif')
