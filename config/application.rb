@@ -15,5 +15,8 @@ module CoverImages
     config.active_job.queue_adapter = :resque
     Resque.logger.level = Logger::DEBUG
     config.autoload_paths << Rails.root.join('lib')
+
+    #TODO: replace with figaro gem
+    ENV['LIBRARY_THING_API_KEY'] = 'a***REMOVED***'
   end
 end

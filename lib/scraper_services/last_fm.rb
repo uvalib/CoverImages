@@ -37,7 +37,6 @@ class ScraperServices::LastFM < ScraperServices::Base
     end
     cover_image.response_data = response
 
-    cover_image.save
 
     rescue StandardError => e
       cover_image.update status: 'error'

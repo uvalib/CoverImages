@@ -19,7 +19,7 @@ class ScraperServices::Google < ScraperServices::Base
       callback: 'a' * CALLBACK_LENGTH
     }
     response = HTTParty.get(BASE_URL,
-                            query: params,
+                            query: params
                            ).parsed_response
     # Strip off method name and closing ');' in response
     response = JSON.parse(response[(CALLBACK_LENGTH+1)..-3])
@@ -33,7 +33,6 @@ class ScraperServices::Google < ScraperServices::Base
       end
     end
     cover_image.response_data = response
-    cover_image.save
 
     rescue StandardError => e
         cover_image.update status: 'error'

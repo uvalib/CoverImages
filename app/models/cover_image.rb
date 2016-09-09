@@ -1,7 +1,7 @@
 class CoverImage < ApplicationRecord
   include Scraper
 
-  has_attached_file :image, styles: {thumb: 'x150>', medium: 'x400>'},
+  has_attached_file :image, styles: {thumb: 'x150^', medium: 'x400^'},
     default_url: 'default_bookcover.gif'
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
