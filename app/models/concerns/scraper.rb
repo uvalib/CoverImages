@@ -10,7 +10,7 @@ module Scraper
       ScraperServices::LastFM.process self
     else
       ScraperServices::Google.process self
-      if self.image.dirty?
+      unless self.image.dirty?
         # broken api
         #ScraperServices::LibraryThing.process self
 
