@@ -10,6 +10,7 @@ class ScraperServices::LastFM < ScraperServices::Base
       album: cover_image.album_name,
       format: 'json'
     }
+    begin
     response = HTTParty.get(ALBUM_INFO_URL,
                             query: params,
                             headers: HEADERS
@@ -27,7 +28,7 @@ class ScraperServices::LastFM < ScraperServices::Base
         cover_image.image = URI.parse(image_url)
         cover_image.status = 'processed'
       else
-        cover_image.status = 'error'
+        cover_image.status = 'not_found'
       end
 
     else
@@ -37,6 +38,11 @@ class ScraperServices::LastFM < ScraperServices::Base
     cover_image.response_data = response
 
     cover_image.save
+
+    rescue StandardError => e
+      cover_image.update status: 'error'
+      raise e
+    end
 
   end
 end

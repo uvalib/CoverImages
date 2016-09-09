@@ -13,7 +13,7 @@ class CoverImage < ApplicationRecord
     'not_found': 'Nothing was found after searching',
     'processed': 'Successfully processed, image found.'
   }.freeze
-  IDENTIFIERS = %w(upc isbn llcn oclc).freeze
+  IDENTIFIERS = %w(upc isbn lccn oclc).freeze
 
   validates_presence_of :doc_id
   validates_uniqueness_of :doc_id

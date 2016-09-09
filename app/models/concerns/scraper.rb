@@ -9,7 +9,7 @@ module Scraper
     if self.music?
       ScraperServices::LastFM.process self
     else
-
+      ScraperServices::Google.process self
 
     end
   end
