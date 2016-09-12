@@ -12,8 +12,10 @@ module Scraper
       else
         ScraperServices::Google.process self
         unless self.image.dirty?
-
           ScraperServices::Syndetics.process self
+        end
+        unless self.image.dirty?
+          ScraperServices::OpenLibrary.process self
         end
 
       end

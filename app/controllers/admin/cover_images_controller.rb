@@ -29,6 +29,7 @@ class Admin::CoverImagesController < ApplicationController
 
   def update
     if @cover_image.update(cover_image_params)
+      @cover_image.scrape_job
       flash[:success] = "Successfully updated: #{@cover_image.doc_id}"
       redirect_to action: :index
     else

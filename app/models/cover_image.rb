@@ -41,6 +41,16 @@ class CoverImage < ApplicationRecord
     ScraperJob.perform_later(self.id)
   end
 
+  ## returns [Hash] Present id type mapped to value
+  #
+  def present_ids
+    IDENTIFIERS.map do |i|
+      ident = self.send(i)
+      next unless ident.present?
+      [i, ident]
+    end.compact.to_h
+  end
+
   private
   def assign_defaults
     self.status ||= STATUSES['unprocessed']
