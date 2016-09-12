@@ -3,6 +3,7 @@ class ScraperServices::MusicBrainz < ScraperServices::Base
   SEARCH_URL = 'http://musicbrainz.org/ws/2/release'.freeze
   RELEASE_URL = 'http://musicbrainz.org/ws/2/release'.freeze
 
+  # Only gets the mbid for now. Not used because last_fm gets the cover image in one step.
   def self.process cover_image
     params = {query: "release:\"#{cover_image.album_name}\"",
       artist: cover_image.artist_name,
@@ -22,7 +23,8 @@ class ScraperServices::MusicBrainz < ScraperServices::Base
 
     mbid = release['id']
 
-    cover_image.update mbid: mbid
+    cover_image.mbid = mbid
+    cover_image.service_name = 'Music Brainz'
 
   end
 end

@@ -33,6 +33,7 @@ class ScraperServices::Google < ScraperServices::Base
       end
     end
     cover_image.response_data = response
+    cover_image.service_name = 'google'
 
     rescue StandardError => e
         cover_image.update status: 'error'

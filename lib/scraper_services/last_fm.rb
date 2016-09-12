@@ -10,7 +10,6 @@ class ScraperServices::LastFM < ScraperServices::Base
       album: cover_image.album_name,
       format: 'json'
     }
-    begin
     response = HTTParty.get(ALBUM_INFO_URL,
                             query: params,
                             headers: HEADERS
@@ -36,12 +35,7 @@ class ScraperServices::LastFM < ScraperServices::Base
 
     end
     cover_image.response_data = response
-
-
-    rescue StandardError => e
-      cover_image.update status: 'error'
-      raise e
-    end
+    cover_image.service_name = 'last.fm'
 
   end
 end

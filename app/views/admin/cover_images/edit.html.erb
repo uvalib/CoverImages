@@ -14,7 +14,7 @@
       class: "btn btn-danger"
       %>
     </p>
-    <small><%= "Created At: #{@cover_image.created_at} | Image updated: #{@cover_image.image_updated_at}" %></small>
+    <small><%= "Created At: #{@cover_image.created_at} | Image updated: #{@cover_image.image_updated_at}" %> | Service: <%= @cover_image.service_name %></small>
   </div>
 </div>
 <%= semantic_form_for @cover_image, url: admin_cover_image_path(@cover_image) do |f| %>

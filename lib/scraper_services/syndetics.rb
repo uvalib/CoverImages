@@ -3,6 +3,7 @@ class ScraperServices::Syndetics < ScraperServices::Base
   BASE_URL = 'https://syndetics.com/index.aspx'
 
   def self.process cover_image
+
     unless cover_image.isbn
       cover_image.status = 'not_found'
       return cover_image
@@ -22,6 +23,7 @@ class ScraperServices::Syndetics < ScraperServices::Base
       cover_image.status = 'processed'
       cover_image.response_data = "Only the image itself was returned. RequestURI:(#{request_uri})"
     end
+    cover_image.service_name = 'Syndetics'
     cover_image
   end
 
