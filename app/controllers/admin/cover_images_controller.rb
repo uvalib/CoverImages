@@ -29,7 +29,7 @@ class Admin::CoverImagesController < ApplicationController
 
   def update
     if @cover_image.update(cover_image_params)
-      @cover_image.scrape_job
+      @cover_image.lookup
       flash[:success] = "Successfully updated: #{@cover_image.doc_id}"
       redirect_to action: :index
     else
@@ -38,7 +38,7 @@ class Admin::CoverImagesController < ApplicationController
   end
 
   def reprocess
-    @cover_image.scrape_job
+    @cover_image.lookup
 
     redirect_to action: params[:redirect]
 

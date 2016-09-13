@@ -5,4 +5,5 @@ class ScraperServices::Base
     raise "define this in a child service"
   end
 
+
 end

@@ -1,13 +1,18 @@
-class ScraperServices::OpenLibrary < ScraperServices::Base
+class OpenLibraryScraper < ApplicationJob
 
   BASE_URL = 'http://covers.openLibrary.org'
 
-  def self.process cover_image
+  def perform cover_image_id
+    begin
+    cover_image = CoverImage.find cover_image_id
 
     usable_ids = cover_image.present_ids.except('upc')
     unless usable_ids.any?
       cover_image.status = 'not_found'
-      return cover_image
+      cover_image.service_name = 'openlibrary.org'
+      cover_image.save
+      #end of the line
+      return
     end
 
     usable_ids.each do |id_name, id_value|
@@ -24,7 +29,16 @@ class ScraperServices::OpenLibrary < ScraperServices::Base
     end
 
     cover_image.service_name = 'openlibrary.org'
-    cover_image
+    unless cover_image.status == 'processed'
+      cover_image.status = 'not_found'
+    end
+    cover_image.save
+
+    rescue StandardError => e
+      cover_image.update status: 'error'
+      #end of the line
+      raise e
+    end
   end
 
 end

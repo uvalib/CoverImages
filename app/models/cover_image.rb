@@ -27,7 +27,7 @@ class CoverImage < ApplicationRecord
 
   after_initialize :assign_defaults
 
-  after_create :scrape_job
+  after_create :lookup
 
 
   def music?
@@ -37,9 +37,6 @@ class CoverImage < ApplicationRecord
     doc_type == 'non-music'
   end
 
-  def scrape_job
-    ScraperJob.perform_later(self.id)
-  end
 
   ## returns [Hash] Present id type mapped to value
   #

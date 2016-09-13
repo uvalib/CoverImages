@@ -1,7 +1,16 @@
-class ScraperServices::Google < ScraperServices::Base
+class GoogleScraper < ApplicationJob
+  extend Resque::Plugins::WaitingRoom
+  queue_as :google_scraper
+  can_be_performed times: 100, period: 60
 
+  BASE_URL = 'https://books.google.com/books'.freeze
 
-  def self.process cover_image
+  # required by google, doesnt matter, needs to be consistent
+  CALLBACK_LENGTH = 2
+
+  def perform(cover_image_id)
+    cover_image = CoverImage.find(cover_image_id)
+
     begin
     bibkeys = ''
     CoverImage::IDENTIFIERS.without('upc').each do |id_type|
@@ -24,17 +33,25 @@ class ScraperServices::Google < ScraperServices::Base
         # dont curl the corner of the book
         image_url = val['thumbnail_url'].gsub('&edge=curl','')
         cover_image.image = URI.parse(image_url)
-        cover_image.status = 'processed'
         break
       end
     end
     cover_image.response_data = response
     cover_image.service_name = 'google'
 
+    save_if_found cover_image do
+      SyndeticsScraper.perform_later(cover_image_id)
+    end
+
     rescue StandardError => e
-        cover_image.update status: 'error'
-        raise e
+      cover_image.update status: 'error'
+      ActiveRecord::Base.after_transaction do
+        SyndeticsScraper.perform_later(cover_image_id)
+      end
+      raise e
     end
 
   end
+
+
 end

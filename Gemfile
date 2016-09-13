@@ -43,6 +43,10 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'resque'
 gem 'resque-web', require: 'resque_web'
+gem 'resque-waiting-room'
+
+# safely start jobs after commit
+gem 'ar_after_transaction'
 
 
 # Use Capistrano for deployment
