@@ -12,7 +12,7 @@ module Scraper
     begin
 
       if self.music?
-        ScraperServices::LastFM.process self
+        LastFMScraper.perform_later self.id
       else
         # google is the first source to try
         GoogleScraper.perform_later self.id
