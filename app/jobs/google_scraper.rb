@@ -1,7 +1,7 @@
 class GoogleScraper < ApplicationJob
   extend Resque::Plugins::WaitingRoom
   queue_as :google_scraper
-  can_be_performed times: 100, period: 60
+  can_be_performed times: 2, period: 1
 
   BASE_URL = 'https://books.google.com/books'.freeze
 

@@ -1,6 +1,5 @@
 module Scraper
   extend ActiveSupport::Concern
-  include ScraperServices
 
   # This is the primary way of looking up cover images
   # It will kick off other jobs which will rate-limit themselves

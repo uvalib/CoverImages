@@ -1,7 +1,7 @@
 class SyndeticsScraper < ApplicationJob
   extend Resque::Plugins::WaitingRoom
   queue_as :syndetics_scraper
-  can_be_performed times: 120, period: 60
+  can_be_performed times: 2, period: 1
 
   BASE_URL = 'https://syndetics.com/index.aspx'
 

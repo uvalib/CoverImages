@@ -1,4 +1,7 @@
 class OpenLibraryScraper < ApplicationJob
+  extend Resque::Plugins::WaitingRoom
+  queue_as :open_library_scraper
+  can_be_performed times: 2, period: 1
 
   BASE_URL = 'http://covers.openLibrary.org'
 

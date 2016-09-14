@@ -50,7 +50,7 @@ class CoverImage < ApplicationRecord
 
   private
   def assign_defaults
-    self.status ||= STATUSES['unprocessed']
+    self.status ||= 'unprocessed'
   end
 
   # for non-music validation

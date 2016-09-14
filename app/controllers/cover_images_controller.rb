@@ -4,7 +4,7 @@ class CoverImagesController < ApplicationController
   #
   def show
     cover_image = CoverImage.find_or_initialize_by(
-      doc_id: cover_image_params[:id]
+      doc_id: params[:id]
       )
 
     uri = nil
@@ -15,10 +15,11 @@ class CoverImagesController < ApplicationController
       path = cover_image.image.path
       not_found = false
     else
-      cover_image.doc_type = cover_image_params[:doc_type]
+      cover_image.assign_attributes cover_image_params
+      cover_image.lookup
       cover_image.save
       path = Rails.root.join('public','images', 'default_bookcover.gif')
-      not_found = false
+      not_found = true
     end
 
     respond_to do |format|
@@ -27,7 +28,7 @@ class CoverImagesController < ApplicationController
         uri = generate_image_uri( path )
         render json: {image_base64: uri,
           errors: cover_image.errors.as_json,
-          not_found: true}
+          not_found: not_found}
       end
     end
 
@@ -36,7 +37,7 @@ class CoverImagesController < ApplicationController
   private
 
   def cover_image_params
-    params.permit(:id, #solr id required
+    params.permit( # :id is the solr id in this case
                   :doc_type,
                   :isbn, :oclc, :lccn, :upc, :mbid, :artist_name, :album_name, :title)
   end

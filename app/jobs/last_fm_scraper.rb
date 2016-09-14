@@ -1,4 +1,9 @@
 class LastFMScraper < ApplicationJob
+  extend Resque::Plugins::WaitingRoom
+  queue_as :last_fm_scraper
+
+  can_be_performed times: 5, period: 1
+
   ALBUM_INFO_URL = 'http://ws.audioscrobbler.com/2.0/'.freeze
   HEADERS = { "User-Agent" => 'VirgoCoverImages/1.0 (naw4t@virginia.edu)' }.freeze
 
