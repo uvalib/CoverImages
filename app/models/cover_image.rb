@@ -27,8 +27,9 @@ class CoverImage < ApplicationRecord
 
   after_initialize :assign_defaults
 
-  after_create :lookup
+  after_commit :lookup, if: ->(ci){ci.run_lookup}
 
+  attr_accessor :run_lookup
 
   def music?
     doc_type == 'music'

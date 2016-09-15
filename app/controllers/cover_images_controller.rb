@@ -15,8 +15,7 @@ class CoverImagesController < ApplicationController
       path = cover_image.image.path
       not_found = false
     else
-      cover_image.assign_attributes cover_image_params
-      cover_image.lookup
+      cover_image.assign_attributes cover_image_params.merge(run_lookup: true)
       cover_image.save
       path = Rails.root.join('public','images', 'default_bookcover.gif')
       not_found = true

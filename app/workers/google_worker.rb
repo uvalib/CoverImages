@@ -1,7 +1,6 @@
-class GoogleScraper < ApplicationJob
-  extend Resque::Plugins::WaitingRoom
-  queue_as :google_scraper
-  can_be_performed times: 2, period: 1
+class GoogleWorker < ApplicationWorker
+
+  sidekiq_options throttle: { threshold: 2, period: 1.second }, retry: false
 
   BASE_URL = 'https://books.google.com/books'.freeze
 
@@ -9,12 +8,12 @@ class GoogleScraper < ApplicationJob
   CALLBACK_LENGTH = 2
 
   def perform(cover_image_id)
-    cover_image = CoverImage.find(cover_image_id)
+    @cover_image = CoverImage.find(cover_image_id)
 
     begin
     bibkeys = ''
     CoverImage::IDENTIFIERS.without('upc').each do |id_type|
-      next unless id = cover_image.send(id_type)
+      next unless id = @cover_image.send(id_type)
       bibkeys += ',' unless bibkeys.empty?
       bibkeys += "#{id_type.upcase}:#{id.gsub("\s+", '')}"
     end
@@ -32,22 +31,20 @@ class GoogleScraper < ApplicationJob
       if  val['thumbnail_url'].present?
         # dont curl the corner of the book
         image_url = val['thumbnail_url'].gsub('&edge=curl','')
-        cover_image.image = URI.parse(image_url)
+        @cover_image.image = URI.parse(image_url)
         break
       end
     end
-    cover_image.response_data = response
-    cover_image.service_name = 'google'
+    @cover_image.response_data = response
+    @cover_image.service_name = 'google'
 
-    save_if_found cover_image do
-      SyndeticsScraper.perform_later(cover_image_id)
+    save_if_found do
+      SyndeticsWorker.perform_async(cover_image_id)
     end
 
     rescue StandardError => e
-      cover_image.update status: 'error'
-      ActiveRecord::Base.after_transaction do
-        SyndeticsScraper.perform_later(cover_image_id)
-      end
+      @cover_image.update status: 'error'
+      SyndeticsWorker.perform_async(cover_image_id)
       raise e
     end
 

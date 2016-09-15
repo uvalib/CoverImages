@@ -41,12 +41,19 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'resque'
-gem 'resque-web', require: 'resque_web'
-gem 'resque-waiting-room'
+#gem 'resque'
+#gem 'resque-web', require: 'resque_web'
+#gem 'resque-waiting-room'
+
+gem 'sidekiq'
+gem 'sidekiq-throttler'
+
+# for the sidekiq web gui
+gem 'sinatra', :require => false
+
 
 # safely start jobs after commit
-gem 'ar_after_transaction'
+#gem 'ar_after_transaction'
 
 
 # Use Capistrano for deployment
@@ -64,14 +71,11 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
-  gem 'listen', '~> 3.0.5'
+  #gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  #gem 'spring'
+  #gem 'spring-watcher-listen', '~> 2.0.0'
 
-  gem 'guard'
-  gem 'guard-rails', require: false
-  gem 'guard-resque', github: 'dsandstrom/guard-resque', branch: 'update-guard-plugin'
 
 end
 

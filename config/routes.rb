@@ -9,9 +9,8 @@ Rails.application.routes.draw do
         get :reprocess
       end
     end
-    require "resque_web"
-    require "resque_web/plugins/cover_image"
-    mount ResqueWeb::Engine => "jobs"
+    require 'sidekiq/web'
+    mount Sidekiq::Web => '/workers'
   end
 
   root to: "admin/cover_images#index"
