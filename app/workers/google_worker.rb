@@ -24,9 +24,9 @@ class GoogleWorker < ApplicationWorker
     }
     response = HTTParty.get(BASE_URL,
                             query: params
-                           ).parsed_response
+                           )
     # Strip off method name and closing ');' in response
-    response = JSON.parse(response[(CALLBACK_LENGTH+1)..-3])
+    response = JSON.parse(response.parsed_response[(CALLBACK_LENGTH+1)..-3])
     response.each do |key, val|
       if  val['thumbnail_url'].present?
         # dont curl the corner of the book

@@ -1,6 +1,7 @@
 class ApplicationWorker
   include Sidekiq::Worker
 
+  SLEEP_TIME = 4.freeze
 
   # saves a cover image if a new one is set.
   # Yields the next scraper to try if no image is found
@@ -12,7 +13,7 @@ class ApplicationWorker
     end
     @cover_image.save
     if @cover_image.status == 'not_found' && block_given?
-      sleep(4)
+      sleep(SLEEP_TIME)
       yield
     end
   end

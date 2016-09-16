@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912134359) do
+ActiveRecord::Schema.define(version: 20160916134539) do
 
   create_table "cover_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "doc_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160912134359) do
     t.string   "last_fm_url"
     t.json     "response_data"
     t.string   "service_name"
+    t.datetime "last_search"
     t.index ["doc_id"], name: "index_cover_images_on_doc_id", using: :btree
   end
 

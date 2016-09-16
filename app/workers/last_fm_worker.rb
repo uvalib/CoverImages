@@ -51,6 +51,7 @@ class LastFMWorker < ApplicationWorker
 
     rescue StandardError => e
       @cover_image.update(status: 'error', response_data: e)
+      sleep(SLEEP_TIME)
       MusicBrainzWorker.perform_async(cover_image_id)
 
       raise e

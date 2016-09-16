@@ -8,7 +8,11 @@ class SyndeticsWorker < ApplicationWorker
     @cover_image = CoverImage.find(cover_image_id)
 
     unless @cover_image.isbn
+      @cover_image.service_name = 'Syndetics'
       @cover_image.status = 'not_found'
+      @cover_image.save
+      sleep(SLEEP_TIME)
+      OpenLibraryWorker.perform_async(cover_image_id)
       return @cover_image
     end
 
@@ -34,6 +38,7 @@ class SyndeticsWorker < ApplicationWorker
 
     rescue StandardError => e
       @cover_image.update status: 'error', response_data: e
+      sleep(SLEEP_TIME)
 
       OpenLibraryWorker.perform_async(cover_image_id)
       raise e
