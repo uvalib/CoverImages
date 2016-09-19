@@ -4,6 +4,8 @@ class CoverImage < ApplicationRecord
   has_attached_file :image, styles: {thumb: 'x200^', medium: 'x500^'},
     default_url: 'default_bookcover.gif'
 
+  serialize :response_data, JSON
+
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   TYPES = {'non_music': 'Books, DVDs (not music)', 'music': 'Music'}.freeze

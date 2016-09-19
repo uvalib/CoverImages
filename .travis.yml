@@ -37,7 +37,7 @@ matrix:
 
 # Specify which of Travis's built-in services to run.
 services:
-  #  - redis-server
+    - mysql
 
 # Additional dependencies to set up on the virtual machine.
 # See http://docs.travis-ci.com/user/installing-dependencies/.
@@ -56,8 +56,8 @@ before_script:
 
 # The test script steps.
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
+  - bundle exec rails db:migrate --trace RAILS_ENV=test
+  - bundle exec rails db:test:prepare
   - bundle exec rake
 
 after_success:

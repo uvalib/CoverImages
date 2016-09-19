@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20160916134539) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "isbn"
     t.string   "oclc"
     t.string   "lccn"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20160916134539) do
     t.string   "status"
     t.string   "doc_type"
     t.string   "last_fm_url"
-    t.json     "response_data"
+    t.text     "response_data",      limit: 65535
     t.string   "service_name"
     t.datetime "last_search"
     t.index ["doc_id"], name: "index_cover_images_on_doc_id", using: :btree
