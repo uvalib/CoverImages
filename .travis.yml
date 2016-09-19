@@ -51,10 +51,13 @@ branches:
 
 # Actions to perform before running the test script on the build matrix.
 before_script:
-  #  - redis-cli info
+  - cp config/database.travis.yml config/database.yml
+  - mysql -e 'create database cover_images_test'
 
 # The test script steps.
 script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
   - bundle exec rake
 
 after_success:
