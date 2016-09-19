@@ -55,7 +55,7 @@ before_script:
 
 # The test script steps.
 script:
-  - bundle exec rake travis_ci:$TEST_SUITE
+  - bundle exec rake
 
 after_success:
   - ': after_success'
