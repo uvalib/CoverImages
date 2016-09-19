@@ -51,7 +51,7 @@ branches:
 
 # Actions to perform before running the test script on the build matrix.
 before_script:
-  - redis-cli info
+  #  - redis-cli info
 
 # The test script steps.
 script:
