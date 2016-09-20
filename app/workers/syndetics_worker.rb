@@ -7,16 +7,14 @@ class SyndeticsWorker < ApplicationWorker
     begin
     @cover_image = CoverImage.find(cover_image_id)
 
-    unless @cover_image.isbn
-      @cover_image.service_name = 'Syndetics'
-      @cover_image.status = 'not_found'
-      @cover_image.save
-      sleep(SLEEP_TIME)
-      OpenLibraryWorker.perform_async(cover_image_id)
-      return @cover_image
-    end
+    params = {
+      isbn: @cover_image.isbn,
+      upc: @cover_image.upc,
+      oclc: @cover_image.oclc
+    }
 
-    request_uri = URI.parse("#{BASE_URL}?isbn=#{@cover_image.isbn}/mc.jpg")
+    request_uri = URI.parse "#{BASE_URL}?#{params.to_param}/mc.jpg"
+
 
     @cover_image.image = request_uri
     @cover_image.image_file_name = "#{@cover_image.doc_id}.jpeg"
@@ -38,7 +36,6 @@ class SyndeticsWorker < ApplicationWorker
 
     rescue StandardError => e
       @cover_image.update status: 'error', response_data: e
-      sleep(SLEEP_TIME)
 
       OpenLibraryWorker.perform_async(cover_image_id)
       raise e

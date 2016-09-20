@@ -26,6 +26,7 @@ class OpenLibraryWorker < ApplicationWorker
         @cover_image.response_data = body
         break
       end
+      sleep(1)
     end
 
     @cover_image.service_name = 'openlibrary.org'
