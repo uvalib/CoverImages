@@ -1,5 +1,4 @@
 require 'test_helper'
-
 class Admin::CoverImagesControllerTest < ActionDispatch::IntegrationTest
 
   setup do

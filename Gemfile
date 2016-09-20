@@ -68,6 +68,8 @@ end
 
 group :test do
   gem 'factory_girl'
+  gem 'faker'
+  gem 'minitest-line'
 end
 
 group :development do
