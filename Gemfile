@@ -67,9 +67,10 @@ group :development, :test do
 end
 
 group :test do
+  gem 'minitest-rails'
   gem 'factory_girl'
   gem 'faker'
-  gem 'minitest-line'
+  gem 'm', '~> 1.5.0'
 end
 
 group :development do

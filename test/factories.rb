@@ -11,6 +11,7 @@ FactoryGirl.define do
     end
 
     trait :album do
+      doc_type  CoverImage::TYPES.keys.last
       artist_name Faker::Superhero.name
       album_name  Faker::Book.title
     end
@@ -25,6 +26,13 @@ FactoryGirl.define do
       title   'The giver'
       isbn    '0395645662'
 
+    end
+
+    factory :known_album do
+      album
+      doc_id  'u2733845'
+      album_name   'Under The Table and Dreaming'
+      artist_name 'Matthews, Dave'
     end
 
   end

@@ -16,6 +16,7 @@ class MusicBrainzWorker < ApplicationWorker
 
     @cover_image.service_name = 'Music Brainz'
 
+
     save_if_found do
       LastFMWorker.perform_async cover_image_id
     end
@@ -79,11 +80,10 @@ class MusicBrainzWorker < ApplicationWorker
       @cover_image.status = 'error'
       @cover_image.response_data = 'Rate limit exceeded.'
     else
-      url = response.parsed_response['images'].find{|img| img['front']}.try "['image']"
+      front = response.parsed_response['images'].find{|img| img['front']}
+      url = front ? front.dig('image') : nil
       if url
         @cover_image.image = URI.parse(url)
-      else
-        @cover_image.status = 'not_found'
       end
     end
   end
