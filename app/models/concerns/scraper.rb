@@ -1,6 +1,7 @@
 module Scraper
   extend ActiveSupport::Concern
 
+  # This prevents failed lookups from retrying too much
   LOOKUP_LIMIT = 1.day.freeze
 
   # This is the primary way of looking up cover images
@@ -20,7 +21,7 @@ module Scraper
       self.last_search = DateTime.current
 
       if self.music?
-        LastFMWorker.perform_async self.id
+        MusicBrainzWorker.perform_async self.id
         # fails over to Music Brainz
       else
         # google is the first source to try

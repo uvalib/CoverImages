@@ -1,7 +1,7 @@
 class ApplicationWorker
   include Sidekiq::Worker
 
-  SLEEP_TIME = 4.freeze
+  SLEEP_TIME = 1.freeze
 
   # saves a cover image if a new one is set.
   # Yields the next scraper to try if no image is found

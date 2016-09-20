@@ -6,20 +6,24 @@ class MusicBrainzWorker < ApplicationWorker
 
   def perform cover_image_id
     begin
+
     @cover_image = CoverImage.find cover_image_id
 
-    # first get the mbid if last_fm didnt provide one
-    if @cover_image.mbid || get_mbid
+    if get_mbid
       #then the cover image for that mbid
       get_cover_image
     end
 
     @cover_image.service_name = 'Music Brainz'
-    save_if_found
 
+    save_if_found do
+      LastFMWorker.perform_async cover_image_id
+    end
 
     rescue StandardError => e
       @cover_image.update status: 'error', response_data: e
+      sleep(SLEEP_TIME)
+      LastFMWorker.perform_async cover_image_id
 
       raise e
     end
@@ -39,13 +43,14 @@ class MusicBrainzWorker < ApplicationWorker
       get(SEARCH_URL,
           query: params,
           headers: { "User-Agent" => 'VirgoCoverImages/1.0 (naw4t@virginia.edu)' }
-         ).parsed_response
+         ).
+         parsed_response
 
 
-    release = response['releases'].first
+    release = response['releases'].find{|r| r.dig('media', 0, 'format') == 'CD'}
     if release.nil?
       @cover_image.update status: 'not_found'
-      return
+      return false
     end
 
 

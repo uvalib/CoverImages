@@ -10,11 +10,12 @@ class LastFMWorker < ApplicationWorker
     @cover_image = CoverImage.find cover_image_id
 
     params = {
-      method: 'album.getinfo',
-      api_key: '***REMOVED***',
-      artist: @cover_image.artist_name,
-      album: @cover_image.album_name,
-      format: 'json'
+      method:   'album.getinfo',
+      api_key:  '***REMOVED***',
+      mbid:     @cover_image.mbid,
+      artist:   @cover_image.artist_name,
+      album:    @cover_image.album_name,
+      format:   'json'
     }
     response = HTTParty.get(ALBUM_INFO_URL,
                             query: params,
@@ -23,8 +24,11 @@ class LastFMWorker < ApplicationWorker
 
 
     album = response['album']
-    if album && album['artist'].downcase.include?(@cover_image.artist_name.downcase)
+
+    # check if the album name matches
+    if album && @cover_image.artist_name.downcase.include?(album['artist'].downcase)
       @cover_image.mbid = album['mbid']
+
       image_url = album['image'].find do |size_link|
         size_link['size'] == 'large'
       end['#text']
@@ -43,16 +47,12 @@ class LastFMWorker < ApplicationWorker
 
     @cover_image.response_data = response
     @cover_image.service_name = 'last.fm'
-    save_if_found do
-      MusicBrainzWorker.perform_async(cover_image_id)
-    end
 
-    @cover_image.save
+    save_if_found
+
 
     rescue StandardError => e
       @cover_image.update(status: 'error', response_data: e)
-      sleep(SLEEP_TIME)
-      MusicBrainzWorker.perform_async(cover_image_id)
 
       raise e
     end
