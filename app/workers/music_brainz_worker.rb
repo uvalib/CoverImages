@@ -43,7 +43,7 @@ class MusicBrainzWorker < ApplicationWorker
     response = HTTParty.
       get(SEARCH_URL,
           query: params,
-          headers: { "User-Agent" => 'VirgoCoverImages/1.0 (naw4t@virginia.edu)' }
+          headers: { "User-Agent" => ENV['EXTERNAL_API_USER_AGENT'] }
          ).
          parsed_response
 

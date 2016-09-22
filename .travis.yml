@@ -75,5 +75,3 @@ notifications:
   email:
     on_success: "change"
     on_failure: "always"
-    recipients:
-      - "naw4t@virginia.edu"

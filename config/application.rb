@@ -21,9 +21,6 @@ module CoverImages
 
     config.autoload_paths << Rails.root.join('lib')
 
-    #TODO: replace with figaro gem
-    ENV['LIBRARY_THING_API_KEY'] = 'a***REMOVED***'
-
     config.time_zone = 'Eastern Time (US & Canada)'
   end
 end
