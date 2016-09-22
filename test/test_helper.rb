@@ -13,6 +13,9 @@ class ActiveSupport::TestCase
   VCR.configure do |config|
     config.cassette_library_dir = "test/fixtures/vcr_cassettes"
     config.hook_into :webmock
+    config.filter_sensitive_data('<API_KEY>') { ENV['LAST_FM_KEY'] }
+    config.filter_sensitive_data('<API_KEY>') { ENV['LIBRARY_THING_KEY'] }
+    config.filter_sensitive_data('<USER_AGENT>') { ENV['EXTERNAL_API_USER_AGENT'] }
   end
 
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.

@@ -2,7 +2,7 @@ class LastFMWorker < ApplicationWorker
   sidekiq_options throttle: { threshold: 5, period: 1.second }, retry: false
 
   ALBUM_INFO_URL = 'http://ws.audioscrobbler.com/2.0/'.freeze
-  HEADERS = { "User-Agent" => ENV['EXTERNAL_API_USER_AGENT'] }.freeze
+  HEADERS = { "User-Agent" => (ENV['EXTERNAL_API_USER_AGENT'] || "") }.freeze
 
   def perform cover_image_id
     begin
