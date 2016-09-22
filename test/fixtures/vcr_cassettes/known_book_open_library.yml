@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - nginx/1.4.6 (Ubuntu)
       Date:
-      - Thu, 22 Sep 2016 18:11:37 GMT
+      - Thu, 22 Sep 2016 18:28:08 GMT
       Content-Type:
       - text/html
       Transfer-Encoding:
@@ -34,7 +34,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:11:37 GMT
+  recorded_at: Thu, 22 Sep 2016 18:28:08 GMT
 - request:
     method: get
     uri: http://ia800801.us.archive.org/zipview.php?file=6800394.jpg&zip=/14/items/olcovers680/olcovers680.zip
@@ -56,7 +56,7 @@ http_interactions:
       Server:
       - nginx/1.4.6 (Ubuntu)
       Date:
-      - Thu, 22 Sep 2016 18:11:37 GMT
+      - Thu, 22 Sep 2016 18:28:08 GMT
       Content-Type:
       - image/jpeg
       Transfer-Encoding:
@@ -22082,5 +22082,5 @@ http_interactions:
         P70UUDHig0UUAMNIKKKBBT1oopgDUgoopAPpDRRSGhKUUUU0DA0w0UUCG0oo
         ooAWgUUUCQ+loooGf//Z
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:11:37 GMT
+  recorded_at: Thu, 22 Sep 2016 18:28:09 GMT
 recorded_with: VCR 3.0.3

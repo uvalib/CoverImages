@@ -37,7 +37,6 @@ matrix:
 
 # Specify which of Travis's built-in services to run.
 services:
-    - mysql
 
 # Additional dependencies to set up on the virtual machine.
 # See http://docs.travis-ci.com/user/installing-dependencies/.

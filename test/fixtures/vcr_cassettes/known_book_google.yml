@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 22 Sep 2016 18:11:36 GMT
+      - Thu, 22 Sep 2016 18:28:04 GMT
       Expires:
-      - Thu, 22 Sep 2016 18:11:36 GMT
+      - Thu, 22 Sep 2016 18:28:04 GMT
       Cache-Control:
       - private, must-revalidate, max-age=0
       P3p:
@@ -42,8 +42,8 @@ http_interactions:
       Server:
       - OFE/0.1
       Set-Cookie:
-      - NID=87=jeBrvxINsOVb_hZqDFHsCHTol4KKv-e9oViIv1CgvFg79hs61I547HG26M0nNhbNHz855_L1ehfPF1FaGLUDAKgk9Lh7p4EIFxwlp6_DwYVgtcpsnMxr2GYyMAkpmCfr;
-        expires=Fri, 24-Mar-2017 18:11:36 GMT; path=/; domain=.google.com; HttpOnly
+      - NID=87=wlXJGO_nYCWoXj_yFUT-FTAwuTEEiBTKWCk5moqPLWlm_FH8qUAWXWjfC_w8hGdTVGtW9x6Toqm-3ze4yrRzKruNfYMfVzS8UC3gLZRn9XwFtyCm-DvozuWFFinT4rR8;
+        expires=Fri, 24-Mar-2017 18:28:04 GMT; path=/; domain=.google.com; HttpOnly
       Alt-Svc:
       - quic=":443"; ma=2592000; v="36,35,34,33,32"
       Transfer-Encoding:
@@ -52,7 +52,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: aa({"ISBN:0395645662":{"bib_key":"ISBN:0395645662","info_url":"https://books.google.com/books?id=6l8kAQAAMAAJ\u0026source=gbs_ViewAPI","preview_url":"https://books.google.com/books?id=6l8kAQAAMAAJ\u0026source=gbs_ViewAPI","thumbnail_url":"https://books.google.com/books/content?id=6l8kAQAAMAAJ\u0026printsec=frontcover\u0026img=1\u0026zoom=5","preview":"noview","embeddable":false,"can_download_pdf":false,"can_download_epub":false,"is_pdf_drm_enabled":false,"is_epub_drm_enabled":false}});
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:11:36 GMT
+  recorded_at: Thu, 22 Sep 2016 18:28:04 GMT
 - request:
     method: get
     uri: https://books.google.com/books/content?id=6l8kAQAAMAAJ&img=1&printsec=frontcover&zoom=5
@@ -76,9 +76,9 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Expires:
-      - Thu, 22 Sep 2016 18:11:36 GMT
+      - Thu, 22 Sep 2016 18:28:04 GMT
       Date:
-      - Thu, 22 Sep 2016 18:11:36 GMT
+      - Thu, 22 Sep 2016 18:28:04 GMT
       Content-Length:
       - '10510'
       Content-Type:
@@ -331,5 +331,5 @@ http_interactions:
         OejM33+/HMEAMrlqNJb2mkhBKrGIGINupLftGv1c0duKbLMPwxOgvB4aHNhX
         ILqgmeNjdZcyxXKqLrW6NtWAO+E9NT//2Q==
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:11:36 GMT
+  recorded_at: Thu, 22 Sep 2016 18:28:04 GMT
 recorded_with: VCR 3.0.3

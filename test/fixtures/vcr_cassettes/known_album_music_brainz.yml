@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://musicbrainz.org/ws/2/release?artist=Matthews,%20Dave&fmt=json&query=release:%22Under%20The%20Table%20and%20Dreaming%22
+    uri: http://musicbrainz.org/ws/2/release?artist=Dave%20Matthews%20Band&fmt=json&query=release:%22Under%20The%20Table%20and%20Dreaming%22
     body:
       encoding: US-ASCII
       string: ''
@@ -15,7 +15,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 22 Sep 2016 18:11:42 GMT
+      - Thu, 22 Sep 2016 18:28:04 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Transfer-Encoding:
@@ -92,7 +92,7 @@ http_interactions:
         Dave Matthews Band","name":"The Dave Matthews Band","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null}]}}],"release-group":{"id":"b080cf2f-fbd2-3f6c-82ff-d30314464ac7","primary-type":"Album"},"date":"1994","country":"XE","release-events":[{"date":"1994","area":{"id":"89a675c2-3e37-3518-b83c-418bad59a85a","name":"Europe","sort-name":"Europe","iso-3166-1-codes":["XE"]}}],"barcode":"078636644929","label-info":[{"catalog-number":"07863
         66449-2","label":{"id":"1ca5ed29-e00b-4ea5-b817-0bcca0e04946","name":"RCA"}}],"track-count":34,"media":[{"format":"CD","disc-count":0,"track-count":34}]}]}'
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:11:42 GMT
+  recorded_at: Thu, 22 Sep 2016 18:28:04 GMT
 - request:
     method: get
     uri: http://coverartarchive.org/release/740a2832-8325-335e-9005-b80cdc31108b
@@ -106,7 +106,7 @@ http_interactions:
       message: TEMPORARY REDIRECT
     headers:
       Date:
-      - Thu, 22 Sep 2016 18:11:42 GMT
+      - Thu, 22 Sep 2016 18:28:05 GMT
       Content-Type:
       - text/plain; charset=utf-8
       Content-Length:
@@ -127,7 +127,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:11:42 GMT
+  recorded_at: Thu, 22 Sep 2016 18:28:05 GMT
 - request:
     method: get
     uri: http://archive.org/download/mbid-740a2832-8325-335e-9005-b80cdc31108b/index.json
@@ -143,7 +143,7 @@ http_interactions:
       Server:
       - nginx/1.4.6 (Ubuntu)
       Date:
-      - Thu, 22 Sep 2016 18:11:42 GMT
+      - Thu, 22 Sep 2016 18:28:05 GMT
       Content-Type:
       - text/html; charset=UTF-8
       Transfer-Encoding:
@@ -160,7 +160,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:11:42 GMT
+  recorded_at: Thu, 22 Sep 2016 18:28:05 GMT
 - request:
     method: get
     uri: http://ia800301.us.archive.org/26/items/mbid-740a2832-8325-335e-9005-b80cdc31108b/index.json
@@ -176,7 +176,7 @@ http_interactions:
       Server:
       - nginx/1.4.6 (Ubuntu)
       Date:
-      - Thu, 22 Sep 2016 18:11:43 GMT
+      - Thu, 22 Sep 2016 18:28:05 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -188,7 +188,7 @@ http_interactions:
       Etag:
       - '"502819a4-203"'
       Expires:
-      - Fri, 23 Sep 2016 00:11:43 GMT
+      - Fri, 23 Sep 2016 00:28:05 GMT
       Cache-Control:
       - max-age=21600
       Accept-Ranges:
@@ -197,7 +197,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"images":[{"types":["Front"],"front":true,"back":false,"edit":18536899,"image":"http://coverartarchive.org/release/740a2832-8325-335e-9005-b80cdc31108b/1606516577.jpg","comment":"","approved":true,"thumbnails":{"large":"http://coverartarchive.org/release/740a2832-8325-335e-9005-b80cdc31108b/1606516577-500.jpg","small":"http://coverartarchive.org/release/740a2832-8325-335e-9005-b80cdc31108b/1606516577-250.jpg"},"id":"1606516577"}],"release":"http://musicbrainz.org/release/740a2832-8325-335e-9005-b80cdc31108b"}'
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:11:43 GMT
+  recorded_at: Thu, 22 Sep 2016 18:28:05 GMT
 - request:
     method: get
     uri: http://coverartarchive.org/release/740a2832-8325-335e-9005-b80cdc31108b/1606516577.jpg
@@ -217,7 +217,7 @@ http_interactions:
       message: TEMPORARY REDIRECT
     headers:
       Date:
-      - Thu, 22 Sep 2016 18:11:43 GMT
+      - Thu, 22 Sep 2016 18:28:05 GMT
       Content-Type:
       - text/plain; charset=utf-8
       Content-Length:
@@ -238,7 +238,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:11:43 GMT
+  recorded_at: Thu, 22 Sep 2016 18:28:05 GMT
 - request:
     method: get
     uri: http://archive.org/download/mbid-740a2832-8325-335e-9005-b80cdc31108b/mbid-740a2832-8325-335e-9005-b80cdc31108b-1606516577.jpg
@@ -260,7 +260,7 @@ http_interactions:
       Server:
       - nginx/1.4.6 (Ubuntu)
       Date:
-      - Thu, 22 Sep 2016 18:11:43 GMT
+      - Thu, 22 Sep 2016 18:28:05 GMT
       Content-Type:
       - image/jpeg
       Transfer-Encoding:
@@ -277,7 +277,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:11:43 GMT
+  recorded_at: Thu, 22 Sep 2016 18:28:05 GMT
 - request:
     method: get
     uri: http://ia800301.us.archive.org/26/items/mbid-740a2832-8325-335e-9005-b80cdc31108b/mbid-740a2832-8325-335e-9005-b80cdc31108b-1606516577.jpg
@@ -299,7 +299,7 @@ http_interactions:
       Server:
       - nginx/1.4.6 (Ubuntu)
       Date:
-      - Thu, 22 Sep 2016 18:11:43 GMT
+      - Thu, 22 Sep 2016 18:28:05 GMT
       Content-Type:
       - image/jpeg
       Content-Length:
@@ -311,7 +311,7 @@ http_interactions:
       Etag:
       - '"50159e60-f105"'
       Expires:
-      - Fri, 23 Sep 2016 00:11:43 GMT
+      - Fri, 23 Sep 2016 00:28:05 GMT
       Cache-Control:
       - max-age=21600
       Accept-Ranges:
@@ -1692,5 +1692,5 @@ http_interactions:
         dSMmNpxkZr0mFYRRNcy5PiP7NGwGkitbp13dKPJJSNDO5Xk+X9qDDtwTdyWb
         8aiav//Z
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:11:43 GMT
+  recorded_at: Thu, 22 Sep 2016 18:28:06 GMT
 recorded_with: VCR 3.0.3

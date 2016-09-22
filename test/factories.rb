@@ -33,7 +33,7 @@ FactoryGirl.define do
       album
       doc_id        'u2733845'
       album_name    'Under The Table and Dreaming'
-      artist_name   'Matthews, Dave'
+      artist_name   'Dave Matthews Band'
     end
 
   end
