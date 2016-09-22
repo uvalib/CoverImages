@@ -32,6 +32,9 @@ class CoverImage < ApplicationRecord
   after_commit :lookup, if: ->(ci){ci.run_lookup}
 
   attr_accessor :run_lookup
+  attr_accessor :search_term
+
+  scope :search, ->(search_term){ where('doc_id LIKE :search OR title LIKE :search OR artist_name LIKE :search OR album_name LIKE :search', search: "%#{search_term}%") }
 
   def music?
     doc_type == 'music'

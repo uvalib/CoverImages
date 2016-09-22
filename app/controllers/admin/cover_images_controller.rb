@@ -3,7 +3,9 @@ class Admin::CoverImagesController < ApplicationController
   before_action :get_cover_image, only: [:show, :edit, :update, :reprocess, :destroy]
 
   def index
-    @cover_images = CoverImage.all.page(params[:page]).per(20)
+    @cover_images = CoverImage.all.
+      search(params.dig(:cover_image,:search_term)).
+      page(params[:page]).per(20)
   end
 
   def show
@@ -57,11 +59,13 @@ class Admin::CoverImagesController < ApplicationController
   private
 
   def cover_image_params
-    #TODO: define request format
     params.require(:cover_image).permit(:doc_type, :doc_id, :status,
                                         :isbn, :oclc, :lccn, :upc,
                                         :mbid, :artist_name, :album_name,
                                         :image)
+  end
+  def search_params
+    params.permit(:search_term)
   end
 
   def get_cover_image
