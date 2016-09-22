@@ -1,9 +1,9 @@
 require 'test_helper'
-class MusicBrainzWorkerTest < ActiveSupport::TestCase
+class LastFMWorkerTest < ActiveSupport::TestCase
 
   def test_good_album_cover
 
-    VCR.use_cassette("known_album_music_brainz") do
+    VCR.use_cassette("known_album_music_lastfm") do
       Sidekiq::Testing.inline!
       @cover_image = create(:known_album)
       MusicBrainzWorker.perform_async(@cover_image.id)

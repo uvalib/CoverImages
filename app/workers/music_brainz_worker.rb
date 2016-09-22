@@ -61,7 +61,7 @@ class MusicBrainzWorker < ApplicationWorker
     # Is the returned artist name in the provided name
     #artist_matched = r_artist.split.any? {|w| @cover_image.artist_name.downcase.include? w.downcase}
 
-    if  release['id']
+    if release['id']
       @cover_image.mbid = release['id']
       @cover_image.response_data = release
       return true

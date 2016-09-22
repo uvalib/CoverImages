@@ -70,6 +70,8 @@ group :test do
   gem 'minitest-rails'
   gem 'factory_girl'
   gem 'faker'
+  gem 'webmock'
+  gem 'vcr'
   gem 'm', '~> 1.5.0'
 end
 

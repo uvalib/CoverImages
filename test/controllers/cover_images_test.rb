@@ -3,7 +3,7 @@ require 'test_helper'
 class CoverImagesControllerTest < ActionDispatch::IntegrationTest
 
   setup do
-    @ci = create(:cover_image)
+    @ci = create(:known_book)
   end
 
 

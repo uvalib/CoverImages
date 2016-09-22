@@ -2,7 +2,7 @@ require 'test_helper'
 class Admin::CoverImagesControllerTest < ActionDispatch::IntegrationTest
 
   setup do
-    @ci = create(:cover_image)
+    @ci = create(:cover_image, [:book, :album].sample, :completed)
   end
 
   test "should get index" do
