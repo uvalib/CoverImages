@@ -3,14 +3,16 @@ services:
   mysql:
     image: mysql
     ports:
-      - "13306:3306"
+      - "3306"
     env_file:
       - .env.production
+    volumes:
+      - /var/lib/mysql
 
   redis:
     image: redis
     ports:
-      - "6379:6379"
+      - "6379"
     env_file:
       - .env.production
 
@@ -19,12 +21,9 @@ services:
     links:
       - mysql
       - redis
-    depends_on:
-      - mysql
-      - sidekiq
-    command: bin/rails server -p 3000 -b 0.0.0.0 -e production
+    command: bin/rails server -p 3000 -e production
     ports:
-      - "3000:3000"
+      - "3030:3000"
     volumes:
       - .:/cover_images
     env_file:
@@ -36,11 +35,7 @@ services:
     links:
       - mysql
       - redis
-    depends_on:
-      - mysql
-      - redis
     volumes:
       - .:/cover_images
     env_file:
       - .env.production
-
