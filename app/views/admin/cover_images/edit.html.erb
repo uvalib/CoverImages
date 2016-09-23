@@ -1,29 +1,37 @@
+<%= semantic_form_for @cover_image, url: admin_cover_image_path(@cover_image) do |f| %>
 <div class="row panel">
   <div class="col-sm-4">
     <h2>Edit Cover Image</h2>
   </div>
   <div class="col-sm-8">
     <p class='text-align-center'>
-      <%= link_to "Reprocess",
-        reprocess_admin_cover_image_path(@cover_image, redirect: :edit),
-        class: "btn btn-warning text-right"
+      <%= f.submit "Save", class: "btn btn-success" %>
+      <%= link_to("Reprocess",
+                  reprocess_admin_cover_image_path(@cover_image, redirect: :edit),
+                  class: "btn btn-warning"
+                 ) unless @cover_image.locked
       %>
-      <%= link_to "Reload", edit_admin_cover_image_path(@cover_image), class: 'btn btn-primary' %>
-    <%= link_to "Delete", admin_cover_image_path(@cover_image), method: "DELETE",
-      confirm: "Are you sure?",
-      class: "btn btn-danger"
+
+      <%= link_to "Delete", admin_cover_image_path(@cover_image), method: "DELETE",
+        data: {confirm: "Are you sure?"},
+        class: "btn btn-danger pull-right"
       %>
     </p>
-    <small><%= "Created At: #{@cover_image.created_at} | Image updated: #{@cover_image.image_updated_at}" %> | Service: <%= @cover_image.service_name %></small>
+    <small>
+      <%= "Created At: #{short_date @cover_image.created_at}
+      | Image updated: #{short_date @cover_image.image_updated_at}" %>
+      | Service: <%= @cover_image.service_name %>
+      | <%= status_label @cover_image.status %>
+    </small>
   </div>
 </div>
-<%= semantic_form_for @cover_image, url: admin_cover_image_path(@cover_image) do |f| %>
   <%= render partial: "form", locals: {f: f} %>
 
-  <%= f.submit "Update", class: "btn btn-primary" %>
+  <%= f.submit "Save", class: "btn btn-success" %>
 
+  <hr/>
   <p>
-  Response:
+    API Response:
   </p>
   <pre id="response-json" data-response-json="<%=  @cover_image.response_data.to_json %>">
   </pre>

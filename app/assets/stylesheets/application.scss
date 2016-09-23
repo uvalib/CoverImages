@@ -1,4 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "formtastic-bootstrap";
+
+// http://www.bootstrap-switch.org/
+@import "css/bootstrap-switch.min";
+
 @import "admin/*";

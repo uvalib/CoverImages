@@ -3,21 +3,36 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Doc ID</th>
-          <th>Image</th>
-          <th>Status</th>
-          <th>Actions</th>
+          <th class="col-sm-4">Doc ID</th>
+          <th class="col-sm-5">Image</th>
+          <th class="col-sm-2">Status</th>
+          <th class="col-sm-1">Actions</th>
         </tr>
       </thead>
       <tbody>
         <% @cover_images.each do |ci| %>
         <tr>
-          <td><%= ci.doc_id %></td>
+          <td>
+            <%= ci.doc_id %><br/>
+            <%= ci.title %>
+          </td>
           <td><%= image_tag  ci.image.url(:thumb), class:'img-responsive' %></td>
-          <td><%= status_label ci.status %></td>
+          <td>
+            <%= status_label ci.status %>
+            <br/>
+            <%= short_date ci.image_updated_at %>
+          </td>
           <td>
             <%= link_to "Edit", edit_admin_cover_image_path(ci), class: "btn btn-default" %>
-            <%= link_to "Reprocess", reprocess_admin_cover_image_path(ci, redirect: :index), class: "btn btn-warning" %>
+            <br/>
+            <% if ci.locked %>
+              <span class="label label-primary">Locked</span>
+            <%else%>
+              <%= link_to "Reprocess",
+                reprocess_admin_cover_image_path(ci, redirect: :index),
+                class: "btn btn-warning"
+              %>
+            <%end%>
           </td>
         </tr>
         <%end%>

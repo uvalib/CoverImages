@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160916134539) do
+ActiveRecord::Schema.define(version: 20160923141309) do
 
   create_table "cover_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "doc_id"
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20160916134539) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
     t.string   "isbn"
     t.string   "oclc"
     t.string   "lccn"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160916134539) do
     t.text     "response_data",      limit: 65535
     t.string   "service_name"
     t.datetime "last_search"
+    t.boolean  "locked",                           default: false
     t.index ["doc_id"], name: "index_cover_images_on_doc_id", using: :btree
   end
 

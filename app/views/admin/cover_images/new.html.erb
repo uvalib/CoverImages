@@ -1,5 +1,5 @@
 <h2>New Cover Image</h2>
 <%= semantic_form_for @cover_image, url: admin_cover_images_path do |f| %>
   <%= render partial: "form", locals: {f: f} %>
-  <%= f.submit "Create", class: "btn btn-primary" %>
+  <%= f.submit "Create", class: "btn btn-primary btn-lg" %>
 <%end%>

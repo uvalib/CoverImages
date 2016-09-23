@@ -10,7 +10,14 @@
     </p>
   </div>
   <div class="col-sm-6">
-    <%= f.input :image, hint: "leave blank to scrape" %>
+    <%= f.input :image, hint: "leave blank to automatically search" %>
+    <%= f.input :locked, label: "&nbsp;&nbsp;Locked Image?", as: :boolean,
+      input_html: {data: {toggle: 'toggle'}},
+      wrapper_html: {data: {toggle: 'tooltip',
+                            placement: "bottom"},
+                     title: "Manually adding an image above will lock it in place and remove the ability to reprocess.",
+    }
+    %>
     <%= f.input :isbn %>
     <%= f.input :oclc %>
     <%= f.input :lccn %>
@@ -20,4 +27,3 @@
     <%= f.input :album_name %>
   </div>
 </div>
-<%= f.input :status, collection: CoverImage::STATUSES.keys, include_blank: false %>

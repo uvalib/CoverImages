@@ -14,4 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//
+// http://www.bootstrap-switch.org/
+//= require js/bootstrap-switch.min
+//
 //= require_tree .
+//
+// Don't add js directly in this file.

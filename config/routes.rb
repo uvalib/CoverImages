@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :cover_images, only: [:show]
 
   namespace :admin do
-    resources :cover_images, except: [:show] do
+    resources :cover_images do
       member do
         get :reprocess
       end

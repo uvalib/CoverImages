@@ -8,19 +8,20 @@ class Admin::CoverImagesController < ApplicationController
       page(params[:page]).per(20)
   end
 
-  def show
-  end
-
   def new
     @cover_image = CoverImage.new
   end
 
   def create
     @cover_image = CoverImage.new(cover_image_params)
+    if @cover_image.image.dirty?
+      # Lock the image if it was manually added
+      @cover_image.locked = true
+      @cover_image.status = CoverImage::STATUSES.keys.last
+    end
     if @cover_image.save
       flash[:success] = "Successfully created: #{@cover_image.doc_id}"
       redirect_to action: :index
-
     else
       render :new
     end
@@ -30,7 +31,13 @@ class Admin::CoverImagesController < ApplicationController
   end
 
   def update
-    if @cover_image.update(cover_image_params)
+    @cover_image.assign_attributes cover_image_params
+    if @cover_image.image.dirty?
+      # Lock the image if it was manually added
+      @cover_image.locked = true
+      @cover_image.status = CoverImage::STATUSES.keys.last
+    end
+    if @cover_image.save
       @cover_image.lookup
       flash[:success] = "Successfully updated: #{@cover_image.doc_id}"
       redirect_to action: :index

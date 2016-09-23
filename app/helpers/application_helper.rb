@@ -21,4 +21,8 @@ module ApplicationHelper
       link_to link_text, link_path
     end
   end
+
+  def short_date datetime
+    datetime.try :strftime, '%b %e, %Y'
+  end
 end

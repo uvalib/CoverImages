@@ -17,7 +17,10 @@ module Scraper
 
 
     # Check if the last image search was more than a day ago
-    if self.last_search.nil? || self.last_search < (DateTime.current - LOOKUP_LIMIT)
+    if self.last_search.nil? ||
+       self.last_search < (DateTime.current - LOOKUP_LIMIT) ||
+       !self.locked
+
       self.last_search = DateTime.current
 
       if self.music?
