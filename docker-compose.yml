@@ -7,7 +7,7 @@ services:
     env_file:
       - .env.production
     volumes:
-      - /var/lib/mysql
+      - ./docker/mysql:/var/lib/mysql
 
   redis:
     image: redis
@@ -26,6 +26,7 @@ services:
       - "3030:3000"
     volumes:
       - .:/cover_images
+      - ./docker/images:/cover_images/public/system:shared
     env_file:
       - .env.production
 
@@ -39,3 +40,4 @@ services:
       - .:/cover_images
     env_file:
       - .env.production
+

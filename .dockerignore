@@ -2,3 +2,4 @@
 .dockerignore
 Gemfile.log
 logs/*
+public/system/*
