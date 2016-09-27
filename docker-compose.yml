@@ -27,6 +27,7 @@ services:
       - "3000:3000"
     volumes:
       - .:/cover_images
+      - image-data:/cover_images/public/system
     env_file:
       - .env.production
 
@@ -41,6 +42,13 @@ services:
       - redis
     volumes:
       - .:/cover_images
+      - image-data:/cover_images/public/system
     env_file:
       - .env.production
 
+volumes:
+  image_data:
+# http://netshare.containx.io/docs/nfs
+#   driver: nfs
+#   driver_opts:
+#     share: some.nfs.host:/path/to/share
