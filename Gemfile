@@ -50,13 +50,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'sidekiq'
 gem 'sidekiq-throttler'
 
-# for the sidekiq web gui
-gem 'sinatra', :require => false
-
-
-# safely start jobs after commit
-#gem 'ar_after_transaction'
-
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-github'
+#gem 'omniauth-shibboleth'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
