@@ -27,7 +27,7 @@ services:
       - "3030:3000"
     volumes:
       - .:/cover_images
-      - image_data:/cover_images/public/system
+      - image-data:/cover_images/public/system
     env_file:
       - .env.production
 
@@ -40,12 +40,12 @@ services:
       - redis
     volumes:
       - .:/cover_images
-      - image_data:/cover_images/public/system
+      - image-data:/cover_images/public/system
     env_file:
       - .env.production
 
 volumes:
-  image_data:
+  image-data:
   mysql:
 # http://netshare.containx.io/docs/nfs
 #   driver: nfs
