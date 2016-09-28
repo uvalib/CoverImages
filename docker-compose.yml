@@ -26,7 +26,6 @@ services:
     ports:
       - "3030:3000"
     volumes:
-      - .:/cover_images
       - image-data:/cover_images/public/system
     env_file:
       - .env.production
@@ -39,7 +38,6 @@ services:
       - mysql
       - redis
     volumes:
-      - .:/cover_images
       - image-data:/cover_images/public/system
     env_file:
       - .env.production
