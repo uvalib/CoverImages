@@ -47,13 +47,11 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-#production:
-#  <<: *default
-#  host: 'mysql'
-#  database: <%= ENV['MYSQL_DATABASE'] %>
-#  port: <%= ENV['MYSQL_PORT'] %>
-#  username: <%= ENV['MYSQL_USER'] %>
-#  password: <%= ENV['MYSQL_ROOT_PASSWORD'] %>
-
 production:
- url: <%= ENV['DATABASE_URL'] %>
+  <<: *default
+  host: 'mysql'
+  database: <%= ENV['MYSQL_DATABASE'] %>
+  port: <%= ENV['MYSQL_PORT'] %>
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_ROOT_PASSWORD'] %>
+
