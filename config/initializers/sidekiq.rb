@@ -5,11 +5,11 @@ Sidekiq.configure_server do |config|
 
   if ENV["REDIS_URL"].present?
     Sidekiq.configure_server do |config|
-      config.redis = { url: ENV["REDIS_URL"], namespace: "coverImages", password: ENV["REDIS_PASSWORD"] }
+      config.redis = { url: ENV["REDIS_URL"], namespace: "coverImages" }
     end
 
     Sidekiq.configure_client do |config|
-      config.redis = { url: ENV["REDIS_URL"], namespace: "coverImages", password: ENV["REDIS_PASSWORD"] }
+      config.redis = { url: ENV["REDIS_URL"], namespace: "coverImages" }
     end
   end
 
