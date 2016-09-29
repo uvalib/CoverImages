@@ -29,5 +29,4 @@ docker/
 
 # rails
 # base your database.yml on database.yml.sample
-# actually, docker needs this on production
-#/config/database.yml
+/config/database.yml
