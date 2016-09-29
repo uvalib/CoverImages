@@ -15,7 +15,7 @@ set :deploy_to, '/usr/local/projects/coverImages'
 set :use_sudo, false
 
 set :rails_env, :production
-set :conditionally_migrate, true
+#set :conditionally_migrate, true
 set :keep_assets, 5
 
 # Default value for :scm is :git
