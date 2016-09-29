@@ -50,5 +50,10 @@ test:
 production:
   <<: *default
   database: cover_images_production
-  username: cover_images_thumbs
-  password: <%= ENV['ALL-THUMBS_DATABASE_PASSWORD'] %>
+  username: cover_images
+  password:
+  host:
+  port:
+  pool: 10
+
+
