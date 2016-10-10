@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Sidekiq.configure_server do |config|
 
   # production redis config goes here
@@ -18,4 +19,6 @@ Sidekiq.configure_server do |config|
   config.server_middleware do |chain|
     chain.add Sidekiq::Throttler
   end
+
 end
+Sidekiq::Web.app_url = "/"
