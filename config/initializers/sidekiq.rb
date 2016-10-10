@@ -5,13 +5,15 @@ Sidekiq.configure_server do |config|
 
   if ENV["REDIS_URL"].present?
     Sidekiq.configure_server do |config|
-      config.redis = { url: ENV["REDIS_URL"], namespace: "coverImages" }
+      config.redis = { url: ENV["REDIS_URL"] }
     end
 
     Sidekiq.configure_client do |config|
-      config.redis = { url: ENV["REDIS_URL"], namespace: "coverImages" }
+      config.redis = { url: ENV["REDIS_URL"] }
     end
   end
+
+
 
   config.server_middleware do |chain|
     chain.add Sidekiq::Throttler

@@ -50,5 +50,7 @@ set :rvm_ruby_version, '2.3.1@coverImages'
 #before 'deploy', 'rvm1:install:rvm'
 #before 'deploy', 'rvm1:install:ruby'
 
+set :puma_conf, "#{shared_path}/config/puma.rb"
+
 # sidekiq setup
 set :sidekiq_config, 'config/sidekiq.yml'
