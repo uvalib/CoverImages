@@ -32,6 +32,8 @@
                 <%= nav_link "Workers", admin_sidekiq_web_path %>
               </li>
               <li>
+              <%= link_to "Login", user_pubcookie_omniauth_authorize_path unless current_user %>
+              </li>
 
             </ul>
             <%= form_for :cover_image, method: :get, html: {:class => "navbar-form navbar-left"}  do |f| %>

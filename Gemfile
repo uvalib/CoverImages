@@ -52,7 +52,8 @@ gem 'sidekiq-throttler'
 
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-github'
+#gem 'omniauth-github'
+#gem 'omniauth-shibboleth', :github => 'uvalib/omniauth-shibboleth'
 #gem 'omniauth-shibboleth'
 
 # Use Capistrano for deployment
