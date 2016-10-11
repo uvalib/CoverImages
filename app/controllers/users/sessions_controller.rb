@@ -4,9 +4,9 @@ class Users::SessionsController < Devise::SessionsController
   # GET /resource/sign_in
    def new
      if request.env['REMOTE_USER'].present?
-       logger.info request.env
        create
      else
+       logger.info request.env
        self.resource = resource_class.new(sign_in_params)
        clean_up_passwords(resource)
        yield resource if block_given?
