@@ -12,10 +12,10 @@ module OmniAuth
         redirect options.login_path
       end
 
-      def callback_path
+      def callback_phase
         log :error, request.env
-        options.login_path
       end
+
 
     end
   end
