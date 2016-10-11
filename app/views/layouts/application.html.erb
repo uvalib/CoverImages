@@ -31,9 +31,6 @@
               <li>
                 <%= nav_link "Workers", admin_sidekiq_web_path %>
               </li>
-              <li>
-                <%= link_to "Log out", logout_path if current_user %>
-              </li>
 
             </ul>
             <%= form_for :cover_image, method: :get, html: {:class => "navbar-form navbar-left"}  do |f| %>
@@ -47,6 +44,7 @@
                 </div>
               </div>
             <%end%>
+            <%= link_to "Log out", logout_path if current_user %>
           </div>
 
         </div>

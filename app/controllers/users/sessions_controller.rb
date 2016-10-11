@@ -9,6 +9,7 @@ class Users::SessionsController < Devise::SessionsController
        self.resource = resource_class.new(sign_in_params)
        clean_up_passwords(resource)
        yield resource if block_given?
+       flash[:notice] = "Invalid user"
        respond_with(resource, serialize_options(resource))
      end
    end
