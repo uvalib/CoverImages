@@ -32,7 +32,7 @@
                 <%= nav_link "Workers", admin_sidekiq_web_path %>
               </li>
               <li>
-              <%= link_to "Login", user_pubcookie_omniauth_authorize_path unless current_user %>
+                <%= link_to "Log out", logout_path if current_user %>
               </li>
 
             </ul>

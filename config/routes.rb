@@ -3,19 +3,23 @@ Rails.application.routes.draw do
 
   resources :cover_images, only: [:show]
 
-  # todo: wrap admin
-  devise_for :users
-  devise_scope :users do
-    get "/login" => "omniauth_callbacks#pubcookie"
+  devise_for :users, controllers: {sessions: 'users/sessions'}
+
+  devise_scope :user do
+    get "/login" => "users/sessions#new"
+    get "/logout" => "users/sessions#destroy"
   end
-  namespace :admin do
-    resources :cover_images do
-      member do
-        get :reprocess
+
+  authenticate :user do
+    namespace :admin do
+      resources :cover_images do
+        member do
+          get :reprocess
+        end
       end
+      require 'sidekiq/web'
+      mount Sidekiq::Web => '/workers'
     end
-    require 'sidekiq/web'
-    mount Sidekiq::Web => '/workers'
   end
 
   root to: "admin/cover_images#index"

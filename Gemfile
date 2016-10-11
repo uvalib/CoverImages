@@ -50,8 +50,6 @@ gem 'sidekiq'
 gem 'sidekiq-throttler'
 
 gem 'devise'
-gem 'omniauth'
-#gem 'omniauth-shibboleth', :github => 'uvalib/omniauth-shibboleth'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
