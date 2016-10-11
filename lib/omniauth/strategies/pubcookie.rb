@@ -9,11 +9,13 @@ module OmniAuth
       option :login_path, '/login'
 
       def request_phase
+        log :info, "######## PUBCOOKIE REQUEST ######"
         redirect options.login_path
       end
 
       def callback_phase
-        log :error, request.env
+        log :info, "######## PUBCOOKIE CALLBACK ######"
+        log :info, request.env
       end
 
 

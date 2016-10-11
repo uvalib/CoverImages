@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   # todo: wrap admin
   devise_for :users
+  devise_scope :users do
+    get "/login" => "devise/omniauth_callbacks#pubcookie"
+  end
   namespace :admin do
     resources :cover_images do
       member do
