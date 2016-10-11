@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :cover_images, only: [:show]
 
+  # todo: wrap admin
+  devise_for :users
   namespace :admin do
     resources :cover_images do
       member do
