@@ -6,11 +6,12 @@ module OmniAuth
       include OmniAuth::Strategy
 
       option :name, :pubcookie
-      option :login_path, '/login'
+      option :callback_path, '/users/auth/pubcookie/callback'
+      option :request_path, '/users/auth/pubcookie'
 
       def request_phase
         log :info, "######## PUBCOOKIE REQUEST ######"
-        redirect options.login_path
+        redirect options.callback_path
       end
 
       def callback_phase
