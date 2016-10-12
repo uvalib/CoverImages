@@ -35,7 +35,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def authorized_user?
     user = request.env['HTTP_REMOTE_USER']
-    logger.info "---------#{user}------"
+    logger.info "--------- #{Rails.env} ------"
     if user.present?
       Rails.configuration.authorized_users.include? user
     elsif Rails.env.development?
