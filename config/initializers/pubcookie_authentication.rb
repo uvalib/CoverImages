@@ -7,7 +7,7 @@ module Pubcookie
       # but, we want this strategy to be valid for any request with this header set so that we can use a custom
       # response for an invalid request.
       #cookies['pubcookie_s_geoblacklight'].present?
-      request.env['REMOTE_USER'].present?
+      request.env[pubcookie_user].present?
     end
 
 
@@ -22,8 +22,8 @@ module Pubcookie
       # the `devise` class method in that model
       klass = mapping.to
 
-      if request.env['REMOTE_USER'].present?
-        email = "#{request.env['REMOTE_USER']}@virginia.edu"
+      if request.env[pubcookie_user].present?
+        email = "#{request.env[pubcookie_user]}@virginia.edu"
         user = klass.find_or_initialize_by(email: email)
 
         success! user
@@ -32,6 +32,10 @@ module Pubcookie
       # if we wanted to stop other strategies from authenticating the user
     end
 
+    private
+    def pubcookie_user
+      @pubcookie_user ||= "HTTP_REMOTE_USER".freeze
+    end
   end
 end
 

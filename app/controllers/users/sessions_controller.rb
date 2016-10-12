@@ -3,7 +3,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
    def new
-     if request.env['REMOTE_USER'].present?
+     if request.env['HTTP_REMOTE_USER'].present?
        create
      else
        logger.info request.env
