@@ -3,10 +3,9 @@ class Users::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
    def new
-     if request.env['HTTP_REMOTE_USER'].present?
+     if authorized_user?
        create
      else
-       logger.info request.env
        self.resource = resource_class.new(sign_in_params)
        clean_up_passwords(resource)
        yield resource if block_given?
@@ -35,4 +34,14 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  private
+
+  def authorized_user?
+    user = request.env['HTTP_REMOTE_USER']
+    if user.present?
+      Rails.configuration.authorized_users.include? user
+    elsif Rails.env.development?
+     request.env['HTTP_REMOTE_USER'] = 'dev'
+    end
+  end
 end

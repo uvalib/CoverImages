@@ -17,10 +17,10 @@ module CoverImages
     config.active_job.queue_adapter = :sidekiq
 
 
-
-
     config.autoload_paths << Rails.root.join('lib')
 
     config.time_zone = 'Eastern Time (US & Canada)'
+    config.authorized_users = YAML.load_file("#{Rails.root.to_s}/config/authorized_users.yml")[Rails.env]
+
   end
 end
