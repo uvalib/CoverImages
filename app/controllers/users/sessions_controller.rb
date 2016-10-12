@@ -3,6 +3,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
    def new
+    logger.info "--------- #{request.env} ------"
      if authorized_user?
        create
      else
@@ -35,7 +36,6 @@ class Users::SessionsController < Devise::SessionsController
 
   def authorized_user?
     user = request.env['HTTP_REMOTE_USER']
-    logger.info "--------- #{request.env} ------"
     if user.present?
       Rails.configuration.authorized_users.include? user
     elsif Rails.env.development?
