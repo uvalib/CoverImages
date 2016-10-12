@@ -34,7 +34,7 @@ module Pubcookie
 
     private
     def pubcookie_user
-      @pubcookie_user ||= "HTTP_REMOTE_USER".freeze
+      @pubcookie_user ||= "REMOTE_USER".freeze
     end
   end
 end
