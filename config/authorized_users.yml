@@ -1,12 +1,8 @@
-# development will create a 'dev' user
+# development will create a and use a 'dev' user
 # capistrano will load this file from {deploy_path}/shared/config/authorized_users.yml
 # Don't commit changes here
 #
 # Example
 # -------
-#
-# staging:
-#   - mst3k
-# production:
-#   - mst3k
-#   - abc123
+- mst3k
+- abc123
