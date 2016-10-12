@@ -6,11 +6,8 @@ class Users::SessionsController < Devise::SessionsController
      if authorized_user?
        create
      else
-       self.resource = resource_class.new(sign_in_params)
-       clean_up_passwords(resource)
-       yield resource if block_given?
        flash[:notice] = "Invalid user"
-       respond_with(resource, serialize_options(resource))
+       render :new
      end
    end
 
@@ -38,6 +35,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def authorized_user?
     user = request.env['HTTP_REMOTE_USER']
+    logger.info "---------#{user}------"
     if user.present?
       Rails.configuration.authorized_users.include? user
     elsif Rails.env.development?
