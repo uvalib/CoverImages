@@ -32,6 +32,7 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
   private
 
   def authorized_user?
@@ -39,9 +40,11 @@ class Users::SessionsController < Devise::SessionsController
     if user.present?
       Rails.configuration.authorized_users.include? user
     elsif Rails.env.development?
-      false #request.env['HTTP_REMOTE_USER'] = 'dev'
+      request.env['HTTP_REMOTE_USER'] = 'dev'
+      true
     else
       false
     end
   end
+
 end

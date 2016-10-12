@@ -22,11 +22,13 @@ module Pubcookie
       # the `devise` class method in that model
       klass = mapping.to
 
-      if request.env[pubcookie_user].present?
+      if authorized_user?
         email = "#{request.env[pubcookie_user]}@virginia.edu"
         user = klass.find_or_initialize_by(email: email)
 
         success! user
+      else
+        fail!
       end
 
       # if we wanted to stop other strategies from authenticating the user
@@ -35,6 +37,19 @@ module Pubcookie
     private
     def pubcookie_user
       @pubcookie_user ||= "HTTP_REMOTE_USER".freeze
+    end
+
+    def authorized_user?
+      user = request.env[pubcookie_user]
+      if Rails.env.development?
+        request.env[pubcookie_user] = 'dev'
+        true
+      elsif user.present?
+        Rails.configuration.authorized_users.include? user
+      else
+        fail!
+        false
+      end
     end
   end
 end
