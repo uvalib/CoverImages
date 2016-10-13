@@ -46,6 +46,7 @@ before_install:
 # http://docs.travis-ci.com/user/customizing-the-build/#Building-Specific-Branches
 branches:
   only:
+    - master
     - develop
 
 # Actions to perform before running the test script on the build matrix.
