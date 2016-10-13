@@ -37,4 +37,9 @@ FactoryGirl.define do
     end
 
   end
+
+  factory :admin, class: User do
+    email 'test@example.com'
+    password 'password'
+  end
 end

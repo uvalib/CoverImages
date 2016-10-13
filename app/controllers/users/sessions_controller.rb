@@ -3,11 +3,9 @@ class Users::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
    def new
-    logger.info "--------- #{request.env} ------"
      if authorized_user?
        create
      else
-       flash[:notice] = "Invalid user"
        render :new
      end
    end

@@ -13,7 +13,7 @@ module Scraper
 
     begin
 
-    raise "no id" unless self.id
+    raise "not saved yet" unless self.id
 
 
     # Check if the last image search was more than a day ago
