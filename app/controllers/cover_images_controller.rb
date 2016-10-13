@@ -27,7 +27,7 @@ class CoverImagesController < ApplicationController
         uri = generate_image_uri( path )
         render json: {image_base64: uri,
           errors: cover_image.errors.as_json,
-          not_found: not_found}
+          not_found: not_found, status: :success}
       end
     end
 
