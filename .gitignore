@@ -7,8 +7,6 @@
 # Ignore bundler config.
 /.bundle
 
-docker/
-
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
