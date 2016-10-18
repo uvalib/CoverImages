@@ -1,0 +1,13 @@
+mysql:
+  scale: 1
+redis:
+  scale: 1
+web:
+  scale: 1
+  labels:
+    io.rancher.container.hostname_override: rancher
+sidekiq:
+  scale: 1
+  labels:
+    io.rancher.container.hostname_override: rancher
+

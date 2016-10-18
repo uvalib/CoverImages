@@ -1,0 +1,50 @@
+version: '2'
+services:
+  mysql:
+    image: mysql
+    ports:
+      - "3306"
+    env_file:
+      - .env.production
+    volumes:
+      - mysql:/var/lib/mysql
+
+  redis:
+    image: redis
+    ports:
+      - "6379"
+    env_file:
+      - .env.production
+
+  web:
+    build: https://github.com/uvalib/CoverImages.git
+    links:
+      - mysql
+      - redis
+    command: bin/rails server -p 3000 -e production
+    ports:
+      - "3030:3000"
+    volumes:
+      - image_data:/cover_images/public/system
+    env_file:
+      - .env.production
+
+  sidekiq:
+    # rancher wont build so we need to provide an image
+    build: https://github.com/uvalib/CoverImages.git
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    links:
+      - mysql
+      - redis
+    volumes:
+      - image_data:/cover_images/public/system
+    env_file:
+      - .env.production
+
+volumes:
+  image_data:
+  mysql:
+# http://netshare.containx.io/docs/nfs
+#   driver: nfs
+#   driver_opts:
+#     share: some.nfs.host:/path/to/share
