@@ -40,6 +40,7 @@ Each service has it's own rate limits, defined in `app/workers/*`
 ## API
 
 GET `/cover_images/[solr_id].json` is the only public endpoint.
+
 | Query Param | Values             | Required       |
 | ----------- | ------             | --------       |
 | doc_type    | music or non_music | yes            |
