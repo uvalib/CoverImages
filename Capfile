@@ -20,10 +20,7 @@ require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 require 'capistrano/rails/console'
-require 'capistrano/puma'
-
-# require 'capistrano/passenger'
-require 'capistrano/sidekiq'
+#require 'procodile/capistrano3'
 
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined

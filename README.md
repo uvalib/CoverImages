@@ -75,7 +75,7 @@ To record new responses (if an api changes) run `rm -rf test/fixtures/vcr_casset
 ## Deployment
 `cap production deploy`
 
-[Capistrano](https://github.com/capistrano/capistrano) handles deployments and restarting puma, sidkiq.
+[Capistrano](https://github.com/capistrano/capistrano) handles deployments and restarting puma, sidekiq.
 `config/deploy.rb` and `config/deploy/[staging,production].rb` have the details.
 
 Most config files including .env, database.yml, authorized_users.yml and the actual cover images located at `public/system` are located in `[deploy_path]/shared` and symlinked to the `[deploy_path]/current` folder during deployment.

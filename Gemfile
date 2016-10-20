@@ -70,11 +70,12 @@ end
 
 group :development do
   gem 'capistrano'
-  gem 'capistrano-rails'
-  gem 'capistrano-sidekiq'
   gem 'capistrano-rvm'
-  gem 'capistrano3-puma'
+  gem 'capistrano-rails'
   gem 'capistrano-rails-console', require: false
+
+  # process monitor - not using until bugs are fixed
+  #gem 'procodile-capistrano'
 
   gem 'rack-mini-profiler'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
