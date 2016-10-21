@@ -2,5 +2,5 @@
 # more info here: https://github.com/adamcooke/procodile/wiki/Configuration
 
 app_name: CoverImages
-pid_root: tmp/pids
+pid_root: tmp/pids/procodile
 log_path: log/procodile.log
