@@ -73,6 +73,7 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano-rails'
   gem 'capistrano-rails-console', require: false
+  gem 'procodile-capistrano', github: 'nestorw/procodile-capistrano'
 
   # process monitor - not using until bugs are fixed
   #gem 'procodile-capistrano'

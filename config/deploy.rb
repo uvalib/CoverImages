@@ -48,6 +48,8 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/syst
 # rvm setup
 set :rvm_type, :system
 set :rvm_ruby_version, '2.3.1@coverImages'
+
+
 #
 #before 'deploy', 'rvm1:install:rvm'
 #before 'deploy', 'rvm1:install:ruby'
@@ -56,41 +58,3 @@ set :rvm_ruby_version, '2.3.1@coverImages'
 # sidekiq setup
 #set :sidekiq_config, 'config/sidekiq.yml'
 
-namespace :procodile do
-  desc 'Start procodile processes'
-  task :start do
-    on roles(fetch(:procodile_roles, [:app])) do
-      execute procodile_command(:start)
-    end
-  end
-
-  desc 'Stop procodile processes'
-  task :stop do
-    on roles(fetch(:procodile_roles, [:app])) do
-      execute procodile_command(:stop)
-    end
-  end
-
-  desc 'Restart procodile processes'
-  task :restart do
-    on roles(fetch(:procodile_roles, [:app])) do
-      execute procodile_command(:restart)
-    end
-  end
-
-  after 'deploy:finished', "procodile:restart"
-
-  def procodile_command(command, options = "")
-    binary = fetch(:procodile_binary, 'procodile')
-    if processes = fetch(:processes, nil)
-      options = "-p #{processes} " + options
-    end
-    command = "#{binary} #{command} -r #{current_path} #{options}"
-    if user = fetch(:procodile_user, nil)
-      "sudo -u #{user} #{command}"
-    else
-      command
-    end
-  end
-
-end
