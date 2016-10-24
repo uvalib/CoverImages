@@ -35,7 +35,6 @@ class MusicBrainzWorker < ApplicationWorker
   def get_mbid
     params = {query: "release:\"#{@cover_image.album_name}\"",
       artist: @cover_image.artist_name,
-      barcode: @cover_image.upc,
       fmt: 'json'
     }
     params.delete_if { |k, v| v.nil? || v.empty? }

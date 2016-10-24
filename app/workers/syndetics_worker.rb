@@ -9,7 +9,6 @@ class SyndeticsWorker < ApplicationWorker
 
     params = {
       isbn: @cover_image.isbn,
-      upc: @cover_image.upc,
       oclc: @cover_image.oclc
     }
 
