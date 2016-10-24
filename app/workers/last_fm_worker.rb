@@ -26,7 +26,9 @@ class LastFMWorker < ApplicationWorker
     album = response['album']
 
     # check if the album name matches
-    if album && @cover_image.artist_name.downcase.include?(album['artist'].downcase)
+    regex = album_regex @cover_image.artist_name
+    if album && (album['artist'] =~ regex)
+
       @cover_image.mbid = album['mbid']
 
       image_url = album['image'].find do |size_link|
@@ -56,5 +58,15 @@ class LastFMWorker < ApplicationWorker
 
       raise e
     end
+  end
+
+  def album_regex album_name
+    regex = '^'
+    # match all words, anywhere in the string, case insensitive, ignoring non-word chars
+    album_name.split(/\W+/).each do |word|
+      regex += "(?=.*#{word}.*)"
+    end
+    regex += '.*$'
+    /#{regex}/i
   end
 end
