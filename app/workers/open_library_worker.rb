@@ -1,18 +1,19 @@
+# OpenLibrary Worker
 class OpenLibraryWorker < ApplicationWorker
   sidekiq_options throttle: { threshold: 2, period: 1.second }, retry: false
 
-  BASE_URL = 'http://covers.openLibrary.org'
+  BASE_URL = 'http://covers.openLibrary.org'.freeze
 
-  def perform cover_image_id
-    begin
-    @cover_image = CoverImage.find cover_image_id
+  def perform(cover_image_id)
+
+    @cover_image = CoverImage.find(cover_image_id)
 
     available_ids = @cover_image.present_ids.except('upc')
     unless available_ids.any?
       @cover_image.status = 'not_found'
       @cover_image.service_name = 'openlibrary.org'
       @cover_image.save
-      #end of the line
+      # end of the line
       return
     end
 
@@ -24,11 +25,11 @@ class OpenLibraryWorker < ApplicationWorker
         @cover_image.response_data = image_url
         @cover_image.service_name = 'openlibrary.org'
 
-        save_if_found
-        return
+        break
 
-      rescue OpenURI::HTTPError => e
+      rescue OpenURI::HTTPError
         # catch missing images and continue to loop over available ids
+        logger.info "Missing OpenLibrary Image for this id: #{id_name}:#{id_value}"
       end
       @cover_image.image = nil
       sleep(1)
@@ -36,11 +37,10 @@ class OpenLibraryWorker < ApplicationWorker
 
     save_if_found
 
-    rescue StandardError => e
-      @cover_image.update status: 'error'
-      #end of the line
-      raise e
-    end
+  rescue StandardError => e
+    @cover_image.update status: 'error'
+    # end of the line
+    raise e
   end
 
 end

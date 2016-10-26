@@ -1,13 +1,15 @@
+# controller for /admin/cover_images
 class Admin::CoverImagesController < ApplicationController
 
   before_action :authenticate_user!
 
-  before_action :get_cover_image, only: [:show, :edit, :update, :reprocess, :destroy]
+  before_action :get_cover_image,
+    only: [:show, :edit, :update, :reprocess, :destroy]
 
   def index
-    @cover_images = CoverImage.all.
-      search(params.dig(:cover_image,:search_term)).
-      page(params[:page]).per(20)
+    @cover_images = CoverImage.all
+      .search(params.dig(:cover_image, :search_term))
+      .page(params[:page]).per(20)
   end
 
   def new
@@ -58,21 +60,23 @@ class Admin::CoverImagesController < ApplicationController
   def destroy
     if @cover_image.destroy
       flash[:success] = "Successfully deleted: #{@cover_image.doc_id}"
-      redirect_to action: :index
     else
       flash[:alert] = "Could not delete: #{@cover_image.doc_id}"
-      redirect_to action: :index
     end
+    redirect_to action: :index
   end
 
   private
 
   def cover_image_params
-    params.require(:cover_image).permit(:doc_type, :doc_id, :status,
-                                        :isbn, :oclc, :lccn, :upc,
-                                        :mbid, :artist_name, :album_name,
-                                        :image)
+    params.require(:cover_image).permit(
+      :doc_type, :doc_id, :status,
+      :isbn, :oclc, :lccn, :upc,
+      :mbid, :artist_name, :album_name,
+      :image
+    )
   end
+
   def search_params
     params.permit(:search_term)
   end

@@ -1,3 +1,4 @@
+# Cover Image
 class CoverImage < ApplicationRecord
   include Scraper
 
@@ -8,41 +9,51 @@ class CoverImage < ApplicationRecord
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
-  TYPES = {'non_music': 'Books, DVDs (not music)', 'music': 'Music'}.freeze
+  TYPES = {
+    non_music: 'Books, DVDs (not music)', music: 'Music'
+  }.with_indifferent_access.freeze
   STATUSES = {
-    'unprocessed': 'Has not been processed',
-    'error': 'There was a problem retrieving the cover image.',
-    'not_found': 'Nothing was found after searching',
-    'processed': 'Successfully processed, image found.'
-  }.freeze
+    unprocessed: 'Has not been processed',
+    error:       'There was a problem retrieving the cover image.',
+    not_found:   'Nothing was found after searching',
+    processed:   'Successfully processed, image found.'
+  }.with_indifferent_access.freeze
   IDENTIFIERS = %w(upc isbn lccn oclc).freeze
 
-  validates_presence_of :doc_id
-  validates_uniqueness_of :doc_id
-  validates_inclusion_of :doc_type, in: TYPES.keys.map(&:to_s),
+  validates :doc_id, presence: true, uniqueness: true
+
+  validates :doc_type, inclusion: {
+    in:      TYPES.keys.map(&:to_s),
     message: "Must be either #{TYPES.keys.to_sentence(
       last_word_connector: ' or ',
       two_words_connector: ' or ')}"
-  validates_inclusion_of :status, in: STATUSES.keys.map(&:to_s)
+  }
+  validates :status, inclusion: {in: STATUSES.keys.map(&:to_s)}
   validate :required_identifiers, if: "non_music?"
-  validates_presence_of :artist_name, :album_name, if: "music?"
+  validates :artist_name, :album_name, presence: true, if: "music?"
 
   after_initialize :assign_defaults
 
-  after_commit :lookup, if: ->(ci){ci.run_lookup}
+  after_commit :lookup, if: ->(ci) {ci.run_lookup}
 
   attr_accessor :run_lookup
   attr_accessor :search_term
 
-  scope :search, ->(search_term){ where('doc_id LIKE :search OR title LIKE :search OR artist_name LIKE :search OR album_name LIKE :search', search: "%#{search_term}%") }
+  scope :search, ->(search_term) {
+    where(
+      'doc_id LIKE :search OR '\
+      'title LIKE :search OR artist_name LIKE :search OR '\
+      'album_name LIKE :search', search: "%#{search_term}%"
+    )
+  }
 
   def music?
     doc_type == 'music'
   end
-  def non_music?
-    doc_type == 'non-music'
-  end
 
+  def non_music?
+    doc_type == 'non_music'
+  end
 
   ## returns [Hash] Present id type mapped to value
   #
@@ -55,20 +66,20 @@ class CoverImage < ApplicationRecord
   end
 
   private
+
   def assign_defaults
     self.status ||= 'unprocessed'
   end
 
   # for non-music validation
   def required_identifiers
-    present = IDENTIFIERS.any? do |ident|
-      self.send(ident).present?
-    end
-    unless present?
-      self.errors.add(:base, "one of #{IDENTIFIERS.
-        to_sentence(last_word_connector: ' or ')} is required.")
-    end
+    present =
+      IDENTIFIERS.any? do |ident|
+        self.send(ident).present?
+      end
+    return if present
+    self.errors.add(
+      :base, "One of #{IDENTIFIERS.to_sentence(
+        last_word_connector: ' or ')} is required.")
   end
-
-
 end

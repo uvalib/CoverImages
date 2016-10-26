@@ -12,4 +12,3 @@ class SyndeticsWorkerTest < ActiveSupport::TestCase
     end
   end
 end
-

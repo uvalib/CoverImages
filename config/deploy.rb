@@ -3,11 +3,10 @@ lock '3.6.1'
 
 set :application, 'coverImages'
 set :repo_url, 'https://github.com/uvalib/CoverImages.git'
-set :ssh_options, {forward_agent: true}
+set :ssh_options, forward_agent: true
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/usr/local/projects/coverImages'
@@ -15,7 +14,7 @@ set :deploy_to, '/usr/local/projects/coverImages'
 set :use_sudo, false
 
 set :rails_env, :production
-#set :conditionally_migrate, true
+# set :conditionally_migrate, true
 set :keep_assets, 5
 
 # Default value for :scm is :git
@@ -28,13 +27,16 @@ set :branch, ENV['BRANCH'] if ENV['BRANCH']
 
 # You can configure the Airbrussh format using :format_options.
 # These are the defaults.
-# set :format_options, command_output: true, log_file: 'log/capistrano.log', color: :auto, truncate: :auto
+# set :format_options, command_output: true,
+#   log_file: 'log/capistrano.log', color: :auto, truncate: :auto
 
 # Default value for :pty is false
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, 'config/database.yml', 'config/secrets.yml', '.env.production', 'config/puma.rb', 'config/authorized_users.yml'
+append :linked_files,
+  'config/database.yml', 'config/secrets.yml', '.env.production',
+  'config/puma.rb', 'config/authorized_users.yml'
 
 # Default value for linked_dirs is []
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
@@ -49,12 +51,9 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/syst
 set :rvm_type, :system
 set :rvm_ruby_version, '2.3.1@coverImages'
 
-
 #
-#before 'deploy', 'rvm1:install:rvm'
-#before 'deploy', 'rvm1:install:ruby'
-
+# before 'deploy', 'rvm1:install:rvm'
+# before 'deploy', 'rvm1:install:ruby'
 
 # sidekiq setup
-#set :sidekiq_config, 'config/sidekiq.yml'
-
+# set :sidekiq_config, 'config/sidekiq.yml'

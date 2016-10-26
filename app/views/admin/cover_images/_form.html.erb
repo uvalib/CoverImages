@@ -18,6 +18,9 @@
                      title: "Manually adding an image above will lock it in place and remove the ability to reprocess."
     }
     %>
+    <%= content_tag :p, f.object.errors[:base].to_sentence,
+      class: 'text-danger' if f.object.errors[:base]
+    %>
     <%= f.input :isbn %>
     <%= f.input :oclc %>
     <%= f.input :lccn %>

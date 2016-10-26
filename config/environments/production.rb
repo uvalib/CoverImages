@@ -25,7 +25,8 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
-  # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
+  # `config.assets.precompile` and `config.assets.version`
+  # have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
@@ -58,7 +59,8 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+  # Set this to true and configure the email server for
+  # immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
@@ -75,15 +77,14 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
   # Configure cors headers
   config.middleware.insert_before 0, Rack::Cors do
     allow do
-      origins "#{ENV['CORS_ALLOW_URLS']}"
-      resource '/cover_images/*', :headers => :any, :methods => [:get]
+      origins ENV['CORS_ALLOW_URLS'].to_s
+      resource '/cover_images/*', headers: :any, methods: [:get]
     end
   end
 end

@@ -12,5 +12,3 @@ class OpenLibraryWorkerTest < ActiveSupport::TestCase
     end
   end
 end
-
-

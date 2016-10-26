@@ -1,3 +1,4 @@
+# Scraper concern
 module Scraper
   extend ActiveSupport::Concern
 
@@ -11,10 +12,7 @@ module Scraper
   def lookup
     logger.info "searching #{self.doc_id}"
 
-    begin
-
     raise "not saved yet" unless self.id
-
 
     # Check if the last image search was more than a day ago
     if self.last_search.nil? ||
@@ -34,14 +32,14 @@ module Scraper
         # if syndetics fails, it kicks off the OpenLibrary job
       end
     end
-    rescue StandardError => e
-      self.status = 'error'
-      self.response_data = e
-    end
 
     # Used to stop the after_commit callback
     self.run_lookup = false
     save
+
+  rescue StandardError => e
+    self.status = 'error'
+    self.response_data = e
   end
 
 end
