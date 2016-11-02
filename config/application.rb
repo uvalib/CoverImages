@@ -21,6 +21,8 @@ module CoverImages
     config.time_zone = 'Eastern Time (US & Canada)'
     config.authorized_users = YAML.load_file("#{Rails.root}/config/authorized_users.yml")
 
+    config.filter_parameters << :password_confirmation
+
     if ENV["RAILS_LOG_TO_STDOUT"] && Rails.env != 'test'
       logger           = ActiveSupport::Logger.new(STDOUT)
       logger.formatter = config.log_formatter

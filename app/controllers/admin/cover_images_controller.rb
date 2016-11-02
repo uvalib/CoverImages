@@ -2,6 +2,7 @@
 class Admin::CoverImagesController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :set_raven_user
 
   before_action :get_cover_image,
     only: [:show, :edit, :update, :reprocess, :destroy]
