@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_raven_context
-    Raven.extra_context(url: request.url, params: params.to_hash)
+    Raven.extra_context(url: request.url, params: params.to_unsafe_h)
   end
 
   def set_raven_user
