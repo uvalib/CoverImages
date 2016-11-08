@@ -8,9 +8,10 @@ class OpenLibraryWorker < ApplicationWorker
 
     @cover_image = CoverImage.find(cover_image_id)
 
-    available_ids = @cover_image.present_ids.except('upc')
+    available_ids = @cover_image.present_ids.except('upc', 'ht_id')
     unless available_ids.any?
       @cover_image.status = 'not_found'
+      @cover_image.response_data = "No valid identifiers to search by."
       @cover_image.service_name = 'openlibrary.org'
       @cover_image.save
       # end of the line

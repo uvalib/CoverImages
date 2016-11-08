@@ -29,6 +29,13 @@ FactoryGirl.define do
       isbn    '0395645662'
     end
 
+    factory :known_hathi_trust do
+      book
+      title 'Thomas Jefferson'
+      isbn  nil
+      ht_id 'loc.ark:/13960/t4wh30v9t'
+    end
+
     factory :known_album do
       album
       doc_id        'u2733845'

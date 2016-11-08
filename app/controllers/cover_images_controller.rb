@@ -42,7 +42,7 @@ class CoverImagesController < ApplicationController
   def cover_image_params
     params.permit( # :id is the solr id in this case
       :doc_type, :title,
-      :isbn, :oclc, :lccn, :upc, :mbid,
+      :isbn, :oclc, :lccn, :upc, :mbid, :ht_id,
       :artist_name, :album_name
     )
   end

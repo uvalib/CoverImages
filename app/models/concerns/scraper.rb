@@ -23,13 +23,13 @@ module Scraper
 
       if self.music?
         MusicBrainzWorker.perform_async self.id
-        # fails over to Music Brainz
+        # fails over to LastFM
+
       else
-        # google is the first source to try
         GoogleWorker.perform_async self.id
 
-        # if google fails, it kicks off the Syndetics job
-        # if syndetics fails, it kicks off the OpenLibrary job
+        # if google fails, it kicks off Syndetics or Hathi Trust
+        # if syndetics/HT fails, it kicks off the OpenLibrary job
       end
     end
 

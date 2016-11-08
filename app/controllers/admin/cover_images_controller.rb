@@ -72,7 +72,7 @@ class Admin::CoverImagesController < ApplicationController
   def cover_image_params
     params.require(:cover_image).permit(
       :doc_type, :doc_id, :status,
-      :isbn, :oclc, :lccn, :upc,
+      :isbn, :oclc, :lccn, :upc, :ht_id,
       :mbid, :artist_name, :album_name,
       :image
     )

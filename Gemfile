@@ -32,6 +32,7 @@ gem 'kaminari'
 gem 'httparty'
 # allow cross origin rquests
 gem 'rack-cors'
+gem 'oauth'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -39,12 +39,20 @@ class GoogleWorker < ApplicationWorker
     @cover_image.service_name = 'google'
 
     save_if_found do
-      SyndeticsWorker.perform_async(cover_image_id)
+      if @cover_image.ht_id.present?
+        HathiTrustWorker.perform_async(cover_image_id)
+      else
+        SyndeticsWorker.perform_async(cover_image_id)
+      end
     end
 
   rescue StandardError => e
     @cover_image.update status: 'error'
-    SyndeticsWorker.perform_async(cover_image_id)
+    if @cover_image.ht_id.present?
+      HathiTrustWorker.perform_async(cover_image_id)
+    else
+      SyndeticsWorker.perform_async(cover_image_id)
+    end
     raise e
 
   end

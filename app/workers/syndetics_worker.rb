@@ -11,12 +11,18 @@ class SyndeticsWorker < ApplicationWorker
       isbn: @cover_image.isbn,
       oclc: @cover_image.oclc
     }
+    unless params.values.any?
+      @cover_image.status = 'not_found'
+      @cover_image.service_name = 'Syndetics'
+      @cover_image.response_data = "No valid identifiers to search by."
+      @cover_image.save
+      OpenLibraryWorker.perform_async(cover_image_id)
+      return
+    end
 
     request_uri = URI.parse "#{BASE_URL}?#{params.to_param}/mc.jpg"
 
     @cover_image.image = request_uri
-    @cover_image.image_file_name = "#{@cover_image.doc_id}.jpeg"
-    @cover_image.image_content_type = 'image/jpeg'
     dimensions = Paperclip::Geometry.from_file(
       @cover_image.image.queued_for_write[:original].path
     )
