@@ -11,12 +11,7 @@ class GoogleWorker < ApplicationWorker
   def perform(cover_image_id)
     @cover_image = CoverImage.find(cover_image_id)
 
-    bibkeys = ''
-    CoverImage::IDENTIFIERS.without('upc').each do |id_type|
-      next unless (id = @cover_image.send(id_type))
-      bibkeys += ',' unless bibkeys.empty?
-      bibkeys += "#{id_type.upcase}:#{id.gsub("\s+", '')}"
-    end
+    bibkeys = google_bibkeys
     params = {
       bibkeys:  bibkeys,
       jscmd:    'viewapi',
@@ -55,6 +50,16 @@ class GoogleWorker < ApplicationWorker
     end
     raise e
 
+  end
+
+  def google_bibkeys
+    bibkeys = ''
+    CoverImage::IDENTIFIERS.without('upc').each do |id_type|
+      next unless (id = @cover_image.send(id_type))
+      bibkeys += ',' unless bibkeys.empty?
+      bibkeys += "#{id_type.upcase}:#{id.gsub("\s+", '')}"
+    end
+    bibkeys
   end
 
 end

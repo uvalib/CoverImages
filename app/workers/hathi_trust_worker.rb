@@ -8,10 +8,8 @@ class HathiTrustWorker < ApplicationWorker
     @consumer ||= OAuth::Consumer.new(
       ENV['HATHI_TRUST_ACCESS_KEY'],
       ENV['HATHI_TRUST_SECRET_KEY'],
-      {
-        site: 'https://babel.hathitrust.org/cgi/htd',
-        http_method: :post,  scheme: :query_string
-      }
+      site: 'https://babel.hathitrust.org/cgi/htd',
+      http_method: :post, scheme: :query_string
     )
 
   end
@@ -24,7 +22,7 @@ class HathiTrustWorker < ApplicationWorker
     )
 
     if (response.code == '200') && response.body
-      temp_file = Tempfile.new(['temp','.jpeg'], encoding: 'ascii-8bit')
+      temp_file = Tempfile.new(['temp', '.jpeg'], encoding: 'ascii-8bit')
       begin
         temp_file.write(response.body)
         @cover_image.image = temp_file
@@ -32,8 +30,6 @@ class HathiTrustWorker < ApplicationWorker
         temp_file.close
         temp_file.unlink
       end
-    else
-      # not found
     end
 
     @cover_image.response_data = "Retrieved from the Hathi Trust API"
@@ -48,6 +44,5 @@ class HathiTrustWorker < ApplicationWorker
     SyndeticsWorker.perform_async(cover_image_id)
     raise e
   end
-
 
 end
