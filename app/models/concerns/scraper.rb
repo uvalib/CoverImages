@@ -25,11 +25,16 @@ module Scraper
         MusicBrainzWorker.perform_async self.id
         # fails over to LastFM
 
+      elsif self.ht_id.present?
+        # Check Hathi Trust 1st when available.
+        # this will fail over to google if necessary
+        HathiTrustWorker.perform_async self.id
+
       else
         GoogleWorker.perform_async self.id
 
-        # if google fails, it kicks off Syndetics or Hathi Trust
-        # if syndetics/HT fails, it kicks off the OpenLibrary job
+        # if google fails, it kicks off Syndetics
+        # if syndetics fails, it kicks off the OpenLibrary job
       end
     end
 

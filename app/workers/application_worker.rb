@@ -17,10 +17,10 @@ class ApplicationWorker
       @cover_image.save
     end
 
-    return unless (@cover_image.status == 'not_found') && block_given?
-
-    sleep(SLEEP_TIME)
-    yield
+    if (@cover_image.invalid? || (@cover_image.status == 'not_found')) && block_given?
+      sleep(SLEEP_TIME)
+      yield
+    end
   end
 
   # Provides sane regex for artist matching
