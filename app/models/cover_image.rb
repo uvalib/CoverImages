@@ -42,6 +42,7 @@ class CoverImage < ApplicationRecord
   validates :artist_name, :album_name, presence: true, if: "music?"
 
   after_initialize :assign_defaults
+  before_save :check_before_save
 
   after_commit :lookup, if: ->(ci) {ci.run_lookup}
 
@@ -109,5 +110,9 @@ class CoverImage < ApplicationRecord
     self.errors.add(
       :base, "One of #{IDENTIFIERS.to_sentence(
         last_word_connector: ' or ')} is required.")
+  end
+
+  def check_before_save
+    self.title = title.truncate(255)
   end
 end
