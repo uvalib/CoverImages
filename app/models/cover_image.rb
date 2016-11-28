@@ -113,6 +113,6 @@ class CoverImage < ApplicationRecord
   end
 
   def check_before_save
-    self.title = title.truncate(255)
+    self.title = title.truncate(255) if title
   end
 end
