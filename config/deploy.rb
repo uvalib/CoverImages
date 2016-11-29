@@ -11,6 +11,8 @@ set :ssh_options, forward_agent: true
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/usr/local/projects/coverImages'
 
+set :image_folder_symlink, '/lib_content/cover_images'
+
 set :use_sudo, false
 
 set :rails_env, :production
@@ -57,3 +59,5 @@ set :rvm_ruby_version, '2.3.1@coverImages'
 
 # sidekiq setup
 # set :sidekiq_config, 'config/sidekiq.yml'
+
+before 'deploy:symlink:shared', 'deploy:symlink_images'
