@@ -54,8 +54,6 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/syst
 set :rvm_type, :system
 set :rvm_ruby_version, '2.3.3@coverImages'
 
-set :bundle_bins, fetch(:bundle_bins, []).push('procodile')
-
 #
 # before 'deploy', 'rvm1:install:rvm'
 # before 'deploy', 'rvm1:install:ruby'
