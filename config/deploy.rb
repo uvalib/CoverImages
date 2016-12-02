@@ -4,6 +4,7 @@ lock '3.6.1'
 set :application, 'coverImages'
 set :repo_url, 'https://github.com/uvalib/CoverImages.git'
 set :ssh_options, forward_agent: true
+set :ssh_options, keys: [ENV['SSH_DEPLOY_KEY_PATH']] if ENV['SSH_DEPLOY_KEY_PATH']
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
