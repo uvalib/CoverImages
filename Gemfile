@@ -52,7 +52,9 @@ gem 'sidekiq'
 gem 'sidekiq-throttler'
 
 gem 'ruby-progressbar'
-gem "sentry-raven"
+gem 'sentry-raven'
+
+gem 'procodile'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -74,10 +76,12 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano-rails'
   gem 'capistrano-rails-console', require: false
-  gem 'procodile-capistrano', github: 'nestorw/procodile-capistrano'
 
   # process monitor - not using until bugs are fixed
   # gem 'procodile-capistrano'
+  #
+  # use mine instead
+  gem 'procodile-capistrano', github: 'nestorw/procodile-capistrano'
 
   gem 'rack-mini-profiler'
   gem 'web-console'
