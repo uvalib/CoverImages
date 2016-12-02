@@ -52,7 +52,7 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/syst
 
 # rvm setup
 set :rvm_type, :system
-set :rvm_ruby_version, '2.3.1@coverImages'
+set :rvm_ruby_version, '2.3.3@coverImages'
 
 #
 # before 'deploy', 'rvm1:install:rvm'
