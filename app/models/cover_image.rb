@@ -44,6 +44,7 @@ class CoverImage < ApplicationRecord
   after_initialize :assign_defaults
 
   after_commit :lookup, if: ->(ci) {ci.run_lookup}
+  before_save :clean_fields
 
   attr_accessor :run_lookup
   attr_accessor :search_term
@@ -97,6 +98,10 @@ class CoverImage < ApplicationRecord
 
   def assign_defaults
     self.status ||= 'unprocessed'
+  end
+
+  def clean_fields
+    self.artist_name = artist_name.gsub('(Musical group)', '').strip
   end
 
   # for non-music validation
