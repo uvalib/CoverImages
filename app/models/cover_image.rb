@@ -101,7 +101,7 @@ class CoverImage < ApplicationRecord
   end
 
   def clean_fields
-    self.artist_name = artist_name.gsub('(Musical group)', '').strip if artist_name
+    self.artist_name = artist_name.gsub(/\(Musical group\)/i, '').strip if artist_name
   end
 
   # for non-music validation
