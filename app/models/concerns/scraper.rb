@@ -9,14 +9,17 @@ module Scraper
   # It will kick off other jobs which will rate-limit themselves
   # If an image is not found from one source,
   # the job will start the next service in line
-  def lookup
+  def lookup force_reprocess = false
     logger.info "searching #{self.doc_id}"
 
     raise "not saved yet" unless self.id
 
     # Check if the last image search was more than a day ago
-    if (self.last_search.nil? ||
-       self.last_search < (DateTime.current - LOOKUP_LIMIT)) &&
+    if (
+        self.last_search.nil? ||
+        self.last_search < (DateTime.current - LOOKUP_LIMIT) ||
+        force_reprocess
+       ) &&
        !self.locked
 
       self.last_search = DateTime.current

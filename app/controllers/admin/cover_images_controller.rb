@@ -52,7 +52,7 @@ class Admin::CoverImagesController < ApplicationController
   end
 
   def reprocess
-    @cover_image.lookup
+    @cover_image.lookup true
 
     redirect_to action: params[:redirect]
 
