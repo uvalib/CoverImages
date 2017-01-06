@@ -11,6 +11,8 @@ set :stage, :staging
 
 server 'opacdev.lib.virginia.edu', user: 'builder', roles: %w(app db web)
 
+set :image_folder_symlink, '/lib_content/cover_images_dev'
+
 # role-based syntax
 # ==================
 
