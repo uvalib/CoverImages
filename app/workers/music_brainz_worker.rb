@@ -44,7 +44,11 @@ class MusicBrainzWorker < ApplicationWorker
         headers: { "User-Agent" => ENV['EXTERNAL_API_USER_AGENT'] }
       ).parsed_response
 
-    release = response['releases'].find {|r| r.dig('media', 0, 'format') == 'CD'}
+    release = nil
+    if response['releases']
+      release = response['releases'].find {|r| r.dig('media', 0, 'format') == 'CD'}
+    end
+
     if release.nil?
       @cover_image.update status: 'not_found'
       return false
