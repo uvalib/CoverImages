@@ -9,7 +9,7 @@
 
 set :stage, :production1
 
-server 'vbt01.lib.virginia.edu', user: 'builder', roles: %w(app db web)
+server 'vbt01.lib.virginia.edu', user: 'teamcity', roles: %w(app db web)
 
 # role-based syntax
 # ==================
