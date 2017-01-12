@@ -4,6 +4,7 @@ class CoverImagesController < ApplicationController
   ##
   #
   def show
+    # params[:id] is the solr id in this case
     cover_image = CoverImage.find_or_initialize_by(
       doc_id: params[:id]
     )
@@ -40,7 +41,7 @@ class CoverImagesController < ApplicationController
   private
 
   def cover_image_params
-    params.permit( # :id is the solr id in this case
+    params.permit(
       :doc_type, :title,
       :isbn, :oclc, :lccn, :upc, :mbid, :ht_id,
       :artist_name, :album_name

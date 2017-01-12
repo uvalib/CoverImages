@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get "/users/sign_up", to: redirect('/404')
     post "/users", to: redirect('/404')
     get "/login" => "users/sessions#new"
-    get "/logout" => "users/sessions#destroy"
+    get "/logout", to: redirect('/')
   end
   devise_for :users, controllers: { sessions: 'users/sessions' }
 

@@ -46,4 +46,10 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 
+  # Overwriting the sign_out redirect path method
+  def after_sign_out_path_for(resource_or_scope)
+    # caught by apache to trigger pubcookie logout
+    '/logout'
+  end
+
 end

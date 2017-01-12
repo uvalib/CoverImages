@@ -44,8 +44,10 @@
                 </div>
               </div>
             <%end%>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "Sign out", destroy_user_session_path %></li>
+            </ul>
           </div>
-
         </div>
       </nav>
       <%= flash_messages %>
