@@ -6,7 +6,10 @@ Rails.application.routes.draw do
     get "/users/sign_up", to: redirect('/404')
     post "/users", to: redirect('/404')
     get "/login" => "users/sessions#new"
-    get "/logout", to: redirect('/')
+
+    # used only to prevent errors in development
+    # netbadge will catch this path in prod
+    get "/logout", to: "users/sessions#new"
   end
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
