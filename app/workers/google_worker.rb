@@ -46,7 +46,7 @@ class GoogleWorker < ApplicationWorker
 
   def google_bibkeys
     bibkeys = ''
-    CoverImage::IDENTIFIERS.without('upc').each do |id_type|
+    CoverImage::IDENTIFIERS.without('upc','ht_id').each do |id_type|
       next unless (ids = @cover_image.send(id_type))
       ids.split.each do |id|
         bibkeys += ',' unless bibkeys.empty?
