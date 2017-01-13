@@ -18,22 +18,25 @@ class OpenLibraryWorker < ApplicationWorker
       return
     end
 
-    available_ids.each do |id_name, id_value|
-      image_url = "#{BASE_URL}/b/#{id_name}/#{id_value}.jpg?default=false"
+    available_ids.each do |id_name, id_values|
+      catch :image_found do
+        id_values.split do |is_value|
+          image_url = "#{BASE_URL}/b/#{id_name}/#{id_value}.jpg?default=false"
 
-      begin
-        @cover_image.image = image_url
-        @cover_image.response_data = image_url
-        @cover_image.service_name = 'openlibrary.org'
+          begin
+            @cover_image.image = image_url
+            @cover_image.response_data = image_url
+            @cover_image.service_name = 'openlibrary.org'
+            throw :image_found
 
-        break
-
-      rescue OpenURI::HTTPError
-        # catch missing images and continue to loop over available ids
-        logger.info "Missing OpenLibrary Image for this id: #{id_name}:#{id_value}"
+          rescue OpenURI::HTTPError
+            # catch missing images and continue to loop over available ids
+            logger.info "Missing OpenLibrary Image for this id: #{id_name}:#{id_value}"
+          end
+          @cover_image.image = nil
+          sleep(1)
+        end
       end
-      @cover_image.image = nil
-      sleep(1)
     end
 
     save_if_found

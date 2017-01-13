@@ -25,9 +25,9 @@ class CoverImage < ApplicationRecord
   DEFAULT_MUSIC         = %w(Music-Blue.png Music-Gray.png Music-Orange.png).freeze
   DEFAULT_MUSIC_LEN     = DEFAULT_MUSIC.length.freeze
   DEFAULT_SCHOLARLY     = %w(Scholar-Blue.png Scholar-Gray.png Scholar-Orange.png).freeze
-  DEFAULT_SCHOLARLY_LEN = DEFAULT_MUSIC.length.freeze
+  DEFAULT_SCHOLARLY_LEN = DEFAULT_SCHOLARLY.length.freeze
   DEFAULT_FILM          = %w(Film-Blue.png Film-Gray.png Film-Orange.png).freeze
-  DEFAULT_MUSIC_LEN     = DEFAULT_MUSIC.length.freeze
+  DEFAULT_FILM_LEN     = DEFAULT_FILM.length.freeze
 
   validates :doc_id, presence: true, uniqueness: true
 

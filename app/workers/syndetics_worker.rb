@@ -7,11 +7,16 @@ class SyndeticsWorker < ApplicationWorker
   def perform(cover_image_id)
 
     @cover_image = CoverImage.find(cover_image_id)
-    params = {
-      isbn: @cover_image.isbn,
-      oclc: @cover_image.oclc
-    }
-    unless params.values.any?
+    params = {}
+    # allow duplicate keys
+    params.compare_by_identity
+    @cover_image.isbn.split.each do |isbn|
+      params['isbn'.dup] = isbn
+    end if @cover_image.isbn
+    @cover_image.oclc.split.each do |oclc|
+      params['oclc'.dup] = oclc
+    end if @cover_image.oclc
+    unless params.any?
       @cover_image.status = 'not_found'
       @cover_image.service_name = 'Syndetics'
       @cover_image.response_data = "No valid identifiers to search by."
