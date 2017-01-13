@@ -20,7 +20,7 @@ class OpenLibraryWorker < ApplicationWorker
 
     available_ids.each do |id_name, id_values|
       catch :image_found do
-        id_values.split do |is_value|
+        id_values.split do |id_value|
           image_url = "#{BASE_URL}/b/#{id_name}/#{id_value}.jpg?default=false"
 
           begin

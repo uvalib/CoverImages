@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://babel.hathitrust.org/cgi/htd/volume/meta/loc.ark:/13960/t4wh30v9t?format=json&oauth_consumer_key=2e58dda467&oauth_nonce=N44QnK3v35dtXN6sPwi0RAvUxwecFBmgj76zXY8jkQ&oauth_signature=1mD2FmHWS%2BMJp9Yw%2BZkz9mhubc0=&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1478804530&oauth_version=1.0&v=2
+    uri: https://babel.hathitrust.org/cgi/htd/volume/meta/loc.ark:/13960/t4wh30v9t?format=json&oauth_consumer_key=2e58dda467&oauth_nonce=BdVMyrI2K9ebW9AvKpi561hzwXDK69bcgKtvwPPv1w8&oauth_signature=R88OwdIfG13UPImwY1aUl1iNybs=&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1484340500&oauth_version=1.0&v=2
     body:
       encoding: US-ASCII
       string: ''
@@ -19,23 +19,19 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 10 Nov 2016 19:02:24 GMT
+      - Fri, 13 Jan 2017 20:48:20 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Content-Disposition:
       - filename=volume-meta-loc.ark:/13960/t4wh30v9t.json
       X-Hathitrust-Notice:
       - Please view access and use restrictions at http://www.hathitrust.org/access_use#pd
-      X-Choke-Max:
-      - '50'
       X-Choke:
       - requests
+      X-Choke-Max:
+      - '50'
       X-Choke-Now:
-      - '2016-11-10 14:02:25'
-      X-Choke-Credit:
-      - '82103'
-      X-Choke-Delta:
-      - '164206'
+      - '2017-01-13 15:48:21'
       X-Choke-Allowed:
       - '1'
       X-Choke-Rate:
@@ -45,24 +41,24 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf8
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a42378b;expires=Thu, 10-Nov-2016
-        19:12:12 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a42378b;expires=Fri, 13-Jan-2017
+        20:57:01 GMT;path=/;httponly
     body:
       encoding: UTF-8
-      string: '{"htd:rights":{"htd:access_profile":"1","htd:user":"timothy","htd:note":{},"htd:time":"2011-03-19T19:31:40","htd:namespace":"loc","htd:id":"ark:/13960/t4wh30v9t","htd:reason":"1","htd:attr":"1"},"xmlns":"http://www.w3.org/2005/Atom","htd:pgmap":[{"htd:pg":[{"pgnum":"","content":"1"},{"content":"2","pgnum":""},{"content":"3","pgnum":""},{"content":"4","pgnum":""},{"pgnum":"","content":"5"},{"pgnum":"","content":"6"},{"content":"7","pgnum":""},{"content":"8","pgnum":"4"},{"content":"9","pgnum":"5"},{"content":"10","pgnum":"6"},{"content":"11","pgnum":"7"},{"content":"12","pgnum":""},{"pgnum":"","content":"13"},{"pgnum":"","content":"14"},{"content":"15","pgnum":""},{"content":"16","pgnum":""}]}],"link":[{"rel":"self","type":"application/atom+xml","href":"http://babel.hathitrust.org/cgi/htd/volume/meta/loc.ark:/13960/t4wh30v9t"},{"href":"http://babel.hathitrust.org/cgi/pt?id=loc.ark:/13960/t4wh30v9t","rel":"http://schemas.hathitrust.org/htd/2009#pageturner","type":"text/html"},{"href":"http://hdl.handle.net/2027/loc.ark:/13960/t4wh30v9t","type":"text/html","rel":"http://schemas.hathitrust.org/htd/2009#handle"},{"rel":"http://schemas.hathitrust.org/htd/2009#volume_pagemeta","type":"application/atom+xml","href":"http://babel.hathitrust.org/cgi/htd/volume/pagemeta/:SEQ"},{"type":"application/pdf","rel":"http://schemas.hathitrust.org/htd/2009#volume","href":"https://babel.hathitrust.org/cgi/htd/volume/loc.ark:/13960/t4wh30v9t"},{"href":"http://babel.hathitrust.org/cgi/htd/aggregate/loc.ark:/13960/t4wh30v9t","rel":"http://schemas.hathitrust.org/htd/2009#aggregate","type":"application/zip"},{"href":"http://babel.hathitrust.org/cgi/htd/structure/loc.ark:/13960/t4wh30v9t","type":"text/xml","rel":"http://schemas.hathitrust.org/htd/2009#structure"}],"htd:access":[{"resource":"volume/pageocr","content":"http://schemas.hathitrust.org/htd/2009#open"},{"content":"http://schemas.hathitrust.org/htd/2009#open","resource":"volume/pagecoordocr"},{"resource":"volume/pageimage","content":"http://schemas.hathitrust.org/htd/2009#open"},{"resource":"volume","content":"http://schemas.hathitrust.org/htd/2009#restricted"},{"resource":"aggregate","content":"http://schemas.hathitrust.org/htd/2009#open"}],"id":"http://babel.hathitrust.org/cgi/htd/volume/meta/loc.ark:/13960/t4wh30v9t","title":"HathiTrust
-        Repository Data API - Volume metadata","htd:seqmap":[{"htd:seq":[{"htd:imgfmt":"image/jp2","htd:pnum":{},"htd:pfeat":["RIGHT","COVER"],"pseq":"1"},{"pseq":"2","htd:imgfmt":"image/jp2","htd:pfeat":"LEFT","htd:pnum":{}},{"pseq":"3","htd:imgfmt":"image/jp2","htd:pfeat":"RIGHT","htd:pnum":{}},{"pseq":"4","htd:imgfmt":"image/jp2","htd:pfeat":"LEFT","htd:pnum":{}},{"pseq":"5","htd:imgfmt":"image/jp2","htd:pnum":{},"htd:pfeat":["RIGHT","TITLE"]},{"htd:pnum":{},"htd:pfeat":["LEFT","COPYRIGHT"],"htd:imgfmt":"image/jp2","pseq":"6"},{"htd:imgfmt":"image/jp2","htd:pnum":{},"htd:pfeat":"RIGHT","pseq":"7"},{"htd:pnum":"4","htd:pfeat":"LEFT","htd:imgfmt":"image/jp2","pseq":"8"},{"htd:imgfmt":"image/jp2","htd:pfeat":"RIGHT","htd:pnum":"5","pseq":"9"},{"pseq":"10","htd:imgfmt":"image/jp2","htd:pnum":"6","htd:pfeat":"LEFT"},{"pseq":"11","htd:imgfmt":"image/jp2","htd:pfeat":"RIGHT","htd:pnum":"7"},{"htd:imgfmt":"image/jp2","htd:pfeat":"LEFT","htd:pnum":{},"pseq":"12"},{"pseq":"13","htd:imgfmt":"image/jp2","htd:pfeat":"RIGHT","htd:pnum":{}},{"pseq":"14","htd:pnum":{},"htd:pfeat":"LEFT","htd:imgfmt":"image/jp2"},{"htd:imgfmt":"image/jp2","htd:pnum":{},"htd:pfeat":"RIGHT","pseq":"15"},{"pseq":"16","htd:pfeat":["LEFT","COVER"],"htd:pnum":{},"htd:imgfmt":"image/jp2"}]}],"xmlns:htd":"http://schemas.hathitrust.org/htd/2009","htd:numpages":"16","htd:version":"2","updated":"2016-11-10T14:02:26.549-0500","htd:access_use_statement":"We
+      string: '{"id":"http://babel.hathitrust.org/cgi/htd/volume/meta/loc.ark:/13960/t4wh30v9t","updated":"2017-01-13T15:48:22.342-0500","htd:version":"2","link":[{"type":"application/atom+xml","rel":"self","href":"http://babel.hathitrust.org/cgi/htd/volume/meta/loc.ark:/13960/t4wh30v9t"},{"type":"text/html","href":"http://babel.hathitrust.org/cgi/pt?id=loc.ark:/13960/t4wh30v9t","rel":"http://schemas.hathitrust.org/htd/2009#pageturner"},{"type":"text/html","href":"http://hdl.handle.net/2027/loc.ark:/13960/t4wh30v9t","rel":"http://schemas.hathitrust.org/htd/2009#handle"},{"href":"http://babel.hathitrust.org/cgi/htd/volume/pagemeta/:SEQ","rel":"http://schemas.hathitrust.org/htd/2009#volume_pagemeta","type":"application/atom+xml"},{"type":"application/pdf","rel":"http://schemas.hathitrust.org/htd/2009#volume","href":"https://babel.hathitrust.org/cgi/htd/volume/loc.ark:/13960/t4wh30v9t"},{"rel":"http://schemas.hathitrust.org/htd/2009#aggregate","href":"http://babel.hathitrust.org/cgi/htd/aggregate/loc.ark:/13960/t4wh30v9t","type":"application/zip"},{"href":"http://babel.hathitrust.org/cgi/htd/structure/loc.ark:/13960/t4wh30v9t","rel":"http://schemas.hathitrust.org/htd/2009#structure","type":"text/xml"}],"htd:pgmap":[{"htd:pg":[{"pgnum":"","content":"1"},{"content":"2","pgnum":""},{"pgnum":"","content":"3"},{"content":"4","pgnum":""},{"pgnum":"","content":"5"},{"pgnum":"","content":"6"},{"content":"7","pgnum":""},{"pgnum":"4","content":"8"},{"content":"9","pgnum":"5"},{"content":"10","pgnum":"6"},{"content":"11","pgnum":"7"},{"content":"12","pgnum":""},{"content":"13","pgnum":""},{"content":"14","pgnum":""},{"pgnum":"","content":"15"},{"pgnum":"","content":"16"}]}],"htd:rights":{"htd:id":"ark:/13960/t4wh30v9t","htd:attr":"1","htd:time":"2011-03-19T19:31:40","htd:access_profile":"1","htd:user":"timothy","htd:note":{},"htd:namespace":"loc","htd:reason":"1"},"htd:access":[{"content":"http://schemas.hathitrust.org/htd/2009#open","resource":"volume/pageocr"},{"content":"http://schemas.hathitrust.org/htd/2009#open","resource":"volume/pagecoordocr"},{"content":"http://schemas.hathitrust.org/htd/2009#open","resource":"volume/pageimage"},{"resource":"volume","content":"http://schemas.hathitrust.org/htd/2009#restricted"},{"content":"http://schemas.hathitrust.org/htd/2009#open","resource":"aggregate"}],"htd:numpages":"16","xmlns:htd":"http://schemas.hathitrust.org/htd/2009","xmlns":"http://www.w3.org/2005/Atom","htd:seqmap":[{"htd:seq":[{"htd:pnum":{},"pseq":"1","htd:pfeat":["RIGHT","COVER"],"htd:imgfmt":"image/jp2"},{"htd:imgfmt":"image/jp2","htd:pnum":{},"pseq":"2","htd:pfeat":"LEFT"},{"htd:imgfmt":"image/jp2","htd:pfeat":"RIGHT","pseq":"3","htd:pnum":{}},{"htd:imgfmt":"image/jp2","pseq":"4","htd:pnum":{},"htd:pfeat":"LEFT"},{"htd:pnum":{},"pseq":"5","htd:pfeat":["RIGHT","TITLE"],"htd:imgfmt":"image/jp2"},{"pseq":"6","htd:pnum":{},"htd:pfeat":["LEFT","COPYRIGHT"],"htd:imgfmt":"image/jp2"},{"htd:imgfmt":"image/jp2","htd:pfeat":"RIGHT","htd:pnum":{},"pseq":"7"},{"htd:imgfmt":"image/jp2","htd:pnum":"4","pseq":"8","htd:pfeat":"LEFT"},{"htd:pfeat":"RIGHT","htd:pnum":"5","pseq":"9","htd:imgfmt":"image/jp2"},{"htd:imgfmt":"image/jp2","htd:pnum":"6","pseq":"10","htd:pfeat":"LEFT"},{"htd:pnum":"7","pseq":"11","htd:pfeat":"RIGHT","htd:imgfmt":"image/jp2"},{"htd:pnum":{},"pseq":"12","htd:pfeat":"LEFT","htd:imgfmt":"image/jp2"},{"pseq":"13","htd:pnum":{},"htd:pfeat":"RIGHT","htd:imgfmt":"image/jp2"},{"pseq":"14","htd:pnum":{},"htd:pfeat":"LEFT","htd:imgfmt":"image/jp2"},{"htd:imgfmt":"image/jp2","htd:pfeat":"RIGHT","htd:pnum":{},"pseq":"15"},{"htd:imgfmt":"image/jp2","pseq":"16","htd:pnum":{},"htd:pfeat":["LEFT","COVER"]}]}],"htd:access_use_statement":"We
         have determined this work to be in the public domain, meaning that it is not
         subject to copyright. Users are free to copy, use, and redistribute the work
         in part or in whole. It is possible that current copyright holders, heirs
         or the estate of the authors of individual portions of the work, such as illustrations
         or photographs, assert copyrights over these portions. Depending on the nature
         of subsequent use that is made, additional rights may need to be obtained
-        independently of anything we can address.","htd:access_use":"http://schemas.hathitrust.org/htd/2009#pd"}'
+        independently of anything we can address.","title":"HathiTrust Repository
+        Data API - Volume metadata","htd:access_use":"http://schemas.hathitrust.org/htd/2009#pd"}'
     http_version: 
-  recorded_at: Thu, 10 Nov 2016 19:02:12 GMT
+  recorded_at: Fri, 13 Jan 2017 20:48:22 GMT
 - request:
     method: get
-    uri: https://babel.hathitrust.org/cgi/htd/volume/pageimage/loc.ark:/13960/t4wh30v9t/5?format=jpeg&oauth_consumer_key=2e58dda467&oauth_nonce=fPb7pXro0YiPGBdSXpB6jlBUOHPp9CN84crT9W20&oauth_signature=yirAnbKxkoYYL6oOmY2U6LR4PMc=&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1478804532&oauth_version=1.0&res=2&v=2
+    uri: https://babel.hathitrust.org/cgi/htd/volume/pageimage/loc.ark:/13960/t4wh30v9t/5?format=jpeg&oauth_consumer_key=2e58dda467&oauth_nonce=iqzH1wh6erjfo3FBY83MYt091EAu6gNecQR4wsU&oauth_signature=bGf9pcGfp3lXv9b6tNCXtWzmJPs=&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1484340502&oauth_version=1.0&res=2&v=2
     body:
       encoding: US-ASCII
       string: ''
@@ -79,25 +75,27 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 10 Nov 2016 19:02:26 GMT
+      - Fri, 13 Jan 2017 20:48:22 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Content-Disposition:
       - filename=loc.ark:/13960/t4wh30v9t.jpeg
       X-Hathitrust-Notice:
       - Please view access and use restrictions at http://www.hathitrust.org/access_use#pd
-      X-Choke-Credit:
-      - '1'
       X-Choke-Rate:
       - 50 requests / 30 sec
+      X-Choke-Max:
+      - '50'
       X-Choke-Delta:
-      - '2'
+      - '1'
+      X-Choke-Credit:
+      - '0.5'
       X-Choke:
       - requests
       X-Choke-Now:
-      - '2016-11-10 14:02:27'
-      X-Choke-Max:
-      - '50'
+      - '2017-01-13 15:48:22'
+      X-Choke-Debt:
+      - '0.5'
       X-Choke-Allowed:
       - '1'
       Transfer-Encoding:
@@ -105,8 +103,8 @@ http_interactions:
       Content-Type:
       - image/jpeg
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a42378b;expires=Thu, 10-Nov-2016
-        19:12:14 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a42378b;expires=Fri, 13-Jan-2017
+        20:57:03 GMT;path=/;httponly
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -1699,5 +1697,5 @@ http_interactions:
         MinBJ7kDiqVi7sh3MT+97n/axVu3ZjchSxIMeSCe+OtCRL0SHrcxykNGhxt4
         z1PX/GiliAFqrgYOMZ9sHiimNXR//9k=
     http_version: 
-  recorded_at: Thu, 10 Nov 2016 19:02:14 GMT
+  recorded_at: Fri, 13 Jan 2017 20:48:24 GMT
 recorded_with: VCR 3.0.3

@@ -15,7 +15,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 22 Sep 2016 18:28:04 GMT
+      - Fri, 13 Jan 2017 20:48:18 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Transfer-Encoding:
@@ -24,15 +24,23 @@ http_interactions:
       - keep-alive
       Keep-Alive:
       - timeout=15
-      Server:
-      - nginx/1.4.6 (Ubuntu)
+      Vary:
+      - Accept-Encoding
+      X-Ratelimit-Limit:
+      - '800'
+      X-Ratelimit-Remaining:
+      - '733'
+      X-Ratelimit-Reset:
+      - '1484340499'
       Last-Modified:
-      - Thu, 22 Sep 2016 13:57:51 GMT
+      - Fri, 13 Jan 2017 20:13:47 GMT
+      Server:
+      - Jetty(9.3.10.v20160621)
       Access-Control-Allow-Origin:
       - "*"
     body:
       encoding: UTF-8
-      string: '{"created":"2016-09-22T13:57:51.401Z","count":7,"offset":0,"releases":[{"id":"740a2832-8325-335e-9005-b80cdc31108b","score":"100","count":1,"title":"Under
+      string: '{"created":"2017-01-13T20:13:47.106Z","count":7,"offset":0,"releases":[{"id":"740a2832-8325-335e-9005-b80cdc31108b","score":"100","count":1,"title":"Under
         the Table and Dreaming","status":"Official","text-representation":{"language":"eng","script":"Latn"},"artist-credit":[{"artist":{"id":"07e748f1-075e-428d-85dc-ce3be434e906","name":"Dave
         Matthews Band","sort-name":"Matthews, Dave, Band","aliases":[{"sort-name":"dave
         mathews band","name":"dave mathews band","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null},{"sort-name":"Dave
@@ -64,17 +72,7 @@ http_interactions:
         Band, Dave","name":"Matthews Band, Dave","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null},{"sort-name":"The
         Dave Matthews Band","name":"The Dave Matthews Band","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null}]}}],"release-group":{"id":"b080cf2f-fbd2-3f6c-82ff-d30314464ac7","primary-type":"Album"},"date":"1994-09-27","country":"US","release-events":[{"date":"1994-09-27","area":{"id":"489ce91b-6658-3307-9877-795b68554c98","name":"United
         States","sort-name":"United States","iso-3166-1-codes":["US"]}}],"barcode":"078636644929","asin":"B000002WQS","label-info":[{"catalog-number":"07863-66449-2","label":{"id":"1ca5ed29-e00b-4ea5-b817-0bcca0e04946","name":"RCA"}},{"catalog-number":"BG
-        66449","label":{"id":"1ca5ed29-e00b-4ea5-b817-0bcca0e04946","name":"RCA"}}],"track-count":34,"media":[{"format":"CD","disc-count":9,"track-count":34}],"tags":[{"count":1,"name":"rock"},{"count":1,"name":"alternative"}]},{"id":"c46205bc-adb2-48d8-8e8e-b05e54109c86","score":"100","count":2,"title":"Under
-        the Table and Dreaming","status":"Official","disambiguation":"remaster, mispress","packaging":"Gatefold
-        Cover","text-representation":{"language":"eng","script":"Latn"},"artist-credit":[{"artist":{"id":"07e748f1-075e-428d-85dc-ce3be434e906","name":"Dave
-        Matthews Band","sort-name":"Matthews, Dave, Band","aliases":[{"sort-name":"dave
-        mathews band","name":"dave mathews band","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null},{"sort-name":"Dave
-        Mattews Band","name":"Dave Mattews Band","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null},{"sort-name":"dmb","name":"dmb","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null},{"sort-name":"Matthews
-        Band, Dave","name":"Matthews Band, Dave","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null},{"sort-name":"The
-        Dave Matthews Band","name":"The Dave Matthews Band","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null}]}}],"release-group":{"id":"b080cf2f-fbd2-3f6c-82ff-d30314464ac7","primary-type":"Album"},"date":"2014-11-21","country":"US","release-events":[{"date":"2014-11-21","area":{"id":"489ce91b-6658-3307-9877-795b68554c98","name":"United
-        States","sort-name":"United States","iso-3166-1-codes":["US"]}}],"barcode":"888750096319","label-info":[{"catalog-number":"888750096319","label":{"id":"d434a4ad-f604-499f-b608-4272a7f762e5","name":"Bama
-        Rags Records"}}],"track-count":12,"media":[{"format":"12\" Vinyl","disc-count":0,"track-count":6},{"format":"12\"
-        Vinyl","disc-count":0,"track-count":6}]},{"id":"99965899-a58e-4514-b7b1-e0c5ba9caaf2","score":"100","count":1,"title":"Under
+        66449","label":{"id":"1ca5ed29-e00b-4ea5-b817-0bcca0e04946","name":"RCA"}}],"track-count":34,"media":[{"format":"CD","disc-count":9,"track-count":34}],"tags":[{"count":1,"name":"rock"},{"count":1,"name":"alternative"}]},{"id":"99965899-a58e-4514-b7b1-e0c5ba9caaf2","score":"100","count":1,"title":"Under
         The Table And Dreaming","status":"Official","packaging":"Jewel Case","artist-credit":[{"artist":{"id":"07e748f1-075e-428d-85dc-ce3be434e906","name":"Dave
         Matthews Band","sort-name":"Matthews, Dave, Band","aliases":[{"sort-name":"dave
         mathews band","name":"dave mathews band","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null},{"sort-name":"Dave
@@ -90,9 +88,19 @@ http_interactions:
         Mattews Band","name":"Dave Mattews Band","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null},{"sort-name":"dmb","name":"dmb","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null},{"sort-name":"Matthews
         Band, Dave","name":"Matthews Band, Dave","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null},{"sort-name":"The
         Dave Matthews Band","name":"The Dave Matthews Band","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null}]}}],"release-group":{"id":"b080cf2f-fbd2-3f6c-82ff-d30314464ac7","primary-type":"Album"},"date":"1994","country":"XE","release-events":[{"date":"1994","area":{"id":"89a675c2-3e37-3518-b83c-418bad59a85a","name":"Europe","sort-name":"Europe","iso-3166-1-codes":["XE"]}}],"barcode":"078636644929","label-info":[{"catalog-number":"07863
-        66449-2","label":{"id":"1ca5ed29-e00b-4ea5-b817-0bcca0e04946","name":"RCA"}}],"track-count":34,"media":[{"format":"CD","disc-count":0,"track-count":34}]}]}'
+        66449-2","label":{"id":"1ca5ed29-e00b-4ea5-b817-0bcca0e04946","name":"RCA"}}],"track-count":34,"media":[{"format":"CD","disc-count":0,"track-count":34}]},{"id":"c46205bc-adb2-48d8-8e8e-b05e54109c86","score":"100","count":2,"title":"Under
+        the Table and Dreaming","status":"Official","disambiguation":"remaster, mispress","packaging":"Gatefold
+        Cover","text-representation":{"language":"eng","script":"Latn"},"artist-credit":[{"artist":{"id":"07e748f1-075e-428d-85dc-ce3be434e906","name":"Dave
+        Matthews Band","sort-name":"Matthews, Dave, Band","aliases":[{"sort-name":"dave
+        mathews band","name":"dave mathews band","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null},{"sort-name":"Dave
+        Mattews Band","name":"Dave Mattews Band","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null},{"sort-name":"dmb","name":"dmb","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null},{"sort-name":"Matthews
+        Band, Dave","name":"Matthews Band, Dave","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null},{"sort-name":"The
+        Dave Matthews Band","name":"The Dave Matthews Band","locale":null,"type":null,"primary":null,"begin-date":null,"end-date":null}]}}],"release-group":{"id":"b080cf2f-fbd2-3f6c-82ff-d30314464ac7","primary-type":"Album"},"date":"2014-11-21","country":"US","release-events":[{"date":"2014-11-21","area":{"id":"489ce91b-6658-3307-9877-795b68554c98","name":"United
+        States","sort-name":"United States","iso-3166-1-codes":["US"]}}],"barcode":"888750096319","label-info":[{"catalog-number":"888750096319","label":{"id":"d434a4ad-f604-499f-b608-4272a7f762e5","name":"Bama
+        Rags Records"}}],"track-count":12,"media":[{"format":"12\" Vinyl","disc-count":0,"track-count":6},{"format":"12\"
+        Vinyl","disc-count":0,"track-count":6}]}]}'
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:28:04 GMT
+  recorded_at: Fri, 13 Jan 2017 20:48:18 GMT
 - request:
     method: get
     uri: http://coverartarchive.org/release/740a2832-8325-335e-9005-b80cdc31108b
@@ -106,7 +114,7 @@ http_interactions:
       message: TEMPORARY REDIRECT
     headers:
       Date:
-      - Thu, 22 Sep 2016 18:28:05 GMT
+      - Fri, 13 Jan 2017 20:48:18 GMT
       Content-Type:
       - text/plain; charset=utf-8
       Content-Length:
@@ -120,14 +128,14 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Server:
-      - pino
+      - d6446ea62189
     body:
       encoding: UTF-8
       string: 'See: http://archive.org/download/mbid-740a2832-8325-335e-9005-b80cdc31108b/index.json
 
 '
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:28:05 GMT
+  recorded_at: Fri, 13 Jan 2017 20:48:18 GMT
 - request:
     method: get
     uri: http://archive.org/download/mbid-740a2832-8325-335e-9005-b80cdc31108b/index.json
@@ -143,7 +151,7 @@ http_interactions:
       Server:
       - nginx/1.4.6 (Ubuntu)
       Date:
-      - Thu, 22 Sep 2016 18:28:05 GMT
+      - Fri, 13 Jan 2017 20:48:18 GMT
       Content-Type:
       - text/html; charset=UTF-8
       Transfer-Encoding:
@@ -151,7 +159,7 @@ http_interactions:
       Connection:
       - keep-alive
       X-Powered-By:
-      - PHP/5.5.9-1ubuntu4.19
+      - PHP/5.5.9-1ubuntu4.20
       Accept-Ranges:
       - bytes
       Location:
@@ -160,7 +168,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:28:05 GMT
+  recorded_at: Fri, 13 Jan 2017 20:48:18 GMT
 - request:
     method: get
     uri: http://ia800301.us.archive.org/26/items/mbid-740a2832-8325-335e-9005-b80cdc31108b/index.json
@@ -176,7 +184,7 @@ http_interactions:
       Server:
       - nginx/1.4.6 (Ubuntu)
       Date:
-      - Thu, 22 Sep 2016 18:28:05 GMT
+      - Fri, 13 Jan 2017 20:48:19 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -188,7 +196,7 @@ http_interactions:
       Etag:
       - '"502819a4-203"'
       Expires:
-      - Fri, 23 Sep 2016 00:28:05 GMT
+      - Sat, 14 Jan 2017 02:48:19 GMT
       Cache-Control:
       - max-age=21600
       Accept-Ranges:
@@ -197,7 +205,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"images":[{"types":["Front"],"front":true,"back":false,"edit":18536899,"image":"http://coverartarchive.org/release/740a2832-8325-335e-9005-b80cdc31108b/1606516577.jpg","comment":"","approved":true,"thumbnails":{"large":"http://coverartarchive.org/release/740a2832-8325-335e-9005-b80cdc31108b/1606516577-500.jpg","small":"http://coverartarchive.org/release/740a2832-8325-335e-9005-b80cdc31108b/1606516577-250.jpg"},"id":"1606516577"}],"release":"http://musicbrainz.org/release/740a2832-8325-335e-9005-b80cdc31108b"}'
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:28:05 GMT
+  recorded_at: Fri, 13 Jan 2017 20:48:19 GMT
 - request:
     method: get
     uri: http://coverartarchive.org/release/740a2832-8325-335e-9005-b80cdc31108b/1606516577.jpg
@@ -217,7 +225,7 @@ http_interactions:
       message: TEMPORARY REDIRECT
     headers:
       Date:
-      - Thu, 22 Sep 2016 18:28:05 GMT
+      - Fri, 13 Jan 2017 20:48:19 GMT
       Content-Type:
       - text/plain; charset=utf-8
       Content-Length:
@@ -231,14 +239,14 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Server:
-      - pino
+      - d8b8a8eb2a2a
     body:
       encoding: UTF-8
       string: 'See: http://archive.org/download/mbid-740a2832-8325-335e-9005-b80cdc31108b/mbid-740a2832-8325-335e-9005-b80cdc31108b-1606516577.jpg
 
 '
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:28:05 GMT
+  recorded_at: Fri, 13 Jan 2017 20:48:19 GMT
 - request:
     method: get
     uri: http://archive.org/download/mbid-740a2832-8325-335e-9005-b80cdc31108b/mbid-740a2832-8325-335e-9005-b80cdc31108b-1606516577.jpg
@@ -260,7 +268,7 @@ http_interactions:
       Server:
       - nginx/1.4.6 (Ubuntu)
       Date:
-      - Thu, 22 Sep 2016 18:28:05 GMT
+      - Fri, 13 Jan 2017 20:48:19 GMT
       Content-Type:
       - image/jpeg
       Transfer-Encoding:
@@ -268,7 +276,7 @@ http_interactions:
       Connection:
       - keep-alive
       X-Powered-By:
-      - PHP/5.5.9-1ubuntu4.19
+      - PHP/5.5.9-1ubuntu4.20
       Accept-Ranges:
       - bytes
       Location:
@@ -277,7 +285,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:28:05 GMT
+  recorded_at: Fri, 13 Jan 2017 20:48:19 GMT
 - request:
     method: get
     uri: http://ia800301.us.archive.org/26/items/mbid-740a2832-8325-335e-9005-b80cdc31108b/mbid-740a2832-8325-335e-9005-b80cdc31108b-1606516577.jpg
@@ -299,7 +307,7 @@ http_interactions:
       Server:
       - nginx/1.4.6 (Ubuntu)
       Date:
-      - Thu, 22 Sep 2016 18:28:05 GMT
+      - Fri, 13 Jan 2017 20:48:19 GMT
       Content-Type:
       - image/jpeg
       Content-Length:
@@ -311,7 +319,7 @@ http_interactions:
       Etag:
       - '"50159e60-f105"'
       Expires:
-      - Fri, 23 Sep 2016 00:28:05 GMT
+      - Sat, 14 Jan 2017 02:48:19 GMT
       Cache-Control:
       - max-age=21600
       Accept-Ranges:
@@ -1692,5 +1700,5 @@ http_interactions:
         dSMmNpxkZr0mFYRRNcy5PiP7NGwGkitbp13dKPJJSNDO5Xk+X9qDDtwTdyWb
         8aiav//Z
     http_version: 
-  recorded_at: Thu, 22 Sep 2016 18:28:06 GMT
+  recorded_at: Fri, 13 Jan 2017 20:48:19 GMT
 recorded_with: VCR 3.0.3
