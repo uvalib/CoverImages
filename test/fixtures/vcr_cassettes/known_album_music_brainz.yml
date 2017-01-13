@@ -15,7 +15,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 13 Jan 2017 20:48:18 GMT
+      - Fri, 13 Jan 2017 21:03:11 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Transfer-Encoding:
@@ -29,9 +29,9 @@ http_interactions:
       X-Ratelimit-Limit:
       - '800'
       X-Ratelimit-Remaining:
-      - '733'
+      - '227'
       X-Ratelimit-Reset:
-      - '1484340499'
+      - '1484341391'
       Last-Modified:
       - Fri, 13 Jan 2017 20:13:47 GMT
       Server:
@@ -100,7 +100,7 @@ http_interactions:
         Rags Records"}}],"track-count":12,"media":[{"format":"12\" Vinyl","disc-count":0,"track-count":6},{"format":"12\"
         Vinyl","disc-count":0,"track-count":6}]}]}'
     http_version: 
-  recorded_at: Fri, 13 Jan 2017 20:48:18 GMT
+  recorded_at: Fri, 13 Jan 2017 21:03:11 GMT
 - request:
     method: get
     uri: http://coverartarchive.org/release/740a2832-8325-335e-9005-b80cdc31108b
@@ -114,7 +114,7 @@ http_interactions:
       message: TEMPORARY REDIRECT
     headers:
       Date:
-      - Fri, 13 Jan 2017 20:48:18 GMT
+      - Fri, 13 Jan 2017 21:03:11 GMT
       Content-Type:
       - text/plain; charset=utf-8
       Content-Length:
@@ -135,7 +135,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Fri, 13 Jan 2017 20:48:18 GMT
+  recorded_at: Fri, 13 Jan 2017 21:03:11 GMT
 - request:
     method: get
     uri: http://archive.org/download/mbid-740a2832-8325-335e-9005-b80cdc31108b/index.json
@@ -151,7 +151,7 @@ http_interactions:
       Server:
       - nginx/1.4.6 (Ubuntu)
       Date:
-      - Fri, 13 Jan 2017 20:48:18 GMT
+      - Fri, 13 Jan 2017 21:03:12 GMT
       Content-Type:
       - text/html; charset=UTF-8
       Transfer-Encoding:
@@ -168,7 +168,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Fri, 13 Jan 2017 20:48:18 GMT
+  recorded_at: Fri, 13 Jan 2017 21:03:12 GMT
 - request:
     method: get
     uri: http://ia800301.us.archive.org/26/items/mbid-740a2832-8325-335e-9005-b80cdc31108b/index.json
@@ -184,7 +184,7 @@ http_interactions:
       Server:
       - nginx/1.4.6 (Ubuntu)
       Date:
-      - Fri, 13 Jan 2017 20:48:19 GMT
+      - Fri, 13 Jan 2017 21:03:12 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -196,7 +196,7 @@ http_interactions:
       Etag:
       - '"502819a4-203"'
       Expires:
-      - Sat, 14 Jan 2017 02:48:19 GMT
+      - Sat, 14 Jan 2017 03:03:12 GMT
       Cache-Control:
       - max-age=21600
       Accept-Ranges:
@@ -205,7 +205,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"images":[{"types":["Front"],"front":true,"back":false,"edit":18536899,"image":"http://coverartarchive.org/release/740a2832-8325-335e-9005-b80cdc31108b/1606516577.jpg","comment":"","approved":true,"thumbnails":{"large":"http://coverartarchive.org/release/740a2832-8325-335e-9005-b80cdc31108b/1606516577-500.jpg","small":"http://coverartarchive.org/release/740a2832-8325-335e-9005-b80cdc31108b/1606516577-250.jpg"},"id":"1606516577"}],"release":"http://musicbrainz.org/release/740a2832-8325-335e-9005-b80cdc31108b"}'
     http_version: 
-  recorded_at: Fri, 13 Jan 2017 20:48:19 GMT
+  recorded_at: Fri, 13 Jan 2017 21:03:12 GMT
 - request:
     method: get
     uri: http://coverartarchive.org/release/740a2832-8325-335e-9005-b80cdc31108b/1606516577.jpg
@@ -225,7 +225,7 @@ http_interactions:
       message: TEMPORARY REDIRECT
     headers:
       Date:
-      - Fri, 13 Jan 2017 20:48:19 GMT
+      - Fri, 13 Jan 2017 21:03:12 GMT
       Content-Type:
       - text/plain; charset=utf-8
       Content-Length:
@@ -239,14 +239,14 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Server:
-      - d8b8a8eb2a2a
+      - 4b4c084fb141
     body:
       encoding: UTF-8
       string: 'See: http://archive.org/download/mbid-740a2832-8325-335e-9005-b80cdc31108b/mbid-740a2832-8325-335e-9005-b80cdc31108b-1606516577.jpg
 
 '
     http_version: 
-  recorded_at: Fri, 13 Jan 2017 20:48:19 GMT
+  recorded_at: Fri, 13 Jan 2017 21:03:12 GMT
 - request:
     method: get
     uri: http://archive.org/download/mbid-740a2832-8325-335e-9005-b80cdc31108b/mbid-740a2832-8325-335e-9005-b80cdc31108b-1606516577.jpg
@@ -268,7 +268,7 @@ http_interactions:
       Server:
       - nginx/1.4.6 (Ubuntu)
       Date:
-      - Fri, 13 Jan 2017 20:48:19 GMT
+      - Fri, 13 Jan 2017 21:03:12 GMT
       Content-Type:
       - image/jpeg
       Transfer-Encoding:
@@ -285,7 +285,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Fri, 13 Jan 2017 20:48:19 GMT
+  recorded_at: Fri, 13 Jan 2017 21:03:13 GMT
 - request:
     method: get
     uri: http://ia800301.us.archive.org/26/items/mbid-740a2832-8325-335e-9005-b80cdc31108b/mbid-740a2832-8325-335e-9005-b80cdc31108b-1606516577.jpg
@@ -307,7 +307,7 @@ http_interactions:
       Server:
       - nginx/1.4.6 (Ubuntu)
       Date:
-      - Fri, 13 Jan 2017 20:48:19 GMT
+      - Fri, 13 Jan 2017 21:03:13 GMT
       Content-Type:
       - image/jpeg
       Content-Length:
@@ -319,7 +319,7 @@ http_interactions:
       Etag:
       - '"50159e60-f105"'
       Expires:
-      - Sat, 14 Jan 2017 02:48:19 GMT
+      - Sat, 14 Jan 2017 03:03:13 GMT
       Cache-Control:
       - max-age=21600
       Accept-Ranges:
@@ -1700,5 +1700,5 @@ http_interactions:
         dSMmNpxkZr0mFYRRNcy5PiP7NGwGkitbp13dKPJJSNDO5Xk+X9qDDtwTdyWb
         8aiav//Z
     http_version: 
-  recorded_at: Fri, 13 Jan 2017 20:48:19 GMT
+  recorded_at: Fri, 13 Jan 2017 21:03:13 GMT
 recorded_with: VCR 3.0.3

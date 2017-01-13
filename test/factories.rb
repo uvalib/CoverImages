@@ -26,7 +26,7 @@ FactoryGirl.define do
       book
       doc_id  'u2243358'
       title   'The giver'
-      isbn    '0395645662'
+      isbn    '0395645662 1234'
     end
 
     factory :known_hathi_trust do
