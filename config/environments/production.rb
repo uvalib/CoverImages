@@ -83,7 +83,7 @@ Rails.application.configure do
   # Configure cors headers
   config.middleware.insert_before 0, Rack::Cors do
     allow do
-      origins ENV['CORS_ALLOW_URLS'].to_s
+      origins /\/\/*\.lib\.virginia\.edu/, ENV['CORS_ALLOW_URLS'].to_s
       resource '/cover_images/*', headers: :any, methods: [:get]
     end
   end
