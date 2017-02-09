@@ -18,6 +18,7 @@ module Scraper
     if (
         self.last_search.nil? ||
         self.last_search < (DateTime.current - LOOKUP_LIMIT) ||
+        self.status == 'unprocessed'
         force_reprocess
        ) &&
        !self.locked
