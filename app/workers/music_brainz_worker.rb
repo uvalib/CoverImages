@@ -1,6 +1,6 @@
 # Music Brainz Worker
 class MusicBrainzWorker < ApplicationWorker
-  sidekiq_options throttle: {threshold: 5, period: 1.second, retry: false}
+  sidekiq_options throttle: {threshold: 5, period: 1.second}, retry: false
 
   SEARCH_URL = 'http://musicbrainz.org/ws/2/release'.freeze
   COVER_ART_URL = '//coverartarchive.org/release'.freeze
@@ -21,8 +21,7 @@ class MusicBrainzWorker < ApplicationWorker
     end
 
   rescue StandardError => e
-    @cover_image.update(status: 'error', response_data: e)
-    sleep(SLEEP_TIME)
+    @cover_image.update(status: 'error', response_data: e) if @cover_image
     LastFMWorker.perform_async(cover_image_id)
 
     raise e

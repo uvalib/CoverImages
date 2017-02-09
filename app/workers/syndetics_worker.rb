@@ -47,7 +47,7 @@ class SyndeticsWorker < ApplicationWorker
     end
 
   rescue StandardError => e
-    @cover_image.update status: 'error', response_data: e
+    @cover_image.update(status: 'error', response_data: e) if @cover_image
 
     OpenLibraryWorker.perform_async(cover_image_id)
     raise e

@@ -38,7 +38,7 @@ class GoogleWorker < ApplicationWorker
     end
 
   rescue StandardError => e
-    @cover_image.update status: 'error'
+    @cover_image.update(status: 'error', response_data: e) if @cover_image
     SyndeticsWorker.perform_async(cover_image_id)
     raise e
 
