@@ -82,7 +82,7 @@ class CoverImage < ApplicationRecord
     name = nil
     # self.id may not exist here, but doc_id is always
     # required to get this far
-    stable_num = self.doc_id.hash
+    stable_num = self.doc_id.to_i(36)
     if doc_type == 'music'
       ind = stable_num % DEFAULT_MUSIC_LEN
       name = DEFAULT_MUSIC[ind]
