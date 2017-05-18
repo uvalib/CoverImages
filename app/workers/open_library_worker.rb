@@ -42,7 +42,7 @@ class OpenLibraryWorker < ApplicationWorker
     save_if_found
 
   rescue StandardError => e
-    @cover_image.update status: 'error'
+    @cover_image.update status: 'error' if @cover_image
     # end of the line
     raise e
   end
