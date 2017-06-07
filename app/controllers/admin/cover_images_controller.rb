@@ -8,8 +8,13 @@ class Admin::CoverImagesController < ApplicationController
     only: [:show, :edit, :update, :reprocess, :destroy]
 
   def index
-    @cover_images = CoverImage.search(params.dig(:cover_image, :search_term)).
-      order('created_at desc').page(params[:page]).per(20)
+    search_term = params.dig(:cover_image, :search_term)
+    if search_term.present?
+      @cover_images = CoverImage.where(doc_id: search_term)
+    else
+      @cover_images = CoverImage.all
+    end
+    @cover_images = @cover_images.order('created_at desc').page(params[:page]).per(20)
   end
 
   def new
@@ -77,9 +82,6 @@ class Admin::CoverImagesController < ApplicationController
     )
   end
 
-  def search_params
-    params.permit(:search_term)
-  end
 
   def get_cover_image
     @cover_image = CoverImage.find(params[:id])

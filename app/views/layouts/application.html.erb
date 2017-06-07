@@ -36,7 +36,7 @@
             <%= form_for :cover_image, method: :get, html: {:class => "navbar-form navbar-left"}  do |f| %>
               <div class=" input-group" style="width:200%">
                 <%= f.text_field :search_term, class: "form-control",
-                  placeholder: "Search by solr id, title, author, artist, or album",
+                  placeholder: "Search by solr id",
                   value: params.dig( :cover_image, :search_term),
                   label: false %>
                 <div class="input-group-btn">
