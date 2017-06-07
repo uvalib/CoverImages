@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108151237) do
+ActiveRecord::Schema.define(version: 20170607151618) do
 
   create_table "cover_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "doc_id"
@@ -36,7 +36,13 @@ ActiveRecord::Schema.define(version: 20161108151237) do
     t.datetime "last_search"
     t.boolean  "locked",                           default: false
     t.string   "ht_id"
+    t.string   "issn"
+    t.index ["album_name"], name: "index_cover_images_on_album_name", using: :btree
+    t.index ["artist_name"], name: "index_cover_images_on_artist_name", using: :btree
+    t.index ["created_at"], name: "index_cover_images_on_created_at", using: :btree
     t.index ["doc_id"], name: "index_cover_images_on_doc_id", using: :btree
+    t.index ["id"], name: "index_cover_images_on_id", using: :btree
+    t.index ["title"], name: "index_cover_images_on_title", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

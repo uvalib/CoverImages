@@ -16,6 +16,9 @@ class SyndeticsWorker < ApplicationWorker
     @cover_image.oclc.split.each do |oclc|
       params['oclc'.dup] = oclc
     end if @cover_image.oclc
+    @cover_image.issn.split.each do |issn|
+      params['issn'.dup] = issn
+    end if @cover_image.issn
     unless params.any?
       @cover_image.status = 'not_found'
       @cover_image.service_name = 'Syndetics'

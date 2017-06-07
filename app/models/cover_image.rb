@@ -18,7 +18,7 @@ class CoverImage < ApplicationRecord
     not_found:   'Nothing was found after searching',
     processed:   'Successfully processed, image found.'
   }.with_indifferent_access.freeze
-  IDENTIFIERS = %w(upc isbn lccn oclc ht_id).freeze
+  IDENTIFIERS = %w(upc isbn lccn oclc ht_id issn).freeze
 
   DEFAULT_BOOKS         = %w(Book-Blue.png Book-Gray.png Book-Orange.png).freeze
   DEFAULT_BOOKS_LEN     = DEFAULT_BOOKS.length.freeze

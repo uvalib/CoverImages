@@ -43,7 +43,7 @@ class CoverImagesController < ApplicationController
   def cover_image_params
     params.permit(
       :doc_type, :title,
-      :isbn, :oclc, :lccn, :upc, :mbid, :ht_id,
+      :isbn, :oclc, :lccn, :upc, :mbid, :ht_id, :issn,
       :artist_name, :album_name
     )
   end
