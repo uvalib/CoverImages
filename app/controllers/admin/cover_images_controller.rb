@@ -8,9 +8,8 @@ class Admin::CoverImagesController < ApplicationController
     only: [:show, :edit, :update, :reprocess, :destroy]
 
   def index
-    @cover_images = CoverImage.all
-      .search(params.dig(:cover_image, :search_term))
-      .page(params[:page]).per(20)
+    @cover_images = CoverImage.search(params.dig(:cover_image, :search_term)).
+      order('created_at desc').page(params[:page]).per(20)
   end
 
   def new
