@@ -24,7 +24,7 @@ class SyndeticsWorker < ApplicationWorker
       @cover_image.service_name = 'Syndetics'
       @cover_image.response_data = "No valid identifiers to search by."
       @cover_image.save
-      OpenLibraryWorker.perform_async(cover_image_id)
+      GoogleWorker.perform_async(cover_image_id)
       return
     end
 
@@ -46,13 +46,13 @@ class SyndeticsWorker < ApplicationWorker
     @cover_image.service_name = 'Syndetics'
 
     save_if_found do
-      OpenLibraryWorker.perform_async(cover_image_id)
+      GoogleWorker.perform_async(cover_image_id)
     end
 
   rescue StandardError => e
     @cover_image.update(status: 'error', response_data: e) if @cover_image
 
-    OpenLibraryWorker.perform_async(cover_image_id)
+    GoogleWorker.perform_async(cover_image_id)
     raise e
   end
 

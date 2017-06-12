@@ -34,10 +34,10 @@ module Scraper
         HathiTrustWorker.perform_async self.id
 
       else
-        GoogleWorker.perform_async self.id
+        SyndeticsWorker.perform_async self.id
 
-        # if google fails, it kicks off Syndetics
-        # if syndetics fails, it kicks off the OpenLibrary job
+        # if syndetics fails, it kicks off google
+        # if google fails, it kicks off the OpenLibrary job
       end
     end
 

@@ -34,12 +34,12 @@ class GoogleWorker < ApplicationWorker
     @cover_image.service_name = 'google'
 
     save_if_found do
-      SyndeticsWorker.perform_async(cover_image_id)
+      OpenLibraryWorker.perform_async(cover_image_id)
     end
 
   rescue StandardError => e
     @cover_image.update(status: 'error', response_data: e) if @cover_image
-    SyndeticsWorker.perform_async(cover_image_id)
+    OpenLibraryWorker.perform_async(cover_image_id)
     raise e
 
   end
