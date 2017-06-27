@@ -3,7 +3,7 @@ class MusicBrainzWorker < ApplicationWorker
   sidekiq_options throttle: {threshold: 5, period: 1.second}, retry: false
 
   SEARCH_URL = 'http://musicbrainz.org/ws/2/release'.freeze
-  COVER_ART_URL = '//coverartarchive.org/release'.freeze
+  COVER_ART_URL = 'http://coverartarchive.org/release'.freeze
 
   def perform(cover_image_id)
 
