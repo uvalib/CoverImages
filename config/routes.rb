@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :cover_images, only: [:show]
+  resources :cover_images, only: [:show], id: /.*?/, format: /[^.]+/
 
   devise_scope :user do
     get "/users/sign_up", to: redirect('/404')
