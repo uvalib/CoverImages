@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.4.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails', '~> 5.1.0', '>= 5.1.0'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 # Use Puma as the app server
@@ -86,7 +86,7 @@ group :development do
 
   gem 'rack-mini-profiler'
   gem 'web-console'
-  # gem 'listen', '~> 3.0.5'
+  gem 'listen'
   # Spring speeds up development by keeping your application running in the background.
   # Read more: https://github.com/rails/spring
   # gem 'spring'

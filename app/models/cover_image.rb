@@ -3,7 +3,7 @@ class CoverImage < ApplicationRecord
   include Scraper
 
   has_attached_file :image, styles: {thumb: 'x200^', medium: 'x500^'},
-    default_url: 'CoverUnavailable.png'
+    default_url: '/images/CoverUnavailable.png'
 
   serialize :response_data, JSON
 
