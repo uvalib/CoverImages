@@ -3,7 +3,7 @@ class CoverImage < ApplicationRecord
   include Scraper
 
   has_attached_file :image, styles: {thumb: 'x200^', medium: 'x500^'},
-    default_url: 'default_bookcover.gif'
+    default_url: 'CoverUnavailable.png'
 
   serialize :response_data, JSON
 
@@ -67,23 +67,9 @@ class CoverImage < ApplicationRecord
     end.compact.to_h
   end
 
-  # @Returns default images specific to the media type
-  # Additional media types could be added here but
-  # would require a change in the API
+  # @Returns default image
   def default_image_path
-    name = nil
-    # self.id may not exist here, but doc_id is always
-    # required to get this far
-    stable_num = self.doc_id.to_i(36)
-    if doc_type == 'music'
-      ind = stable_num % DEFAULT_MUSIC_LEN
-      name = DEFAULT_MUSIC[ind]
-    else
-      ind = stable_num % DEFAULT_BOOKS_LEN
-      name = DEFAULT_BOOKS[ind]
-    end
-
-    Rails.root.join('public', 'images', name)
+    Rails.root.join('public', 'images', 'CoverUnavailable.png')
   end
 
   private
