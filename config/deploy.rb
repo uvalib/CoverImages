@@ -1,6 +1,10 @@
 # config valid only for current version of Capistrano
 lock '~> 3.9.1'
 
+# rvm setup
+set :rvm_type, :system
+set :rvm_ruby_version, '2.4.1@coverImages'
+
 set :application, 'coverImages'
 set :repo_url, 'https://github.com/uvalib/CoverImages.git'
 set :ssh_options, forward_agent: true
@@ -50,9 +54,6 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/syst
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-# rvm setup
-set :rvm_type, :system
-set :rvm_ruby_version, '2.3.3@coverImages'
 
 #
 # before 'deploy', 'rvm1:install:rvm'
