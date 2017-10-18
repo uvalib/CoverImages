@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/nestorw/procodile-capistrano.git
-  revision: a478429cf5164db1e1ea05020fed06ddb49b3b01
+  revision: 142e1bc41a155143b4dee5d45c524b29dfb7de14
   specs:
-    procodile-capistrano (1.0.2)
+    procodile-capistrano (1.0.3)
 
 GEM
   remote: https://rubygems.org/
