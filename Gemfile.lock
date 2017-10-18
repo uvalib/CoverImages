@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/nestorw/procodile-capistrano.git
-  revision: 142e1bc41a155143b4dee5d45c524b29dfb7de14
+  revision: 24457ddb54f52f6b14ccc9e3b93bea24791acba3
   specs:
     procodile-capistrano (1.0.3)
 
