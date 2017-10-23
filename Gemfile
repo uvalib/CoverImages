@@ -50,6 +50,7 @@ gem 'devise'
 
 gem 'sidekiq'
 gem 'sidekiq-throttler'
+gem 'sidekiq-failures'
 
 gem 'ruby-progressbar'
 gem 'sentry-raven'

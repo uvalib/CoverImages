@@ -10,6 +10,8 @@ Sidekiq.configure_server do |config|
     chain.add Sidekiq::Throttler
   end
 
+  config.failures_max_count = 1000000
+
 end
 
 Sidekiq.configure_client do |config|
