@@ -96,6 +96,7 @@ Rails.application.configure do
   config.middleware.insert_before 0, Rack::Cors do
     allow do
       origins /https?:\/\/.*\.lib\.virginia\.edu:?\i*\z/,
+        ActionDispatch::Request::TRUSTED_PROXIES,
         ENV['CORS_ALLOW_URL'].to_s
       resource '/cover_images/*', headers: :any, methods: [:get]
     end
