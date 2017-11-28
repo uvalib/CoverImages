@@ -92,13 +92,4 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Configure cors headers
-  config.middleware.insert_before 0, Rack::Cors do
-    allow do
-      origins /https?:\/\/.*\.lib\.virginia\.edu:?\i*\z/,
-        ActionDispatch::Request::TRUSTED_PROXIES,
-        ENV['CORS_ALLOW_URL'].to_s
-      resource '/cover_images/*', headers: :any, methods: [:get]
-    end
-  end
 end
