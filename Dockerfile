@@ -31,6 +31,9 @@ WORKDIR $APP_HOME
 # copy the application
 ADD . $APP_HOME
 
+# add the correct configuration files
+COPY config/database.docker.yml config/database.yml
+
 # precompile the assets
 RUN RAILS_ENV=production SECRET_KEY_BASE=x rake assets:precompile
 
