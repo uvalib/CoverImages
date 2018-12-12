@@ -1,0 +1,11 @@
+tmp/*
+log/*
+.dockerignore
+.gitignore
+.git
+.idea
+.ruby-version
+.ruby-gemset
+env.*
+scripts/helpers
+scripts/docker

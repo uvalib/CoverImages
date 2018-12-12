@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# remove stale pid file
+rm -f $APP_HOME/tmp/pids/server.pid > /dev/null 2>&1
+
+# run the server
+bundle exec rails server -b 0.0.0.0 -p 3000 Puma
