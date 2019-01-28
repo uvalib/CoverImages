@@ -2,6 +2,13 @@ default: &default
   adapter: mysql2
   encoding: utf8
 
+development:
+  <<: *default
+  host: <%= ENV['DBHOST'] %>
+  database: <%= ENV['DBNAME'] %>
+  username: <%= ENV['DBUSER'] %>
+  password: <%= ENV['DBPASSWD'] %>
+
 production:
   <<: *default
   host: <%= ENV['DBHOST'] %>
