@@ -1,4 +1,4 @@
-FROM ruby:2.4
+FROM ruby:2.4.5
 
 RUN apt-get update -qq && apt-get install -y build-essential graphicsmagick-libmagick-dev-compat mysql-client
 

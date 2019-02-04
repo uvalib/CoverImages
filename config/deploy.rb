@@ -3,7 +3,7 @@ lock '~> 3.9.1'
 
 # rvm setup
 set :rvm_type, :system
-set :rvm_ruby_version, 'ruby-2.4.3@coverImages'
+set :rvm_ruby_version, 'ruby-2.4.5@coverImages'
 
 set :application, 'coverImages'
 set :repo_url, 'https://github.com/uvalib/CoverImages.git'
