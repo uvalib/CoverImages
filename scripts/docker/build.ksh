@@ -8,11 +8,11 @@ echo "building on $DOCKER_HOST"
 echo "*****************************************"
 
 # set the definitions
-INSTANCE=coverimages
+INSTANCE=cover-image-server
 NAMESPACE=uvadave
 
 # pull base image to ensure we have the latest
-#docker pull centos:7
+docker pull ruby:2.4.5
 
 # build the image
 docker build -t $NAMESPACE/$INSTANCE .

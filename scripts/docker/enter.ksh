@@ -4,7 +4,7 @@ if [ -z "$DOCKER_HOST" ]; then
 fi
 
 # set the definitions
-INSTANCE=coverimages
+INSTANCE=cover-image-server
 
 CID=$(docker ps -f name=$INSTANCE$|tail -1|awk '{print $1}')
 if [ -n "$CID" ]; then
