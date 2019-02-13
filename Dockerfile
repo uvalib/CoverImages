@@ -12,21 +12,16 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # set the locale correctly
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
-# install bundler
-RUN gem install bundler
-
-#RUN chmod 777 -R /tmp && chmod o+t -R /tmp
-
-# Copy the Gemfile and Gemfile.lock into the image.
-# Temporarily set the working directory to where they are.
-WORKDIR /tmp
-ADD Gemfile Gemfile
-ADD Gemfile.lock Gemfile.lock
-RUN bundle install
+# Add necessary gems
+RUN gem install bundler -v 1.17.3
 
 # create the work directory
 ENV APP_HOME /cover_images
 WORKDIR $APP_HOME
+
+# Copy the Gemfile and Gemfile.lock into the image.
+ADD Gemfile Gemfile.lock ./
+RUN bundle install --jobs=4 --without=["development" "test"] --no-cache
 
 # copy the application
 ADD . $APP_HOME
