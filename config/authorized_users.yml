@@ -1,8 +1,10 @@
 # development will create a and use a 'dev' user
 # capistrano will load this file from {deploy_path}/shared/config/authorized_users.yml
-# Don't commit changes here
 #
-# Example
-# -------
-- mst3k
-- test
+- naw4t
+- rwl
+- tss6n
+- rmg6f
+- dpg3k
+- xw5d
+- rh9ec
