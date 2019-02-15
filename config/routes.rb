@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   resources :cover_images, only: [:show], id: /.*?/, format: /[^.]+/
+
+  # health check and version endpoints
+  resources :healthcheck, only: [ :index ]
   resources :version, only: [ :index ]
 
   devise_scope :user do
