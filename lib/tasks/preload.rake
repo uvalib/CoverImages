@@ -17,8 +17,8 @@ namespace :preload do
     CSV.foreach(args.path, headers: true, header_converters: :symbol) do |row|
       progress.increment
       if (@statuses =~ /(error).*$|(saved)/) ||
-         row[:id].nil? ||
-         CoverImage.find_by(doc_id: row[:id]).present?
+          row[:id].nil? ||
+          CoverImage.find_by(doc_id: row[:id]).present?
         # already checked
         next
       end
@@ -42,6 +42,7 @@ namespace :preload do
       end
     end
   end
+
 
   def get_doc_type(record)
     formats = record['format_facet']
@@ -71,5 +72,29 @@ namespace :preload do
       artist_name: artist, album_name: album,
       run_lookup: true
     )
+  end
+
+  desc 'Loads locked images from source control'
+  task :locked_images, [] => :environment do |_t|
+    locked_img_dir = Rails.root.join('locked_images')
+    Dir.entries(locked_img_dir).each do |file|
+      file_path = File.join(locked_img_dir, file)
+      next unless File.file?(file_path)
+      file_name = File.basename(file, '.*')
+      c = CoverImage.find_or_initialize_by(
+        doc_id: file_name, doc_type: 'non_music', isbn: file_name, locked: true,
+        status: 'processed'
+      )
+      if c.new_record?
+        File.open(file_path) do |file_io|
+          # save the images
+          c.image = file_io
+          c.save
+        end
+        puts "#{file_name} created."
+      else
+        puts "#{file_name} exists."
+      end
+    end
   end
 end
