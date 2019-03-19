@@ -86,14 +86,15 @@ namespace :preload do
         status: 'processed'
       )
       if c.new_record?
-        File.open(file_path) do |file_io|
-          # save the images
-          c.image = file_io
-          c.save
-        end
         puts "#{file_name} created."
       else
         puts "#{file_name} exists."
+      end
+
+      File.open(file_path) do |file_io|
+        # save the images
+        c.image = file_io
+        c.save
       end
     end
   end
