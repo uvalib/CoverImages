@@ -64,6 +64,11 @@ Returns JSON. A default image is sent if the resord has not been processed yet.
 }
 ```
 
+## Cache Warming
+Certain images have been reported as incorrect and have been replaced with correct versions. 
+When starting with an empty instance of cover images run `rake preload:locked_images` this will load images from project_root/locked_images/. This can be rerun multiple times in order to get the latest changes.
+Images in locked_images/ should be named with their corresponding document id found in Virgo ex: `u333.jpg`
+
 
 ## Tests
 Rails 5 with minitest: `rails test`
