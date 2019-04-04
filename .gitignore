@@ -22,6 +22,9 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+# ignore asset files
+/public/assets/*
+
 # ignore paperclip files
 /public/system/*
 
