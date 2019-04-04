@@ -26,6 +26,9 @@ RUN bundle install --jobs=4 --without=["development" "test"] --no-cache
 # copy the application
 ADD . $APP_HOME
 
+# create the bind mount point so it has the correct permissions
+RUN mkdir $APP_HOME/public/system
+
 # add the correct configuration files
 COPY config/database.docker.yml config/database.yml
 
