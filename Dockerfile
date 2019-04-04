@@ -28,6 +28,7 @@ ADD . $APP_HOME
 
 # create the bind mount point so it has the correct permissions
 RUN mkdir $APP_HOME/public/system
+VOLUME $APP_HOME/public/system
 
 # add the correct configuration files
 COPY config/database.docker.yml config/database.yml
