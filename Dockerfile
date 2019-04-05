@@ -35,11 +35,6 @@ RUN RAILS_ENV=production SECRET_KEY_BASE=x rake assets:precompile
 # Update permissions
 RUN mkdir /home/docker && chown -R docker $APP_HOME /home/docker && chgrp -R sse $APP_HOME /home/docker
 
-# create the bind mount point so it has the correct permissions
-RUN mkdir $APP_HOME/public/system
-RUN chown -R docker:sse $APP_HOME/public/system
-VOLUME $APP_HOME/public/system
-
 # Specify the user
 USER docker
 
