@@ -43,7 +43,11 @@ EXPOSE 3000
 CMD scripts/entry.sh
 
 # Move in other assets
-COPY data/container_bash_profile /home/docker/.profile
+COPY package/data/container_bash_profile /home/docker/.profile
+
+# Add the build tag
+ARG BUILD_TAG
+RUN test -n "$BUILD_TAG" && touch $APP_HOME/buildtag.build-$BUILD_TAG || touch $APP_HOME/buildtag.build-0
 
 #
 # end of file

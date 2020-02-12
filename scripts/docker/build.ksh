@@ -11,11 +11,8 @@ echo "*****************************************"
 INSTANCE=cover-image-server
 NAMESPACE=uvadave
 
-# pull base image to ensure we have the latest
-docker pull ruby:2.4.5
-
 # build the image
-docker build -t $NAMESPACE/$INSTANCE .
+docker build -f package/Dockerfile -t $NAMESPACE/$INSTANCE .
 
 # return status
 exit $?
