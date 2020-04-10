@@ -39,7 +39,7 @@ RUN mkdir /home/docker && chown -R docker $APP_HOME /home/docker && chgrp -R sse
 USER docker
 
 # Define port and startup script
-EXPOSE 3000
+EXPOSE 8080
 CMD scripts/entry.sh
 
 # Move in other assets
