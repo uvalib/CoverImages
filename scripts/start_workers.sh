@@ -7,7 +7,7 @@
 #DIR=$(dirname $0)
 #. $DIR/common.sh
 
-bundle exec sidekiq -C config/sidekiq.yml -e production -L log/sidekiq.log
+bundle exec sidekiq -C config/sidekiq.yml -e production
 
 # never get here...
 exit 0

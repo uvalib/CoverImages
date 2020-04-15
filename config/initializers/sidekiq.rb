@@ -12,6 +12,7 @@ Sidekiq.configure_server do |config|
 
   config.failures_max_count = 1000000
 
+  config.logger.level = Logger::INFO
 end
 
 Sidekiq.configure_client do |config|
