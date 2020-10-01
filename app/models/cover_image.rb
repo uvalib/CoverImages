@@ -2,7 +2,7 @@
 class CoverImage < ApplicationRecord
   include Scraper
 
-  has_attached_file :image, styles: {thumb: 'x200^', medium: 'x500^'},
+  has_attached_file :image, styles: {thumb: 'x200^'},
     default_url: '/images/CoverUnavailable.png'
 
   serialize :response_data, JSON
@@ -10,14 +10,17 @@ class CoverImage < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   TYPES = {
-    non_music: 'Books, DVDs (not music)', music: 'Music'
+    non_music: 'Books, DVDs (not music)',
+    music: 'Music'
   }.with_indifferent_access.freeze
+
   STATUSES = {
     unprocessed: 'Has not been processed',
     error:       'There was a problem retrieving the cover image.',
     not_found:   'Nothing was found after searching',
     processed:   'Successfully processed, image found.'
   }.with_indifferent_access.freeze
+
   IDENTIFIERS = %w(upc isbn lccn oclc ht_id issn).freeze
 
   DEFAULT_BOOKS         = %w(Book-Blue.png Book-Gray.png Book-Orange.png).freeze
@@ -44,6 +47,7 @@ class CoverImage < ApplicationRecord
   after_initialize :assign_defaults
 
   after_commit :lookup, if: ->(ci) {ci.run_lookup}
+
   before_save :clean_fields
 
   attr_accessor :run_lookup

@@ -9,9 +9,8 @@ class CoverImagesController < ApplicationController
       doc_id: params[:id]
     )
 
-    uri = nil
     not_found = true
-    path = ''
+    image_url = URI.join(request.url, cover_image.image.url)
 
     if cover_image && cover_image.image.present?
       path = cover_image.image.path
@@ -19,19 +18,19 @@ class CoverImagesController < ApplicationController
     else
       cover_image.assign_attributes cover_image_params.merge(run_lookup: true)
       cover_image.save
-      path = cover_image.default_image_path
       not_found = true
+      path = cover_image.default_image_path
     end
 
     respond_to do |format|
-      format.html {send_file path, disposition: 'inline'}
+      format.html {send_file image_url, disposition: 'inline', url_based_filename: true}
       format.json do
         uri = generate_image_uri(path)
         render json: {
+          image_url: image_url,
           image_base64: uri,
-          errors:       cover_image.errors.as_json,
-          not_found:    not_found,
-          status:       :success
+          errors:    cover_image.errors.as_json,
+          not_found: not_found
         }
       end
     end
