@@ -22,8 +22,12 @@ class CoverImagesController < ApplicationController
       path = cover_image.default_image_path
     end
 
+    status_code = not_found ? :not_found : :ok
+
     respond_to do |format|
-      format.html {send_file image_url, disposition: 'inline', url_based_filename: true}
+      format.html do
+        send_file path, disposition: 'inline', url_based_filename: true, status: status_code
+      end
       format.json do
         uri = generate_image_uri(path)
         render json: {
@@ -31,7 +35,8 @@ class CoverImagesController < ApplicationController
           image_base64: uri,
           errors:    cover_image.errors.as_json,
           not_found: not_found
-        }
+        },
+          status: status_code
       end
     end
 
