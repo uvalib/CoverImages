@@ -9,20 +9,26 @@ class CoverImagesController < ApplicationController
       doc_id: params[:id]
     )
 
-    not_found = true
+
     image_url = URI.join(request.url, cover_image.image.url)
 
     if cover_image && cover_image.image.present?
       path = cover_image.image.path
-      not_found = false
     else
       cover_image.assign_attributes cover_image_params.merge(run_lookup: true)
       cover_image.save
-      not_found = true
       path = cover_image.default_image_path
     end
 
-    status_code = not_found ? :not_found : :ok
+    status_code = case cover_image.status
+    when 'unprocessed'
+      # 202
+      :accepted
+    when 'not_found' || 'error'
+      :not_found
+    else # processed and found
+      :ok
+    end
 
     respond_to do |format|
       format.html do
@@ -34,7 +40,7 @@ class CoverImagesController < ApplicationController
           image_url: image_url,
           image_base64: uri,
           errors:    cover_image.errors.as_json,
-          not_found: not_found
+          status: cover_image.status
         },
           status: status_code
       end
