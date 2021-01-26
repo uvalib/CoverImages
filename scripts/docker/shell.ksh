@@ -1,26 +1,20 @@
+#if [ -z "$DOCKER_HOST" ]; then
+#   echo "ERROR: no DOCKER_HOST defined"
+#   exit 1
+#fi
+
+echo "*****************************************"
+echo "building on $DOCKER_HOST"
+echo "*****************************************"
+
 if [ -z "$DOCKER_HOST" ]; then
-   echo "ERROR: no DOCKER_HOST defined"
-   exit 1
+   DOCKER_TOOL=docker
+else
+   DOCKER_TOOL=docker-17.04.0
 fi
 
 # set the definitions
 INSTANCE=cover-image-server
 NAMESPACE=uvadave
 
-# our database environment
-DB_ENV="-e DBHOST=$DBHOST -e DBNAME=$DBNAME -e DBUSER=$DBUSER -e DBPASSWD=$DBPASSWD"
-
-# rails runtime environment
-RAILS_ENV="-e RAILS_ENV=$RAILS_ENV -e RAILS_SERVE_STATIC_FILES=$RAILS_SERVE_STATIC_FILES -e RAILS_LOG_TO_STDOUT=$RAILS_LOG_TO_STDOUT -e SECRET_KEY_BASE=$SECRET_KEY_BASE"
-
-# redis environment
-REDIS_ENV="-e REDIS_URL=$REDIS_URL"
-
-# application environment
-APP_ENV="-e LAST_FM_KEY=$LAST_FM_KEY -e LIBRARY_THING_API_KEY=$LIBRARY_THING_API_KEY -e EXTERNAL_API_USER_AGENT=$EXTERNAL_API_USER_AGENT -e HATHI_TRUST_ACCESS_KEY=$HATHI_TRUST_ACCESS_KEY -e HATHI_TRUST_SECRET_KEY=$HATHI_TRUST_SECRET_KEY"
-
-# aggregate environment
-DOCKER_ENV="$DB_ENV $RAILS_ENV $REDIS_ENV $APP_ENV"
-echo "$DOCKER_ENV"
-
-docker run -t -i -p 8550:3000 $DOCKER_ENV $NAMESPACE/$INSTANCE /bin/bash -l
+$DOCKER_TOOL run -t -i -p 8080:8080 $NAMESPACE/$INSTANCE /bin/bash -l
