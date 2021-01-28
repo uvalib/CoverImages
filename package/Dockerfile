@@ -1,6 +1,6 @@
 FROM ruby:2.4.10-slim
 
-RUN apt-get update -qq && apt-get install -y build-essential graphicsmagick-libmagick-dev-compat mariadb-client libmariadb-dev git
+RUN apt-get update -qq && apt-get install -y build-essential graphicsmagick-libmagick-dev-compat mariadb-client libmariadb-dev git imagemagick
 
 # Create the run user and group
 RUN groupadd --gid 18570 sse && useradd --uid 1984 -g sse docker
