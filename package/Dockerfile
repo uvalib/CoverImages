@@ -1,4 +1,4 @@
-FROM ruby:2.4.10-slim
+FROM public.ecr.aws/docker/library/ruby:2.6.10-slim-buster
 
 RUN apt-get update -qq && apt-get install -y build-essential graphicsmagick-libmagick-dev-compat mariadb-client libmariadb-dev git imagemagick
 

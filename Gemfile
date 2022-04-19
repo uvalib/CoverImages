@@ -82,7 +82,7 @@ group :development do
   # gem 'procodile-capistrano'
   #
   # use mine instead
-  gem 'procodile-capistrano', github: 'nestorw/procodile-capistrano'
+  #gem 'procodile-capistrano', github: 'nestorw/procodile-capistrano'
 
   gem 'rack-mini-profiler'
   gem 'web-console'
