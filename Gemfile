@@ -18,7 +18,7 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 # Attachment/Image management
-gem 'paperclip', '~> 5'
+gem 'paperclip'
 # style head start
 gem 'bootstrap-sass'
 # Form builder
