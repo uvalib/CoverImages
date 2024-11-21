@@ -4,7 +4,7 @@
 #
 
 # run the migrations
-rake db:migrate
+bundle exec rake db:migrate
 
 # return the status
 exit $?
