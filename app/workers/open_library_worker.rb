@@ -24,21 +24,25 @@ class OpenLibraryWorker < ApplicationWorker
           image_url = "#{BASE_URL}/b/#{id_name}/#{id_value}.jpg?default=false"
 
           begin
-            @cover_image.image = image_url
+            @cover_image.image = URI.parse(image_url)
             @cover_image.response_data = image_url
             @cover_image.service_name = 'openlibrary.org'
             throw :image_found
 
-          rescue OpenURI::HTTPError
+          rescue OpenURI::HTTPError => e
             # catch missing images and continue to loop over available ids
-            logger.info "Missing OpenLibrary Image for this id: #{id_name}:#{id_value}"
+            logger.info "Missing OpenLibrary Image for this id: #{id_name}:#{id_value} - #{e.inspect}"
           end
           @cover_image.image = nil
           sleep(1)
         end
       end
     end
-
+    if @cover_image.image.blank?
+      # no image after searching all providers
+      @cover_image.service_name = 'none'
+      @cover_image.response_data = "Not found after searching all providers"
+    end
     save_if_found
 
   rescue StandardError => e
