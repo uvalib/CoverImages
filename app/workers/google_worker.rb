@@ -48,7 +48,7 @@ class GoogleWorker < ApplicationWorker
     bibkeys = ''
     CoverImage::IDENTIFIERS.without('upc','ht_id').each do |id_type|
       next unless (ids = @cover_image.send(id_type))
-      ids.split.each do |id|
+      ids.split(',').each do |id|
         bibkeys += ',' unless bibkeys.empty?
         bibkeys += "#{id_type.upcase}:#{id.gsub("\s+", '')}"
       end
