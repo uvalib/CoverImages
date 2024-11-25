@@ -32,7 +32,7 @@ class OpenLibraryWorker < ApplicationWorker
 
           rescue OpenURI::HTTPError => e
             # catch missing images and continue to loop over available ids
-            logger.info "Missing OpenLibrary Image for this id: #{id_name}:#{id_value} - #{e.inspect}"
+            logger.info "Missing OpenLibrary Image for this id: #{id_name}:#{id_value}"
           end
           @cover_image.image = nil
           sleep(1)
