@@ -10,13 +10,13 @@ class SyndeticsWorker < ApplicationWorker
     params = {}
     # allow duplicate keys
     params.compare_by_identity
-    @cover_image.isbn.split(',').each do |isbn|
+    @cover_image.isbn.split(/,\s?/).each do |isbn|
       params['isbn'.dup] = isbn
     end if @cover_image.isbn
-    @cover_image.oclc.split(',').each do |oclc|
+    @cover_image.oclc.split(/,\s?/).each do |oclc|
       params['oclc'.dup] = oclc
     end if @cover_image.oclc
-    @cover_image.issn.split(',').each do |issn|
+    @cover_image.issn.split(/,\s?/).each do |issn|
       params['issn'.dup] = issn
     end if @cover_image.issn
     unless params.any?
