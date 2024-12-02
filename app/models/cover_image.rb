@@ -67,7 +67,7 @@ class CoverImage < ApplicationRecord
     IDENTIFIERS.map do |i|
       ident = self.send(i)
       next unless ident.present?
-      [i, ident]
+      [i, ident.strip]
     end.compact.to_h
   end
 
