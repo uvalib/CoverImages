@@ -30,8 +30,14 @@ module CoverImages
       logger.formatter = config.log_formatter
       config.logger = ActiveSupport::TaggedLogging.new(logger)
     end
-    config.lograge.enabled = true
 
+    config.lograge.enabled = true
+    class Lograge::Formatters::LogFormatter < Lograge::Formatters::KeyValue
+      def format(key, value)
+        "#{key}= #{parse_value(key, value)}"
+      end
+    end
+    config.lograge.formatter = Lograge::Formatters::LogFormatter.new
 
     # Configure cors headers
     config.middleware.insert_before 0, Rack::Cors do
