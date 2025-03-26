@@ -32,6 +32,9 @@ module CoverImages
     end
 
     config.lograge.enabled = true
+    config.lograge.custom_options = lambda do |event|
+      { remote_ip: event.payload[:remote_ip] } if event.payload[:remote_ip]
+    end
     class Lograge::Formatters::LogFormatter < Lograge::Formatters::KeyValue
       def format(key, value)
         "#{key}= #{parse_value(key, value)}"
