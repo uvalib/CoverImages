@@ -33,7 +33,7 @@ module CoverImages
 
     config.lograge.enabled = true
     config.lograge.custom_options = lambda do |event|
-      { remote_ip: event.payload[:headers]["REMOTE_ADDR"] }
+      { remote_ip: event.payload[:remote_ip] }
     end
     class Lograge::Formatters::LogFormatter < Lograge::Formatters::KeyValue
       def format(key, value)
